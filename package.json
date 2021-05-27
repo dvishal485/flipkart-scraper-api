@@ -4,7 +4,8 @@
   "description": "API to scrapes search result and product details from flipkart",
   "main": "index.js",
   "scripts": {
-    "test": "wrangler dev"
+    "test": "wrangler dev",
+    "deploy": "wrangler publish"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/dvishal485/flipkart-scraper/issues"
   },
-  "homepage": "https://github.com/dvishal485/flipkart-scraper#readme",
-  "dependencies": {
-    "jsdom": "^16.6.0"
-  }
+  "homepage": "https://github.com/dvishal485/flipkart-scraper#readme"
 }
