@@ -12,7 +12,18 @@ async function handleRequest(request) {
                 headers
             })
         } else {
-            return new Response('{"repo":"https://github.com/dvishal485/flipkart-scraper/"}', {
+            //var result = 
+            //result.push()
+            return new Response(JSON.stringify(
+                [{
+                    "name": "flipkart-scraper",
+                    "description": "API to scrapes search result and product details from flipkart",
+                    "author": "Vishal Das",
+                    "examples": {
+                        "search_api": "https://flipkart.dvishal485.workers.dev/search/laptop"
+                    }
+                }]
+            , null, 2), {
                 status: 200,
                 headers
             })
