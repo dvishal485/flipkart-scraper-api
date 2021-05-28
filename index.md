@@ -11,10 +11,13 @@ API to scrapes search result and product details from flipkart
     - Fetch Method ( to be explained later in the section)
   - It **does not require any client id/secret or any other authorisation** unlike most of Flipkart API
 
+  **Note** : All the amounts are in currency INR
+
 # API Usage :
   - Search
     Fetch from URL `https://flipkart.dvishal485.workers.dev/search/<product_name>`
-    Example : https://flipkart.dvishal485.workers.dev/search/laptop
+
+    Example : [https://flipkart.dvishal485.workers.dev/search/laptop](https://flipkart.dvishal485.workers.dev/search/laptop)
     The response will be given in following JSON format : 
 ```
 {
@@ -31,7 +34,7 @@ API to scrapes search result and product details from flipkart
 }
 ```
 
-  - [Tap to View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample.json)
+  [Tap to View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample.json)
   
 # Accuracy
   The API is tested with lot of products and compared thoroughly and is found to be accurate for all of them till date, thanking to the self adjusting different fetch methods. The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. However, there may be inaccuracy in case of some product. In case, if someone encounter with any of such item, convey it to me through [Telegram](https://t.me/dvishal485) or [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues) containing the following information :
@@ -39,6 +42,9 @@ API to scrapes search result and product details from flipkart
   - Information you find wrong
   - Fetch Method
   - JSON response received ( if possible )
+
+### Why not open-sourced ?
+It took some efforts and a ton of dirty code work to build this API, and as far as I have seen no API have been build for Flipkart which can give `search` functionality **without any authorisation** . The project won't be made open-sourced atleast before its completion ( [Check out ToDo at end of page](https://github.com/dvishal485/flipkart-scraper-api/blob/main/index.md#Todo) )
 
 ## Notes
   While using the API, remember to null-check the Product Name and URL. It might be the case that the API Fetch Product price accurately but fail do give information about it's name and URL ( have not seen such case till date but is possible ). [Raise an issue for the same](https://github.com/dvishal485/flipkart-scraper-api/issues)
@@ -55,3 +61,4 @@ All the methods are expected to work fine. But they can surely be optimised even
   - Extend API for product details
   - Optimize existing code
   - Improve accuracy
+  - New Project : Telegram bot to notify about price drop alerts and compare price with Amazon
