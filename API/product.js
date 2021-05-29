@@ -31,7 +31,7 @@ const product = async (link) => {
         var rating = rateDetector[rateDetector.length - 1].split('<')[0]
     }
     var specs = []
-    var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].split('</div><table')
+    var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g,'&').split('</div><table')
     var i;
     var tableData = []
     for (i = 1; i < specsLocator.length; i++) {
@@ -39,8 +39,6 @@ const product = async (link) => {
         var heading = headingLocator[headingLocator.length - 1]
         var tableTD = specsLocator[i].split('</td>')
         var k;
-        console.log('___________')
-        console.log(heading + ' : ')
         for (k = 1; k < tableTD.length; k = k + 2) {
             var td = tableTD[k - 1].split('>')
             var tdData = td[td.length - 1]

@@ -95,7 +95,6 @@ const search = async (q) => {
                         "fetch_method": method
                     })
                 }
-                console.log("___________________________")
             } else {
                 webPage = webPage.replace('₹', 'Rs.')
                 console.log("Ignoring amount " + price + " : Suspected to be dropdown menu item")
