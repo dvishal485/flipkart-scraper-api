@@ -35,7 +35,7 @@ const search = async (q) => {
                     var linkGetter = null, lastLinkIndex = null, linkGetterFront = null
                     // Method B - Full product description page
                     try {
-                        if (method == "C"||method=="D") {
+                        if (method == "C" || method == "D") {
                             // This should revert method to B temporarily
                             i++
                             reversion = true;

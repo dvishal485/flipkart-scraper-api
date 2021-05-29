@@ -1,5 +1,6 @@
-import search from './API/search'
-import header from './header'
+import product from './API/product';
+import search from './API/search';
+import header from './header';
 
 async function handleRequest(request) {
     const headers = header(request.headers)
@@ -11,6 +12,11 @@ async function handleRequest(request) {
                 status: 200,
                 headers
             })
+        } else if (path.startsWith('/product/')) {
+            return new Response(await product(path.replace('/product/', '')), {
+                status: 200,
+                headers
+            })
         } else {
             //var result = 
             //result.push()
@@ -19,11 +25,15 @@ async function handleRequest(request) {
                     "name": "flipkart-scraper",
                     "description": "API to scrapes search result and product details from flipkart",
                     "author": "Vishal Das",
+                    "email": "dvishal485@gmail.com",
+                    "telegram": "@dvishal485",
+                    "documentation": "https://dvishal485.github.io/flipkart-scraper-api/",
                     "examples": {
-                        "search_api": "https://flipkart.dvishal485.workers.dev/search/laptop"
+                        "search_api": "https://flipkart.dvishal485.workers.dev/search/<product_name>",
+                        "product_api": "https://flipkart.dvishal485.workers.dev/product/<product_link_argument>"
                     }
                 }]
-            , null, 2), {
+                , null, 2), {
                 status: 200,
                 headers
             })
