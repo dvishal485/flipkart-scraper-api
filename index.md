@@ -1,6 +1,8 @@
 # Flipkart Scraper API
 API to scrapes search result and product details from flipkart
 
+![Flipkart API Banner](/banner.png)
+
 # Features :
   - Fetch search results from [Flipkart](https://www.flipkart.com/)
   - Response in JSON format including the following information about Product :
