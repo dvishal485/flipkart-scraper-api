@@ -9,7 +9,7 @@ API to scrapes search result and product details from flipkart
 
 **API :** [flipkart.dvishal485.workers.dev/](https://flipkart.dvishal485.workers.dev/)
 
-## Features :
+## Features
 
   - API **does not require any client id/secret or any other authorisation** unlike most of Flipkart API
   - Fetch search results from [Flipkart](https://www.flipkart.com/)

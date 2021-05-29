@@ -5,7 +5,7 @@ API to scrapes search result and product details from flipkart
 
 [![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues) [![Telegram](https://img.shields.io/badge/chat-Telegram-blue)](https://t.me/dvishal485)
 
-# Features :
+# Features
 
   - API **does not require any client id/secret or any other authorisation** unlike most of Flipkart API
   - Fetch search results from [Flipkart](https://www.flipkart.com/)
@@ -32,7 +32,7 @@ API to scrapes search result and product details from flipkart
 
   **Note** : All the amounts are in currency INR
 
-# API Usage :
+# API Usage
   - Search
 
     - Fetch from URL `https://flipkart.dvishal485.workers.dev/search/<product_name>`
