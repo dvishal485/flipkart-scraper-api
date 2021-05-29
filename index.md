@@ -30,7 +30,9 @@ API to scrapes search result and product details from flipkart
       - Specifications
 
 
-  **Note** : All the amounts are in currency INR
+### Note
+- All the amounts are in currency INR
+- You can also explore products by passing an empty search command
 
 # API Usage
   - Search
