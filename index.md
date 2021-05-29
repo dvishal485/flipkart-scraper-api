@@ -38,6 +38,7 @@ API to scrapes search result and product details from flipkart
     - Fetch from URL `https://flipkart.dvishal485.workers.dev/search/<product_name>`
 
     Example : [https://flipkart.dvishal485.workers.dev/search/laptop](https://flipkart.dvishal485.workers.dev/search/laptop)
+    
     The response will be given in following JSON format : 
 ```
 {
@@ -59,9 +60,10 @@ API to scrapes search result and product details from flipkart
     - Get the URL of flipkart product and remove the `https://www.flipkart.com/` from it, let's call it product link argument
     - Fetch from url `https://flipkart.dvishal485.workers.dev/product/<product_link_argument>`
 
-    Example : [https://flipkart.dvishal485.workers.dev/product/apple-iphone-xr-product-red-64-gb-includes-earpods-power-adapter/p/itmf9z7zhydhtbn5?pid=MOBF9Z7ZRWGTX3FA&cmpid=product.share.pp](https://flipkart.dvishal485.workers.dev/product/apple-iphone-xr-product-red-64-gb-includes-earpods-power-adapter/p/itmf9z7zhydhtbn5?pid=MOBF9Z7ZRWGTX3FA&cmpid=product.share.pp)
+    Example : [https://flipkart.dvishal485.workers.dev/product/apple-iphone-xr-product-red-64-gb-includes-earpods-power-adapter/p/itmf9z7zhydhtbn5?pid=MOBF9Z7ZRWGTX3FA](https://flipkart.dvishal485.workers.dev/product/apple-iphone-xr-product-red-64-gb-includes-earpods-power-adapter/p/itmf9z7zhydhtbn5?pid=MOBF9Z7ZRWGTX3FA)
 
-
+    
+    The response will be given in following JSON format : 
 ```
 {
   "name": "Product Full Name",
@@ -109,9 +111,18 @@ API to scrapes search result and product details from flipkart
 ## Why not open-sourced ?
 It took some efforts and a ton of dirty code work to build this API, and as far as I have seen no API have been build for Flipkart which can give `search` functionality **without any authorisation** . The project won't be made open-sourced atleast before its completion ( [Check out ToDo at end of page](https://github.com/dvishal485/flipkart-scraper-api/blob/main/index.md#Todo) )
 
-## Notes
-  While using the API, remember to null-check the Product Name and URL. It might be the case that the API Fetch Product price accurately but fail do give information about it's name and URL ( have not seen such case till date but is possible ). [Raise an issue for the same](https://github.com/dvishal485/flipkart-scraper-api/issues)
-
+# Error Handling
+  In case of any error you will receive an error message in the following format :
+```json
+{
+  "error_message": "ERROR MESSAGE",
+  "possible_solution": "POSSIBLE SOLUTION",
+  "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
+}
+```
+  
+  **Note :** While using the API, remember to null-check the Product Name and URL. It might be the case that the API Fetch Product price accurately but fail do give information about it's name and URL ( have not seen such case till date but is possible ). [Raise an issue for the same](https://github.com/dvishal485/flipkart-scraper-api/issues)
+  
 # Fetch Method
 The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. Just a standard procedure can't scrape the whole website and sort out the products from all other stuff. Hence the same is done with help of different methods namely "A", "B", "C" and "D". Fetching from Method A will result to the most accurate level, while there might be inaccuracies in Method "B", "C" and "D". In case none of the Fetch Method works, the URL and Name of Product will be set to `null` and the method will be the same as the preceding result.
 
