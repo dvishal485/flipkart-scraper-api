@@ -110,5 +110,4 @@ const search = async (q) => {
 
 }
 
-
 export default search

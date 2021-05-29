@@ -18,8 +18,6 @@ async function handleRequest(request) {
                 headers
             })
         } else {
-            //var result = 
-            //result.push()
             return new Response(JSON.stringify(
                 [{
                     "name": "flipkart-scraper",
@@ -41,7 +39,6 @@ async function handleRequest(request) {
     } else {
         return Response.redirect("https://github.com/dvishal485/flipkart-scraper/", 301)
     }
-
 }
 
 addEventListener('fetch', event => {
