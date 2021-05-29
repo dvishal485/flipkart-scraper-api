@@ -55,10 +55,12 @@ const product = async (link) => {
                 var tdData = lastEntry(td)
                 var tr = tableTD[k].split('</li>')[0].split('>')
                 var trData = lastEntry(tr)
-                tableData.push({
-                    "property": tdData,
-                    "value": trData
-                })
+                if (tdData != null || tdData != "") {
+                    tableData.push({
+                        "property": tdData,
+                        "value": trData
+                    })
+                }
             }
             specs.push({
                 "title": heading,
@@ -87,7 +89,7 @@ const product = async (link) => {
     }
 }
 
-function lastEntry(x) {return x[x.length - 1]}
-function doesExist(x) {return x.length>1}
+function lastEntry(x) { return x[x.length - 1] }
+function doesExist(x) { return x.length > 1 }
 
 export default product
