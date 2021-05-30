@@ -12,8 +12,18 @@ async function handleRequest(request) {
                 status: 200,
                 headers
             })
+        } else if (path.startsWith('/product/min/')) {
+            return new Response(await product(path.replace('/product/min/', ''), 'minimum'), {
+                status: 200,
+                headers
+            })
+        } else if (path.startsWith('/product/compact/')) {
+            return new Response(await product(path.replace('/product/compact/', ''), 'compact'), {
+                status: 200,
+                headers
+            })
         } else if (path.startsWith('/product/')) {
-            return new Response(await product(path.replace('/product/', '')), {
+            return new Response(await product(path.replace('/product/', ''), 'general'), {
                 status: 200,
                 headers
             })
@@ -28,7 +38,9 @@ async function handleRequest(request) {
                     "documentation": "https://dvishal485.github.io/flipkart-scraper-api/",
                     "examples": {
                         "search_api": "https://flipkart.dvishal485.workers.dev/search/<product_name>",
-                        "product_api": "https://flipkart.dvishal485.workers.dev/product/<product_link_argument>"
+                        "product_api": "https://flipkart.dvishal485.workers.dev/product/<product_link_argument>",
+                        "product_min_api": "https://flipkart.dvishal485.workers.dev/product/min/<product_link_argument>",
+                        "product_compact_api": "https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>"
                     }
                 }]
                 , null, 2), {
