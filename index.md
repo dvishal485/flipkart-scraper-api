@@ -96,6 +96,18 @@ API to scrapes search result and product details from flipkart
 ```
   [Tap to view sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-product.json)
 
+  - The Product Details output may be too large to handle, in that case, you may use the `compact` or `minimum` mode.
+
+    - Compact Mode
+      API : `https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>`
+    
+      Replies with the complete same information but the sub-specifications are merged into one, each seperated by `; `
+    
+    - Minimum Mode
+      API : `https://flipkart.dvishal485.workers.dev/product/min/<product_link_argument>`
+    
+      Replies without Specifications reducing the size of output largely.
+    
   
 # Accuracy
   - Search API
