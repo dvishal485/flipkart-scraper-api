@@ -89,7 +89,7 @@ const product = async (link, type) => {
                 "discount_percent": parseInt(100 * (1 - price / oprice)),
                 "rating": rating,
                 "in_stock": !stock,
-                "f-assured": fassured,
+                "f_assured": fassured,
                 "share_url": properURI,
                 "highlights": highlights,
                 "specs": specs
@@ -103,7 +103,7 @@ const product = async (link, type) => {
                 "discount_percent": parseInt(100 * (1 - price / oprice)),
                 "rating": rating,
                 "in_stock": !stock,
-                "f-assured": fassured,
+                "f_assured": fassured,
                 "share_url": properURI,
                 "highlights": highlights
             }, null, 2)
