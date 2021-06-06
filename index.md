@@ -150,4 +150,4 @@ All the methods are expected to work fine. But they can surely be optimised even
   - ~~Extend API for product details~~
   - Optimize existing code
   - Improve accuracy
-  - New Project : Telegram bot to notify about price drop alerts and compare price with Amazon
+  - ~~New Project : Telegram bot to notify about price drop alerts~~ Check out [@flipkart_api_bot](https://t.me/flipkart_api_bot)
