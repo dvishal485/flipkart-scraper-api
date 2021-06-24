@@ -29,7 +29,8 @@ const product = async (link, type) => {
             oprice = parseInt(discountCheck[1].replace(/,/g, ''))
         } else { oprice = price }
         var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
-        var properURI = lastEntry(properURIlocate) + 'product.share.pp'
+        var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
+        if (properURI[0] == '/') { properURI = 'http://flipkart.com' + properURI }
         var stock = doesExist(webPage.split('This item is currently out of stock</div>'))
         var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
         if (doesExist(highlightsLocator)) {
