@@ -31,10 +31,12 @@ API to scrapes search result and product details from flipkart
 
 
 ### Note
+
 - All the amounts are in currency INR
 - You can also explore products by passing an empty search command
 
 # API Usage
+
   - Search
 
     - Fetch from URL `https://flipkart.dvishal485.workers.dev/search/<product_name>`
@@ -110,6 +112,7 @@ API to scrapes search result and product details from flipkart
     
   
 # Accuracy
+
   - Search API
 
     The Search API is tested with lot of products and compared thoroughly and is found to be accurate for all of them till date, thanking to the self adjusting different fetch methods. The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. However, there may be inaccuracy in case of some product. In case, if someone encounter with any of such item, convey it to me through [Telegram](https://t.me/dvishal485) or [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues) containing the following information :
@@ -149,5 +152,7 @@ All the methods are expected to work fine. But they can surely be optimised even
 # Todo
   - ~~Extend API for product details~~
   - Optimize existing code
-  - Improve accuracy
-  - ~~New Project : Telegram bot to notify about price drop alerts~~ Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
+  - ~~Improve accuracy~~
+  - ~~New Project : Telegram bot to notify about price drop alerts~~
+    - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
+    - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
