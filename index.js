@@ -1,6 +1,7 @@
 import product from './API/product';
 import search from './API/search';
 import header from './header';
+import property from './API/property'
 
 async function handleRequest(request) {
     const headers = header(request.headers)
@@ -27,7 +28,12 @@ async function handleRequest(request) {
                 status: 200,
                 headers
             })
-        } else {
+        } else if (path.startsWith('/property/')) {
+           return new Response(await property(path.replace('/property/', ''), 'general'), {
+             status: 200,
+             headers
+           })
+         } else {
             return new Response(JSON.stringify(
                 [{
                     "name": "flipkart-scraper",
@@ -40,7 +46,8 @@ async function handleRequest(request) {
                         "search_api": "https://flipkart.dvishal485.workers.dev/search/<product_name>",
                         "product_api": "https://flipkart.dvishal485.workers.dev/product/<product_link_argument>",
                         "product_min_api": "https://flipkart.dvishal485.workers.dev/product/min/<product_link_argument>",
-                        "product_compact_api": "https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>"
+                        "product_compact_api": "https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>",
+                        "product_search_spec": "https://flipkart.dvishal485.workers.dev/property/<spec_to_search>/<product_link_argument>"
                     }
                 }]
                 , null, 2), {
