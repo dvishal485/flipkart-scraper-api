@@ -1,11 +1,12 @@
-const property = async (link, type) => {
+const property = async (link) => {
     try {
         var argProperty = link.split('/')[0]
-        link = link.split('/'+argProperty)[1]
+        link = link.split(argProperty+'/')[1]
         const uri = encodeURI(link)
         console.log("Product details initiated")
         try {
             var webPage = await (await fetch('https://www.flipkart.com/' + uri)).text();
+            webPage = webPage.replace(/&amp;/g,'&')
             // for has been moved or deleted
             if (doesExist(webPage.split('for has been moved or deleted'))) {
                 throw "Link provided doesn't corresponds to any product";
@@ -44,49 +45,44 @@ const property = async (link, type) => {
             var rateDetector = isRated[0].split('">')
             var rating = lastEntry(rateDetector).split('<')[0]
         }
-            var specs = []
-            var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
-            var i;
+        var specs = []
+        var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
+        var i;
+        for (i = 1; i < specsLocator.length; i++) {
             var tableData = []
-            for (i = 1; i < specsLocator.length; i++) {
-                var headingLocator = specsLocator[i - 1].split('>')
-                var heading = lastEntry(headingLocator)
-                var tableTD = specsLocator[i].split('</td>')
-                var k;
-                for (k = 1; k < tableTD.length; k = k + 2) {
-                    var td = tableTD[k - 1].split('>')
-                    var tdData = lastEntry(td)
-                    var tr = tableTD[k].split('</li>')[0].split('>')
-                    var trData = lastEntry(tr)
-                    if (tdData != null || tdData != "") {
-                          if(tdData.toLowerCase().split(argProperty).length > 1||trData.toLowerCase().split(argProperty).length > 1){
-                            tableData.push({
-                                "property": tdData,
-                                "value": trData
-                            })
-                          }
+            var tableTD = specsLocator[i].split('</td>')
+            var k;
+            for (k = 1; k < tableTD.length; k = k + 2) {
+                var td = tableTD[k - 1].split('>')
+                var tdData = lastEntry(td)
+                var tr = tableTD[k].split('</li>')[0].split('>')
+                var trData = lastEntry(tr)
+                if (tdData != null || tdData != "") {
+                    if (tdData.toLowerCase().split(argProperty).length > 1 || trData.toLowerCase().split(argProperty).length > 1) {
+                        tableData.push({
+                            "property": tdData,
+                            "value": trData
+                        })
                     }
                 }
-                if(tableData.length != 0){
-                    specs.push({
-                        "title": heading,
-                        "details": tableData
-                    })
-                }
             }
-            return JSON.stringify({
-                "name": title,
-                "current_price": price,
-                "original_price": oprice,
-                "discounted": discounted,
-                "discount_percent": parseInt(100 * (1 - price / oprice)),
-                "rating": rating,
-                "in_stock": !stock,
-                "f_assured": fassured,
-                "share_url": properURI,
-                "highlights": highlights,
-                "desired_specs": specs
-            }, null, 2)
+            if (tableData.length != 0) {
+                specs = tableData
+            }
+        }
+        return JSON.stringify({
+            "name": title,
+            "current_price": price,
+            "original_price": oprice,
+            "discounted": discounted,
+            "discount_percent": parseInt(100 * (1 - price / oprice)),
+            "rating": rating,
+            "in_stock": !stock,
+            "f_assured": fassured,
+            "share_url": properURI,
+            "highlights": highlights,
+            "desired_specs": specs
+        }, null, 2)
     } catch (err) {
         return JSON.stringify({
             "error": "Couldn't fetch information : " + err.message,
