@@ -1,7 +1,9 @@
 const property = async (link) => {
     try {
         var argProperty = link.split('/')[0]
-        link = link.split(argProperty+'/')[1]
+        link = link.split(argProperty + '/')[1]
+        var args = argProperty.split('&')
+        // console.log(args)
         const uri = encodeURI(link)
         console.log("Product details initiated")
         try {
@@ -46,10 +48,10 @@ const property = async (link) => {
             var rating = lastEntry(rateDetector).split('<')[0]
         }
         var specs = []
+        var tableData = []
         var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
         var i;
         for (i = 1; i < specsLocator.length; i++) {
-            var tableData = []
             var tableTD = specsLocator[i].split('</td>')
             var k;
             for (k = 1; k < tableTD.length; k = k + 2) {
@@ -58,7 +60,7 @@ const property = async (link) => {
                 var tr = tableTD[k].split('</li>')[0].split('>')
                 var trData = lastEntry(tr)
                 if (tdData != null || tdData != "") {
-                    if (tdData.toLowerCase().split(argProperty).length > 1 || trData.toLowerCase().split(argProperty).length > 1) {
+                    if (isMatch(trData,tdData,args)) {
                         tableData.push({
                             "property": tdData,
                             "value": trData
@@ -94,5 +96,18 @@ const property = async (link) => {
 
 function lastEntry(x) { return x[x.length - 1] }
 function doesExist(x) { return x.length > 1 }
+function isMatch(trData, tdData, args) {
+    var res = false; tdData = tdData.toLowerCase(); trData = trData.toLowerCase();
+    for (var i = 0; i < args.length; i++){
+        args[i] = args[i].toLowerCase();
+        // console.log('Checking for ' + args[i] + ' in ' + trData + ' as well as '+ tdData)
+        if (doesExist(trData.split(args[i])) || doesExist(tdData.split(args[i]))) {
+            res = true;
+            return res;
+        }
+        // console.log('Result : '+res)
+    }
+    return res;
+}
 
 export default property
