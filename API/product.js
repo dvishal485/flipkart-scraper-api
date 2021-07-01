@@ -1,11 +1,11 @@
 const product = async (link, type) => {
     if (type == 'compact') { var compact = true, minimumResult = false; } else if (type == 'minimum') { var compact = false, minimumResult = true; } else { var compact = false, minimumResult = false; }
     try {
-        var compactDetails = '';
         const uri = encodeURI(link)
         console.log("Product details initiated")
         try {
             var webPage = await (await fetch('https://www.flipkart.com/' + uri)).text();
+            webPage = webPage.replace(/&amp;/g, '&')
             // for has been moved or deleted
             if (doesExist(webPage.split('for has been moved or deleted'))) {
                 throw "Link provided doesn't corresponds to any product";
@@ -48,8 +48,9 @@ const product = async (link, type) => {
             var specs = []
             var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
             var i;
-            var tableData = []
             for (i = 1; i < specsLocator.length; i++) {
+                var compactDetails = '';
+                var tableData = [];
                 var headingLocator = specsLocator[i - 1].split('>')
                 var heading = lastEntry(headingLocator)
                 var tableTD = specsLocator[i].split('</td>')
