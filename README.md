@@ -32,3 +32,6 @@ API to scrapes search result and product details from flipkart
       - Share URL (More presentable URL)
       - Highlights
       - Specifications
+      
+  - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
+  - Search for some specific specification and only fetch those specs which meet the requirements.

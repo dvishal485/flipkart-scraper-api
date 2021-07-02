@@ -3,7 +3,10 @@ API to scrapes search result and product details from flipkart
 
 ![Flipkart API Banner](./banner.png)
 
-[![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues) [![Telegram](https://img.shields.io/badge/chat-Telegram-blue)](https://t.me/dvishal485)
+![Version](https://img.shields.io/badge/Version-2.0.0-9cf)
+[![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues)
+[![Telegram](https://img.shields.io/badge/chat-Telegram-blue)](https://t.me/dvishal485)
 
 # Features
 
@@ -28,7 +31,9 @@ API to scrapes search result and product details from flipkart
       - Share URL (More presentable URL)
       - Highlights
       - Specifications
-
+      
+  - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
+  - Search for some specific specification and only fetch those specs which meet the requirements.
 
 ### Note
 
@@ -98,7 +103,7 @@ API to scrapes search result and product details from flipkart
 ```
   [Tap to view sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-product.json)
 
-  - The Product Details output may be too large to handle, in that case, you may use the `compact` or `minimum` mode.
+  - The Product Details output may be too large to handle, in that case, you may use the `compact` or `minimum` mode or filter out results containing a specific specs using the `property` mode.
 
     - Compact Mode
       API : `https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>`
@@ -110,6 +115,14 @@ API to scrapes search result and product details from flipkart
     
       Replies without Specifications reducing the size of output largely.
     
+    - Property Mode
+      API : `https://flipkart.dvishal485.workers.dev/property/<specs_to_search>/<product_link_argument>`
+      
+      Example : [Search `battery` and `display` in Specs of Specified Product](https://flipkart.dvishal485.workers.dev/property/battery&display/s/kzZg7WuuuN)
+      
+      In the given example, we are get all the specs containg `battery` or `display` in the product with link argument [`s/kzZg7WuuuN`](https://flipkart.dvishal485.workers.dev/product/s/kzZg7WuuuN)
+      
+      Replies with product details and only those specifications which are mentioned to be searched.
   
 # Accuracy
 
