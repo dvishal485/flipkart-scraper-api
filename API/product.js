@@ -60,7 +60,7 @@ const product = async (link, type) => {
                     var tdData = lastEntry(td)
                     var tr = tableTD[k].split('</li>')[0].split('>')
                     var trData = lastEntry(tr)
-                    if (tdData != null || tdData != "") {
+                    if (tdData != null && tdData != "" && trData.split("<").length == 1 && trData != "") {
                         if (!compact) {
                             tableData.push({
                                 "property": tdData,
@@ -71,6 +71,7 @@ const product = async (link, type) => {
                         }
                     }
                 }
+                if(tableData != []){
                 if (!compact) {
                     specs.push({
                         "title": heading,
@@ -82,6 +83,7 @@ const product = async (link, type) => {
                         "details": compactDetails
                     })
                 }
+        }
             }
             return JSON.stringify({
                 "name": title,
