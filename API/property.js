@@ -33,7 +33,8 @@ const property = async (link) => {
         } else { oprice = price }
         var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
         var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
-        if (properURI[0] == '/') { properURI = 'http://flipkart.com' + properURI }
+        if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
+        if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
         var stock = doesExist(webPage.split('This item is currently out of stock</div>'))
         var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
         if (doesExist(highlightsLocator)) {

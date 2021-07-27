@@ -18,7 +18,11 @@ const product = async (link, type) => {
             })
         }
         var rating = null, price = null, properURI = null, title = null, oprice, highlights = [];
-        var title = webPage.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
+        if (webPage.split('<h1').length > 1) {
+            var title = webPage.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
+        } else {
+            throw (`Can't find the product page`)
+        }
         var price = webPage.split('<h1')[1].split(">₹")[1].split("</div>")[0]
         var discountCheck = webPage.split('<h1')[1].split(">₹")[2].split("</div>")[0].split('<!-- -->')
         var discounted = doesExist(discountCheck)
@@ -30,7 +34,8 @@ const product = async (link, type) => {
         } else { oprice = price }
         var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
         var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
-        if (properURI[0] == '/') { properURI = 'http://flipkart.com' + properURI }
+        if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
+        if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
         var stock = doesExist(webPage.split('This item is currently out of stock</div>'))
         var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
         if (doesExist(highlightsLocator)) {
