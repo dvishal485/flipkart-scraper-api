@@ -1,9 +1,11 @@
 # Flipkart Scraper API
 API to scrapes search result and product details from flipkart
 
+Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram 
+
 ![Flipkart API Banner](./banner.png)
 
-![Version](https://img.shields.io/badge/Version-2.0.0-9cf)
+![Version](https://img.shields.io/badge/Version-2.1.0-green)
 [![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues)
 [![Telegram](https://img.shields.io/badge/chat-Telegram-blue)](https://t.me/dvishal485)
@@ -18,7 +20,6 @@ API to scrapes search result and product details from flipkart
     - Product Current Price
     - Product Original Price
     - Discount status (`true` or `false`)
-    - Fetch Method ( to be explained later in the section )
   - Fetch product result from url of product
 
     Response in JSON format including the following information about Product :
@@ -31,9 +32,10 @@ API to scrapes search result and product details from flipkart
       - Share URL (More presentable URL)
       - Highlights
       - Specifications
-      
-  - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
-  - Search for some specific specification and only fetch those specs which meet the requirements.
+
+  - Different Mode with different output size as per requirement    
+    - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
+    - Search for some specific specification and only fetch those specs which meet the requirements.
 
 ### Note
 
@@ -57,8 +59,7 @@ API to scrapes search result and product details from flipkart
             "link": "PRODUCT_LINK",
             "current_price": PRODUCT_CURRENT_PRICE,
             "original_price": PRODUCT_ORIGINAL_PRICE,
-            "discounted": true or false,
-            "fetch_method": "A or B or C or D"
+            "discounted": true or false
         }, ...
     ]
 }
@@ -128,7 +129,7 @@ API to scrapes search result and product details from flipkart
 
   - Search API
 
-    The Search API is tested with lot of products and compared thoroughly and is found to be accurate for all of them till date, thanking to the self adjusting different fetch methods. The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. However, there may be inaccuracy in case of some product. In case, if someone encounter with any of such item, convey it to me through [Telegram](https://t.me/dvishal485) or [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues) containing the following information :
+    The Search API is tested with lot of products and compared thoroughly and is found to be accurate for all of them till date, thanking to the self adjusting different fetch methods. The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. However, there may be inaccuracy in case of some product ( `null` result ). In case, if someone encounter with some other error, convey it to me through [Telegram](https://t.me/dvishal485) or [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues) containing the following information :
     - Search keyword
     - Information you find wrong
     - Fetch Method
@@ -136,10 +137,7 @@ API to scrapes search result and product details from flipkart
 
   - Product API
 
-    The Product API was found to be completely error free during the testing, so hopefully it will remain the same in future. I have ensured that you get maximum of Flipkart's data which may not be present in other alternatives. Especially without any anutorisation. If you still encounter anything unexpected, [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
-
-## Why not open-sourced ?
-It took some efforts and a ton of dirty code work to build this API, and as far as I have seen no API have been build for Flipkart which can give `search` functionality **without any authorisation** . The project won't be made open-sourced atleast before its completion ( [Check out ToDo at end of page](https://github.com/dvishal485/flipkart-scraper-api/blob/main/index.md#Todo) )
+    The Product API was found to be completely error free during the testing, so hopefully it will remain the same in future. I have ensured that you get maximum of Flipkart's data which may not be present in other alternatives. Especially without any authorisation. If you still encounter anything unexpected, [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
 
 # Error Handling
   In case of any error you will receive an error message in the following format :
@@ -151,20 +149,16 @@ It took some efforts and a ton of dirty code work to build this API, and as far 
 }
 ```
   
-  **Note :** While using the API, remember to null-check the Product Name and URL. It might be the case that the API Fetch Product price accurately but fail do give information about it's name and URL ( have not seen such case till date but is possible ). [Raise an issue for the same](https://github.com/dvishal485/flipkart-scraper-api/issues)
+  **Note :** In case the API can't find Product URL or Name of Product, it will be set to `null`. Hence always null check the result.
   
-# Fetch Method
-The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. Just a standard procedure can't scrape the whole website and sort out the products from all other stuff. Hence the same is done with help of different methods namely "A", "B", "C" and "D". Fetching from Method A will result to the most accurate level, while there might be inaccuracies in Method "B", "C" and "D". In case none of the Fetch Method works, the URL and Name of Product will be set to `null` and the method will be the same as the preceding result.
+  [If you are facing unexpected results then Raise An Issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
 
-### Ideal Result
-An ideal result will be the one which fetch from Method A, or from one result of Method C followed by results from Method D ( just like the [sample.json](https://dvishal485.github.io/flipkart-scraper-api/sample.json) ). Method B is quite rare to encounter with.
-
-### End Note
-All the methods are expected to work fine. But they can surely be optimised even more and I will work further on the same.
+## Why not open-sourced ?
+It took some efforts and a ton of dirty code work to build this API, and as far as I have seen no API have been build for Flipkart which can give `search` functionality **without any authorisation** . The project won't be made open-sourced atleast before its completion ( [Check out ToDo at end of page](https://github.com/dvishal485/flipkart-scraper-api/blob/main/index.md#Todo) )
 
 # Todo
   - ~~Extend API for product details~~
-  - Optimize existing code
+  - ~~Optimize existing code~~
   - ~~Improve accuracy~~
   - ~~New Project : Telegram bot to notify about price drop alerts~~
     - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
