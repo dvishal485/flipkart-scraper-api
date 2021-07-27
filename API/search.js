@@ -25,12 +25,12 @@ const search = async (q) => {
                         method = "A"
                     }
                 } catch (error) {
-                    console.log("Failed to obtain product name and link from Method A : " + error.message)
+                    // console.log("Failed to obtain product name and link from Method A : " + error.message)
                 }
                 oprice = parseInt(price);
 
                 if (name == "" || name == null) {
-                    console.log("Executing method B")
+                    //    console.log("Executing method B")
                     //console.log("Price : " + price)
                     var linkGetter = null, lastLinkIndex = null, linkGetterFront = null
                     // Method B - Full product description page
@@ -45,7 +45,7 @@ const search = async (q) => {
                         method = "B"
                         if (linkGetter.length == 1) {
                             // Method C
-                            console.log("Executing method C")
+                            //   console.log("Executing method C")
                             linkGetter = products[i - 1].split('<a');
                             method = "C"
                         }
@@ -61,23 +61,23 @@ const search = async (q) => {
                             method = "D"
                         }
                     } catch (e) {
-                        console.log("Failed to obtain product name and link from Method A : " + e.message)
+                        //  console.log("Failed to obtain product name and link from Method A : " + e.message)
                     }
                     if (name == "" || name == null) {
-                        console.log("Unimplemented")
+                        //       console.log("Unimplemented")
                     } else {
                         if (i + 1 != products.length) {
                             var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->')
                             discounted = nextItem.length > 1
                             if (discounted) { i++; oprice = parseInt(nextItem[1]); }
                         }
+
                         result.push({
                             "name": name,
-                            "link": link,
+                            "link": clean(link),
                             "current_price": price,
                             "original_price": oprice,
-                            "discounted": discounted,
-                            "fetch_method": method
+                            "discounted": discounted
                         })
                     }
                 } else {
@@ -88,11 +88,10 @@ const search = async (q) => {
                     }
                     result.push({
                         "name": name,
-                        "link": link,
+                        "link": clean(link),
                         "current_price": price,
                         "original_price": oprice,
-                        "discounted": discounted,
-                        "fetch_method": method
+                        "discounted": discounted
                     })
                 }
             } else {
@@ -108,6 +107,27 @@ const search = async (q) => {
         result
     }, null, 2)
 
+}
+
+const clean = (link) => {
+    var url = new URL(link.replace(/amp;/g, ''));
+    url.searchParams.delete('_appId')
+    url.searchParams.delete('_refId')
+    url.searchParams.delete('cmpid')
+    url.searchParams.delete('marketplace')
+    url.searchParams.delete('ppt')
+    url.searchParams.delete('lid')
+    url.searchParams.delete('store')
+    url.searchParams.delete('spotlightTagId')
+    url.searchParams.delete('q')
+    url.searchParams.delete('srno')
+    url.searchParams.delete('otracker')
+    url.searchParams.delete('fm')
+    url.searchParams.delete('iid')
+    url.searchParams.delete('ppn')
+    url.searchParams.delete('ssid')
+    url.searchParams.delete('qH')
+    return url.toString()
 }
 
 export default search

@@ -36,6 +36,11 @@ const product = async (link, type) => {
         var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
         if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
         if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
+        var url = new URL(properURI);
+        url.searchParams.delete('_appId')
+        url.searchParams.delete('_refId')
+        url.searchParams.delete('cmpid')
+        properURI = url.toString()
         var stock = doesExist(webPage.split('This item is currently out of stock</div>'))
         var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
         if (doesExist(highlightsLocator)) {
@@ -76,19 +81,19 @@ const product = async (link, type) => {
                         }
                     }
                 }
-                if(tableData != []){
-                if (!compact) {
-                    specs.push({
-                        "title": heading,
-                        "details": tableData
-                    })
-                } else {
-                    specs.push({
-                        "title": heading,
-                        "details": compactDetails
-                    })
+                if (tableData != []) {
+                    if (!compact) {
+                        specs.push({
+                            "title": heading,
+                            "details": tableData
+                        })
+                    } else {
+                        specs.push({
+                            "title": heading,
+                            "details": compactDetails
+                        })
+                    }
                 }
-        }
             }
             return JSON.stringify({
                 "name": title,

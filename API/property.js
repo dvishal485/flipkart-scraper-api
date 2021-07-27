@@ -8,7 +8,7 @@ const property = async (link) => {
         console.log("Product details initiated")
         try {
             var webPage = await (await fetch('https://www.flipkart.com/' + uri)).text();
-            webPage = webPage.replace(/&amp;/g,'&')
+            webPage = webPage.replace(/&amp;/g, '&')
             // for has been moved or deleted
             if (doesExist(webPage.split('for has been moved or deleted'))) {
                 throw "Link provided doesn't corresponds to any product";
@@ -35,6 +35,11 @@ const property = async (link) => {
         var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
         if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
         if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
+        var url = new URL(properURI);
+        url.searchParams.delete('_appId')
+        url.searchParams.delete('_refId')
+        url.searchParams.delete('cmpid')
+        properURI = url.toString()
         var stock = doesExist(webPage.split('This item is currently out of stock</div>'))
         var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
         if (doesExist(highlightsLocator)) {
@@ -61,7 +66,7 @@ const property = async (link) => {
                 var tr = tableTD[k].split('</li>')[0].split('>')
                 var trData = lastEntry(tr)
                 if (tdData != null || tdData != "") {
-                    if (isMatch(trData,tdData,args)) {
+                    if (isMatch(trData, tdData, args)) {
                         tableData.push({
                             "property": tdData,
                             "value": trData
@@ -99,7 +104,7 @@ function lastEntry(x) { return x[x.length - 1] }
 function doesExist(x) { return x.length > 1 }
 function isMatch(trData, tdData, args) {
     var res = false; tdData = tdData.toLowerCase(); trData = trData.toLowerCase();
-    for (var i = 0; i < args.length; i++){
+    for (var i = 0; i < args.length; i++) {
         args[i] = args[i].toLowerCase();
         // console.log('Checking for ' + args[i] + ' in ' + trData + ' as well as '+ tdData)
         if (doesExist(trData.split(args[i])) || doesExist(tdData.split(args[i]))) {
