@@ -96,7 +96,7 @@ const product = async (link, type) => {
                 }
             }
             return JSON.stringify({
-                "name": title,
+                "name": title.replace(/&#x27;/g, `'`),
                 "current_price": price,
                 "original_price": oprice,
                 "discounted": discounted,
@@ -110,7 +110,7 @@ const product = async (link, type) => {
             }, null, 2)
         } else {
             return JSON.stringify({
-                "name": title,
+                "name": title.replace(/&#x27;/g, `'`),
                 "current_price": price,
                 "original_price": oprice,
                 "discounted": discounted,

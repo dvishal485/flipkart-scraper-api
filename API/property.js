@@ -79,7 +79,7 @@ const property = async (link) => {
             }
         }
         return JSON.stringify({
-            "name": title,
+            "name": title.replace(/&#x27;/g, `'`),
             "current_price": price,
             "original_price": oprice,
             "discounted": discounted,
