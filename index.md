@@ -20,7 +20,9 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
     - Product Current Price
     - Product Original Price
     - Discount status (`true` or `false`)
-  - Fetch product result from url of product
+    - Product Thumbnail
+
+  - Fetch product result from URL of product
 
     Response in JSON format including the following information about Product :
       - Product Full Name
@@ -30,12 +32,15 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
       - Stock avalibility (`true` or `false`)
       - Flipkart Assured Product (`true` or `false`)
       - Share URL (More presentable URL)
+      - Product Thumbnails
       - Highlights
       - Specifications
 
   - Different Mode with different output size as per requirement    
     - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
     - Search for some specific specification and only fetch those specs which meet the requirements.
+
+  - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
 
 ### Note
 
@@ -60,6 +65,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
             "current_price": PRODUCT_CURRENT_PRICE,
             "original_price": PRODUCT_ORIGINAL_PRICE,
             "discounted": true or false
+            "thumbnail": "thumbnail_url"
         }, ...
     ]
 }
@@ -68,7 +74,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
   - Product Details
     - Get the URL of flipkart product and remove the `https://www.flipkart.com/` from it, let's call it product link argument
-    - Fetch from url `https://flipkart.dvishal485.workers.dev/product/<product_link_argument>`
+    - Fetch from URL `https://flipkart.dvishal485.workers.dev/product/<product_link_argument>`
 
     Example : [https://flipkart.dvishal485.workers.dev/product/apple-iphone-xr-product-red-64-gb-includes-earpods-power-adapter/p/itmf9z7zhydhtbn5?pid=MOBF9Z7ZRWGTX3FA](https://flipkart.dvishal485.workers.dev/product/apple-iphone-xr-product-red-64-gb-includes-earpods-power-adapter/p/itmf9z7zhydhtbn5?pid=MOBF9Z7ZRWGTX3FA)
 
@@ -85,6 +91,9 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
   "in_stock": true or false,
   "f-assured": true or false,
   "share_url": "Share URL",
+  "thumbnails": [
+    "url_1","url_2", ...
+  ],
   "highlights": [
     "Highlight1",
     "Highlight2", ...

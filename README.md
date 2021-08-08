@@ -19,6 +19,7 @@ API to scrapes search result and product details from flipkart
     - Product Current Price
     - Product Original Price
     - Discount status (`true` or `false`)
+    - Product Thumbnail
   - Fetch product result from url of product
 
     Response in JSON format including the following information about Product :
@@ -29,9 +30,12 @@ API to scrapes search result and product details from flipkart
       - Stock avalibility (`true` or `false`)
       - Flipkart Assured Product (`true` or `false`)
       - Share URL (More presentable URL)
+      - Product Thumbnails
       - Highlights
       - Specifications
 
   - Different Mode with different output size as per requirement    
     - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
     - Search for some specific specification and only fetch those specs which meet the requirements.
+
+  - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
