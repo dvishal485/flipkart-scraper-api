@@ -38,6 +38,18 @@ const property = async (link) => {
             var discounted = false
         }
         try {
+            var t = webPage.split('height:64px')
+            var thumbnails = []
+            for (var i = 1; i < t.length; i++) {
+                try {
+                    var thumb = t[i].split('</div>')[0].split('background-image:url(')[1].split(')')[0]
+                    thumbnails.push(thumb)
+                } catch (e) { }
+            }
+        } catch (e) {
+            var thumbnails = null
+        }
+        try {
             var fAssCheck = webPage.split('<h1')[1].split('>₹' + price)[0].split('fk-cp-zion/img/fa_62673a.png')
             var fassured = doesExist(fAssCheck)
         } catch (e) {
@@ -122,6 +134,7 @@ const property = async (link) => {
             "in_stock": !stock,
             "f_assured": fassured,
             "share_url": properURI,
+            "thumbnails": thumbnails,
             "highlights": highlights,
             "desired_specs": specs
         }, null, 2)

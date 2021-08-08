@@ -8,7 +8,7 @@ const search = async (q) => {
     var i, result = [], method = null, reversion = false;
     for (i = 1; i < products.length; i++) {
         try {
-            var price = null, oprice = null, link = null, name = null, discounted = false
+            var price = null, oprice = null, link = null, name = null, discounted = false, thumbnail = null
             var linkGetter = null, lastLinkIndex = null, linkGetterFront = null
             var priceCheck = products[i].split('</div>')[0].replace(/,/g, '');
             //console.log(priceCheck)
@@ -66,6 +66,9 @@ const search = async (q) => {
                     if (name == "" || name == null) {
                         //       console.log("Unimplemented")
                     } else {
+                        try {
+                            thumbnail = webPage.split(`alt="${name}"`)[1].split('src="')[1].split('"')[0]
+                        } catch (e) { thumbnail = null }
                         if (i + 1 != products.length) {
                             var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->')
                             discounted = nextItem.length > 1
@@ -77,10 +80,14 @@ const search = async (q) => {
                             "link": clean(link),
                             "current_price": price,
                             "original_price": oprice,
-                            "discounted": discounted
+                            "discounted": discounted,
+                            "thumbnail":thumbnail
                         })
                     }
                 } else {
+                    try {
+                        thumbnail = webPage.split(`alt="${name}"`)[1].split('src="')[1].split('"')[0]
+                    } catch (e) { thumbnail = null }
                     if (i + 1 != products.length) {
                         var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->')
                         discounted = nextItem.length > 1
@@ -91,7 +98,8 @@ const search = async (q) => {
                         "link": clean(link),
                         "current_price": price,
                         "original_price": oprice,
-                        "discounted": discounted
+                        "discounted": discounted,
+                        "thumbnail": thumbnail
                     })
                 }
             } else {
