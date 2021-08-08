@@ -21,26 +21,50 @@ const property = async (link) => {
             })
         }
         var rating = null, price = null, properURI = null, title = null, oprice, highlights = [];
-        var title = webPage.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
-        var price = webPage.split('<h1')[1].split(">₹")[1].split("</div>")[0]
-        var discountCheck = webPage.split('<h1')[1].split(">₹")[2].split("</div>")[0].split('<!-- -->')
-        var discounted = doesExist(discountCheck)
-        var fAssCheck = webPage.split('<h1')[1].split('>₹' + price)[0].split('fk-cp-zion/img/fa_62673a.png')
-        var fassured = doesExist(fAssCheck)
-        price = parseInt(price.replace(/,/g, ''))
-        if (discounted) {
-            oprice = parseInt(discountCheck[1].replace(/,/g, ''))
-        } else { oprice = price }
-        var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
-        var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
-        if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
-        if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
+        if (webPage.split('<h1').length > 1) {
+            var title = webPage.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
+        } else {
+            var title = webPage.split('class="B_NuCI"')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
+        }
+        try {
+            var price = webPage.split('<h1')[1].split(">₹")[1].split("</div>")[0]
+        } catch (e) {
+            var price = null
+        }
+        try {
+            var discountCheck = webPage.split('<h1')[1].split(">₹")[2].split("</div>")[0].split('<!-- -->')
+            var discounted = doesExist(discountCheck)
+        } catch (e) {
+            var discounted = false
+        }
+        try {
+            var fAssCheck = webPage.split('<h1')[1].split('>₹' + price)[0].split('fk-cp-zion/img/fa_62673a.png')
+            var fassured = doesExist(fAssCheck)
+        } catch (e) {
+            var fassured = doesExist(webPage.split('fk-cp-zion/img/fa_62673a.png'))
+        }
+        try {
+            price = parseInt(price.replace(/,/g, ''))
+            if (discounted) {
+                oprice = parseInt(discountCheck[1].replace(/,/g, ''))
+            } else { oprice = price }
+        } catch (e) {
+            oprice = null
+        }
+        try {
+            var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
+            var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
+            if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
+            if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
+        } catch (e) {
+            var properURI = `http://www.flipkart.com/${uri}`
+        }
         var url = new URL(properURI);
         url.searchParams.delete('_appId')
         url.searchParams.delete('_refId')
         url.searchParams.delete('cmpid')
         properURI = url.toString()
-        var stock = doesExist(webPage.split('This item is currently out of stock</div>'))
+        var stock = doesExist(webPage.split('This item is currently out of stock</div>')) || doesExist(webPage.split('Coming Soon</div>'))
         var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
         if (doesExist(highlightsLocator)) {
             var i;
@@ -52,6 +76,16 @@ const property = async (link) => {
         if (doesExist(isRated)) {
             var rateDetector = isRated[0].split('">')
             var rating = lastEntry(rateDetector).split('<')[0]
+        } else {
+            try {
+                var rating = webPage.split(`_3LWZlK`)[1].split(`<`)[0].split(`>`)[1].trim()
+            } catch (e) { }
+        }
+        if (price == null || price == undefined || price == NaN || price < 1) {
+            price = parseInt(webPage.split(`_30jeq3 _16Jk6d`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
+        }
+        if (oprice == null || oprice == undefined || oprice == NaN || oprice < 1) {
+            oprice = parseInt(webPage.split(`_3I9_wc _2p6lqe`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
         }
         var specs = []
         var tableData = []
