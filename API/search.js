@@ -95,7 +95,7 @@ const search = async (q) => {
                     }
                     result.push({
                         "name": name.replace(/&#x27;/g, `'`).trim(),
-                        "link": clean(link),
+                        "link": clean(link).replace('http://', 'https://'),
                         "current_price": price,
                         "original_price": oprice,
                         "discounted": discounted,

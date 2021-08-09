@@ -76,10 +76,10 @@ const product = async (link, type) => {
         try {
             var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
             var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
-            if (properURI[0] == '/') { properURI = 'http://www.flipkart.com' + properURI }
-            if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `http://www.flipkart.com/${uri}` }
+            if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
+            if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `https://www.flipkart.com/${uri}` }
         } catch (e) {
-            var properURI = `http://www.flipkart.com/${uri}`
+            var properURI = `https://www.flipkart.com/${uri}`
         }
         var url = new URL(properURI);
         url.searchParams.delete('_appId')
@@ -167,7 +167,7 @@ const product = async (link, type) => {
                 "rating": rating,
                 "in_stock": !stock,
                 "f_assured": fassured,
-                "share_url": properURI,
+                "share_url": properURI.replace('http://', 'https://'),
                 "thumbnails": thumbnails,
                 "highlights": highlights,
                 "specs": specs
@@ -182,7 +182,7 @@ const product = async (link, type) => {
                 "rating": rating,
                 "in_stock": !stock,
                 "f_assured": fassured,
-                "share_url": properURI,
+                "share_url": properURI.replace('http://', 'https://'),
                 "thumbnails": thumbnails,
                 "highlights": highlights
             }, null, 2)
