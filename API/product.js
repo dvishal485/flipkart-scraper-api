@@ -34,23 +34,36 @@ const product = async (link, type) => {
         } catch (e) {
             var discounted = false
         }
-        try {
-            var t = webPage.split('height:64px')
-            var thumbnails = []
-            for (var i = 1; i < t.length; i++) {
-                try {
-                    var thumb = t[i].split('</div>')[0].split('background-image:url(')[1].split(')')[0]
-                    thumbnails.push(thumb)
-                } catch (e) { }
+        var t = webPage.split('height:64px')
+        var thumbnails = []
+        if (doesExist(t)) {
+            thumbnails = makeThumbnails(t)
+        } else {
+            t = webPage.split('_20Gt85 _1Y')
+            if (doesExist(t)) {
+                thumbnails = makeThumbnails(t)
+            } else {
+                t = webPage.split('_2r_T1I')
+                if (doesExist(t)) {
+                    thumbnails = makeThumbnails(t)
+                }
             }
-        } catch (e) {
-            var thumbnails = null
+        }
+        if (thumbnails.length == 0) {
+            try {
+                var p = title.replace(/&#x27;/g, `'`).split('(')[0].trim()
+                console.log(p)
+                var thumb = webPage.split(`alt="${p}"`)
+                console.log(thumb)
+                thumb = thumb[1].split('src="')[1].split('"')[0]
+                thumbnails.push(thumb)
+            } catch (e) { }
         }
         try {
-            var fAssCheck = webPage.split('<h1')[1].split('>₹' + price)[0].split('fk-cp-zion/img/fa_62673a.png')
+            var fAssCheck = webPage.split('<h1')[1].split('Product Description')[0].split('fk-cp-zion/img/fa_62673a.png')
             var fassured = doesExist(fAssCheck)
         } catch (e) {
-            var fassured = doesExist(webPage.split('fk-cp-zion/img/fa_62673a.png'))
+            var fassured = doesExist(webPage.split('Product Description')[0].split('fk-cp-zion/img/fa_62673a.png'))
         }
         try {
             price = parseInt(price.replace(/,/g, ''))
@@ -74,13 +87,16 @@ const product = async (link, type) => {
         url.searchParams.delete('cmpid')
         properURI = url.toString()
         var stock = doesExist(webPage.split('This item is currently out of stock</div>')) || doesExist(webPage.split('Coming Soon</div>'))
-        var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
-        if (doesExist(highlightsLocator)) {
-            var i;
-            for (i = 1; i < highlightsLocator.length; i++) {
-                highlights.push(highlightsLocator[i].split('>')[1])
+        try {
+            var highlightsLocator = webPage.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
+            if (doesExist(highlightsLocator)) {
+                for (var i = 1; i < highlightsLocator.length; i++) {
+                    try {
+                        highlights.push(highlightsLocator[i].split('>')[1])
+                    } catch (e) { }
+                }
             }
-        }
+        } catch (e) { highlights = [] }
         var isRated = fAssCheck[0].split('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==')
         if (doesExist(isRated)) {
             var rateDetector = isRated[0].split('">')
@@ -98,44 +114,49 @@ const product = async (link, type) => {
         }
         if (!minimumResult) {
             var specs = []
-            var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
-            var i;
-            for (i = 1; i < specsLocator.length; i++) {
-                var compactDetails = '';
-                var tableData = [];
-                var headingLocator = specsLocator[i - 1].split('>')
-                var heading = lastEntry(headingLocator)
-                var tableTD = specsLocator[i].split('</td>')
-                var k;
-                for (k = 1; k < tableTD.length; k = k + 2) {
-                    var td = tableTD[k - 1].split('>')
-                    var tdData = lastEntry(td)
-                    var tr = tableTD[k].split('</li>')[0].split('>')
-                    var trData = lastEntry(tr)
-                    if (tdData != null && tdData != "" && trData.split("<").length == 1 && trData != "") {
+            try {
+                var specsLocator = webPage.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
+            } catch (e) { var specsLocator = [] }
+            for (var i = 1; i < specsLocator.length; i++) {
+                try {
+                    var compactDetails = '';
+                    var tableData = [];
+                    var headingLocator = specsLocator[i - 1].split('>')
+                    var heading = lastEntry(headingLocator)
+                    var tableTD = specsLocator[i].split('</td>')
+                    var k;
+                    for (k = 1; k < tableTD.length; k = k + 2) {
+                        try {
+                            var td = tableTD[k - 1].split('>')
+                            var tdData = lastEntry(td)
+                            var tr = tableTD[k].split('</li>')[0].split('>')
+                            var trData = lastEntry(tr)
+                            if (tdData != null && tdData != "" && trData.split("<").length == 1 && trData != "") {
+                                if (!compact) {
+                                    tableData.push({
+                                        "property": tdData,
+                                        "value": trData
+                                    })
+                                } else {
+                                    compactDetails += tdData + ' : ' + trData + '; '
+                                }
+                            }
+                        } catch (e) { }
+                    }
+                    if (tableData != []) {
                         if (!compact) {
-                            tableData.push({
-                                "property": tdData,
-                                "value": trData
+                            specs.push({
+                                "title": heading,
+                                "details": tableData
                             })
                         } else {
-                            compactDetails += tdData + ' : ' + trData + '; '
+                            specs.push({
+                                "title": heading,
+                                "details": compactDetails
+                            })
                         }
                     }
-                }
-                if (tableData != []) {
-                    if (!compact) {
-                        specs.push({
-                            "title": heading,
-                            "details": tableData
-                        })
-                    } else {
-                        specs.push({
-                            "title": heading,
-                            "details": compactDetails
-                        })
-                    }
-                }
+                } catch (e) { }
             }
             return JSON.stringify({
                 "name": title.replace(/&#x27;/g, `'`),
@@ -177,5 +198,14 @@ const product = async (link, type) => {
 
 function lastEntry(x) { return x[x.length - 1] }
 function doesExist(x) { return x.length > 1 }
-
+function makeThumbnails(locationArray) {
+    var thumbnails = []
+    for (var i = 1; i < locationArray.length; i++) {
+        try {
+            var thumb = locationArray[i].split('</div>')[0].split('background-image:url(')[1].split(')')[0]
+            thumbnails.push(thumb)
+        } catch (e) { }
+    }
+    return thumbnails
+}
 export default product

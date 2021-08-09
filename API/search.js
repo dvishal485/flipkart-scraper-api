@@ -87,7 +87,7 @@ const search = async (q) => {
                 } else {
                     try {
                         thumbnail = webPage.split(`alt="${name}"`)[1].split('src="')[1].split('"')[0]
-                    } catch (e) { thumbnail = null }
+                    } catch (e) { thumbnail = [] }
                     if (i + 1 != products.length) {
                         var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->')
                         discounted = nextItem.length > 1
