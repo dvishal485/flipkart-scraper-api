@@ -94,7 +94,7 @@ const search = async (q) => {
                         if (discounted) { i++; oprice = parseInt(nextItem[1]); }
                     }
                     result.push({
-                        "name": name.replace(/&#x27;/g, `'`),
+                        "name": name.replace(/&#x27;/g, `'`).trim(),
                         "link": clean(link),
                         "current_price": price,
                         "original_price": oprice,
