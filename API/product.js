@@ -79,7 +79,11 @@ const product = async (link, type) => {
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
             if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `https://www.flipkart.com/${uri}` }
         } catch (e) {
-            var properURI = `https://www.flipkart.com/${uri}`
+            if (uri.split('/')[0] == 's') {
+              var properURI = `https://dl.flipkart.com/${uri}`
+            } else {
+              var properURI = `https://www.flipkart.com/${uri}` 
+            }
         }
         var url = new URL(properURI);
         url.searchParams.delete('_appId')
