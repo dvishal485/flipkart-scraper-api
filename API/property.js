@@ -80,9 +80,15 @@ const property = async (link) => {
             var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
             var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
-            if (String(properURI).toLowerCase().split('login').length > 1) { properURI = `https://www.flipkart.com/${uri}` }
+            if (String(properURI).toLowerCase().split('login').length > 1) {
+              if (uri.split('/')[0] == 's' || uri.split('/')[0] == 'dl') {
+                var properURI = `https://dl.flipkart.com/${uri}`
+              } else {
+                var properURI = `https://www.flipkart.com/${uri}` 
+              }
+            }
         } catch (e) {
-            if (uri.split('/')[0] == 's') {
+            if (uri.split('/')[0] == 's' || uri.split('/')[0] == 'dl') {
               var properURI = `https://dl.flipkart.com/${uri}`
             } else {
               var properURI = `https://www.flipkart.com/${uri}` 
