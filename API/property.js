@@ -54,10 +54,8 @@ const property = async (link) => {
         }
         if (thumbnails.length == 0) {
             try {
-                var p = title.replace(/&#x27;/g, `'`).split('(')[0].trim()
-                console.log(p)
-                var thumb = webPage.split(`alt="${p}"`)
-                console.log(thumb)
+                var p = title.split('(')[0].trim()
+                var thumb = webPage.split(`alt="${p}`)
                 thumb = thumb[1].split('src="')[1].split('"')[0]
                 thumbnails.push(thumb)
             } catch (e) { }
@@ -81,17 +79,18 @@ const property = async (link) => {
             var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
             if (String(properURI).toLowerCase().split('login').length > 1) {
-              if (uri.split('/')[0] == 's' || uri.split('/')[0] == 'dl') {
-                var properURI = `https://dl.flipkart.com/${uri}`
-              } else {
-                var properURI = `https://www.flipkart.com/${uri}` 
-              }
+                if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
+                if (uri.split('/')[x] == 's' || uri.split('/')[x] == 'dl') {
+                    var properURI = `https://dl.flipkart.com/${uri}`
+                } else {
+                    var properURI = `https://www.flipkart.com/${uri}`
+                }
             }
         } catch (e) {
             if (uri.split('/')[0] == 's' || uri.split('/')[0] == 'dl') {
-              var properURI = `https://dl.flipkart.com/${uri}`
+                var properURI = `https://dl.flipkart.com/${uri}`
             } else {
-              var properURI = `https://www.flipkart.com/${uri}` 
+                var properURI = `https://www.flipkart.com/${uri}`
             }
         }
         var url = new URL(properURI);
@@ -165,7 +164,7 @@ const property = async (link) => {
             "rating": rating,
             "in_stock": !stock,
             "f_assured": fassured,
-            "share_url": properURI.replace('http://','https://'),
+            "share_url": properURI.replace('http://', 'https://'),
             "thumbnails": thumbnails,
             "highlights": highlights,
             "desired_specs": specs
