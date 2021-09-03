@@ -35,7 +35,7 @@ async function handleRequest(request) {
            })
          } else {
             return new Response(JSON.stringify(
-                [{
+                {
                     "name": "flipkart-scraper",
                     "description": "API to scrapes search result and product details from Flipkart",
                     "version": "2.1.0",
@@ -56,7 +56,7 @@ async function handleRequest(request) {
                         "product_compact_api": "https://flipkart.dvishal485.workers.dev/product/compact/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
                         "product_search_specs": "https://flipkart.dvishal485.workers.dev/property/battery&display/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ"
                     }
-                }]
+                }
                 , null, 2), {
                 status: 200,
                 headers
