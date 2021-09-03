@@ -18,10 +18,10 @@ const product = async (link, type) => {
             })
         }
         var rating = null, price = null, properURI = null, title = null, oprice, highlights = [];
-        if (webPage.split('<h1').length > 1) {
+        if (doesExist(webPage.split('<h1'))) {
             var title = webPage.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
         } else {
-            var title = webPage.split('class="B_NuCI"')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
+            var title = webPage.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
         }
         try {
             var price = webPage.split('<h1')[1].split(">₹")[1].split("</div>")[0]
@@ -73,7 +73,7 @@ const product = async (link, type) => {
         }
         try {
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
-            if (String(properURI).toLowerCase().split('login').length > 1) {
+            if (doesExist(String(properURI).toLowerCase().split('login'))) {
                 if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
                 if (uri.split('/')[x] == 's' || uri.split('/')[x] == 'dl') {
                     var properURI = `https://dl.flipkart.com/${uri}`
@@ -119,6 +119,13 @@ const product = async (link, type) => {
         if (oprice == null || oprice == undefined || oprice == NaN || oprice < 1) {
             oprice = parseInt(webPage.split(`_3I9_wc _2p6lqe`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
         }
+        var discount_percent = parseInt(100 * (1 - price / oprice))
+        try {
+            // final changes
+            title = title.replace(/&#x27;/g, `'`).trim()
+            properURI = properURI.replace('http://', 'https://')
+            stock = !stock
+        } catch (e) { }
         if (!minimumResult) {
             var specs = []
             try {
@@ -166,33 +173,33 @@ const product = async (link, type) => {
                 } catch (e) { }
             }
             return JSON.stringify({
-                "name": title.replace(/&#x27;/g, `'`).trim(),
+                "name": title,
                 "current_price": price,
                 "original_price": oprice,
                 "discounted": discounted,
-                "discount_percent": parseInt(100 * (1 - price / oprice)),
+                "discount_percent": discount_percent,
                 "rating": rating,
-                "in_stock": !stock,
+                "in_stock": stock,
                 "f_assured": fassured,
-                "share_url": properURI.replace('http://', 'https://'),
+                "share_url": properURI,
                 "thumbnails": thumbnails,
                 "highlights": highlights,
                 "specs": specs
-            }, null, 2)
+            }, null, 1)
         } else {
             return JSON.stringify({
-                "name": title.replace(/&#x27;/g, `'`).trim(),
+                "name": title,
                 "current_price": price,
                 "original_price": oprice,
                 "discounted": discounted,
-                "discount_percent": parseInt(100 * (1 - price / oprice)),
+                "discount_percent": discount_percent,
                 "rating": rating,
-                "in_stock": !stock,
+                "in_stock": stock,
                 "f_assured": fassured,
-                "share_url": properURI.replace('http://', 'https://'),
+                "share_url": properURI,
                 "thumbnails": thumbnails,
                 "highlights": highlights
-            }, null, 2)
+            })
         }
     } catch (err) {
         return JSON.stringify({

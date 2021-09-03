@@ -37,11 +37,10 @@ async function handleRequest(request) {
             return new Response(JSON.stringify(
                 [{
                     "name": "flipkart-scraper",
-                    "description": "API to scrapes search result and product details from flipkart",
-                    "version": 2.1,
+                    "description": "API to scrapes search result and product details from Flipkart",
+                    "version": "2.1.0",
                     "author": "Vishal Das",
                     "email": "dvishal485@gmail.com",
-                    "telegram": "@dvishal485",
                     "documentation": "https://dvishal485.github.io/flipkart-scraper-api/",
                     "usage": {
                         "search_api": "https://flipkart.dvishal485.workers.dev/search/<product_name>",
@@ -64,7 +63,7 @@ async function handleRequest(request) {
             })
         }
     } else {
-        return Response.redirect("https://github.com/dvishal485/flipkart-scraper/", 301)
+        return Response.redirect("https://github.com/dvishal485/flipkart-scraper-api", 301)
     }
 }
 

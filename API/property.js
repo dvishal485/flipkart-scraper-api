@@ -21,10 +21,10 @@ const property = async (link) => {
             })
         }
         var rating = null, price = null, properURI = null, title = null, oprice, highlights = [];
-        if (webPage.split('<h1').length > 1) {
+        if (doesExist(webPage.split('<h1'))) {
             var title = webPage.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
         } else {
-            var title = webPage.split('class="B_NuCI"')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
+            var title = webPage.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
         }
         try {
             var price = webPage.split('<h1')[1].split(">₹")[1].split("</div>")[0]
@@ -78,7 +78,7 @@ const property = async (link) => {
             var properURIlocate = webPage.split('product.share.pp')[0].split('"url":"')
             var properURI = lastEntry(lastEntry((lastEntry(properURIlocate) + 'product.share.pp').split(' ')).split('"'))
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
-            if (String(properURI).toLowerCase().split('login').length > 1) {
+            if (doesExist(String(properURI).toLowerCase().split('login'))) {
                 if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
                 if (uri.split('/')[x] == 's' || uri.split('/')[x] == 'dl') {
                     var properURI = `https://dl.flipkart.com/${uri}`
@@ -168,7 +168,7 @@ const property = async (link) => {
             "thumbnails": thumbnails,
             "highlights": highlights,
             "desired_specs": specs
-        }, null, 2)
+        })
     } catch (err) {
         return JSON.stringify({
             "error": "Couldn't fetch information : " + err.message,
