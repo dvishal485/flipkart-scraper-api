@@ -172,41 +172,31 @@ const product = async (link, type) => {
                     }
                 } catch (e) { }
             }
-            return JSON.stringify({
-                "name": title,
-                "current_price": price,
-                "original_price": oprice,
-                "discounted": discounted,
-                "discount_percent": discount_percent,
-                "rating": rating,
-                "in_stock": stock,
-                "f_assured": fassured,
-                "share_url": properURI,
-                "thumbnails": thumbnails,
-                "highlights": highlights,
-                "specs": specs
-            }, null, 1)
-        } else {
-            return JSON.stringify({
-                "name": title,
-                "current_price": price,
-                "original_price": oprice,
-                "discounted": discounted,
-                "discount_percent": discount_percent,
-                "rating": rating,
-                "in_stock": stock,
-                "f_assured": fassured,
-                "share_url": properURI,
-                "thumbnails": thumbnails,
-                "highlights": highlights
-            })
         }
+        var resultJson = {
+            "name": title,
+            "current_price": price,
+            "original_price": oprice,
+            "discounted": discounted,
+            "discount_percent": discount_percent,
+            "rating": rating,
+            "in_stock": stock,
+            "f_assured": fassured,
+            "share_url": properURI,
+            "thumbnails": thumbnails,
+            "highlights": highlights,
+            "specs": []
+        }
+        if (compact || minimumResult) {
+            if (compact) { resultJson.specs = specs }
+            return JSON.stringify(resultJson)
+        } else { return JSON.stringify(resultJson, null, 1) }
     } catch (err) {
         return JSON.stringify({
             "error": "Couldn't fetch information : " + err.message,
             "possible_solution": "Don't lose hope, contact the support",
             "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
-        })
+        }, null, 2)
     }
 }
 
