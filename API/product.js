@@ -184,10 +184,14 @@ const product = async (link, type) => {
             "f_assured": fassured,
             "share_url": properURI,
             "thumbnails": thumbnails,
-            "highlights": highlights,
-            "specs": []
+            "highlights": highlights
         }
-        if (!minimumResult) { resultJson.specs = specs }
+        if (!minimumResult) {
+            Object.assign(resultJson, {
+                "specs": specs
+            });
+            resultJson.specs = specs
+        }
         if (compact || minimumResult) {
             return JSON.stringify(resultJson)
         } else {
