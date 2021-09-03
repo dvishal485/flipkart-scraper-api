@@ -187,10 +187,12 @@ const product = async (link, type) => {
             "highlights": highlights,
             "specs": []
         }
+        if (!minimumResult) { resultJson.specs = specs }
         if (compact || minimumResult) {
-            if (compact) { resultJson.specs = specs }
             return JSON.stringify(resultJson)
-        } else { return JSON.stringify(resultJson, null, 1) }
+        } else {
+            return JSON.stringify(resultJson, null, 1)
+        }
     } catch (err) {
         return JSON.stringify({
             "error": "Couldn't fetch information : " + err.message,
