@@ -1,0 +1,27 @@
+{
+  "name": "flipkart-scraper",
+  "version": "2.1.0",
+  "description": "API to scrapes search result and product details from Flipkart",
+  "main": "index.js",
+  "scripts": {
+    "test": "wrangler dev",
+    "deploy": "wrangler publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvishal485/flipkart-scraper.git"
+  },
+  "keywords": [
+    "flipkart",
+    "flipkart-api",
+    "flipkart-scraper",
+    "scraper",
+    "shopping"
+  ],
+  "author": "Vishal Das",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dvishal485/flipkart-scraper/issues"
+  },
+  "homepage": "https://github.com/dvishal485/flipkart-scraper#readme"
+}

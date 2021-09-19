@@ -1,0 +1,8 @@
+name = "flipkart"
+type = 'webpack'
+account_id = ''
+route = ''
+zone_id = ''
+usage_model = ''
+workers_dev = true
+target_type = "webpack"
