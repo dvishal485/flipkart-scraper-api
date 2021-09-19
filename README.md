@@ -9,9 +9,10 @@ API to scrapes search result and product details from flipkart
 
 **API :** [flipkart.dvishal485.workers.dev/](https://flipkart.dvishal485.workers.dev/)
 
-## Features
+# Features
 
   - API **does not require any client id/secret or any other authorisation** unlike most of Flipkart API
+  - Completely Open Source
   - Fetch search results from [Flipkart](https://www.flipkart.com/)
 
     Response in JSON format including the following information :
@@ -20,7 +21,8 @@ API to scrapes search result and product details from flipkart
     - Product Original Price
     - Discount status (`true` or `false`)
     - Product Thumbnail
-  - Fetch product result from url of product
+
+  - Fetch product result from URL of product
 
     Response in JSON format including the following information about Product :
       - Product Full Name
@@ -39,3 +41,12 @@ API to scrapes search result and product details from flipkart
     - Search for some specific specification and only fetch those specs which meet the requirements.
 
   - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
+
+# Todo
+  - Make code Presentable and Readable
+  - ~~Extend API for product details~~
+  - Optimize existing code
+  - ~~Improve accuracy~~
+  - ~~New Project : Telegram bot to notify about price drop alerts~~
+    - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
+    - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.

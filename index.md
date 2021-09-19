@@ -13,6 +13,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 # Features
 
   - API **does not require any client id/secret or any other authorisation** unlike most of Flipkart API
+  - Completely Open Source
   - Fetch search results from [Flipkart](https://www.flipkart.com/)
 
     Response in JSON format including the following information :
@@ -45,7 +46,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 ### Note
 
 - All the amounts are in currency INR
-- You can also explore products by passing an empty search command
+- You can also explore products by [passing an empty search command](https://flipkart.dvishal485.workers.dev/search/)
 
 # API Usage
 
@@ -53,7 +54,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
     - Fetch from URL `https://flipkart.dvishal485.workers.dev/search/<product_name>`
 
-    Example : [https://flipkart.dvishal485.workers.dev/search/laptop](https://flipkart.dvishal485.workers.dev/search/laptop)
+    Example : [Tap to view example](https://flipkart.dvishal485.workers.dev/search/laptop)
     
     The response will be given in following JSON format : 
 ```
@@ -118,11 +119,15 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
     - Compact Mode
       API : `https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>`
     
+      Example : [Tap to view example](https://flipkart.dvishal485.workers.dev/product/compact/s/kzZg7WuuuN)
+
       Replies with the complete same information but the sub-specifications are merged into one, each seperated by `; `
     
     - Minimum Mode
       API : `https://flipkart.dvishal485.workers.dev/product/min/<product_link_argument>`
     
+      Example : [Tap to view example](https://flipkart.dvishal485.workers.dev/product/min/s/kzZg7WuuuN)
+
       Replies without Specifications reducing the size of output largely.
     
     - Property Mode
@@ -162,12 +167,13 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
   
   [If you are facing unexpected results then Raise An Issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
 
-## Why not open-sourced ?
-It took some efforts and a ton of dirty code work to build this API, and as far as I have seen no API have been build for Flipkart which can give `search` functionality **without any authorisation** . The project won't be made open-sourced atleast before its completion ( [Check out ToDo at end of page](https://github.com/dvishal485/flipkart-scraper-api/blob/main/index.md#Todo) )
+## Code Quality
+  The code quality is not upto mark as the project was just started just as a time-pass hobby project. The variables will be renamed as required and functions will be optimized and will be made more readable & faster in execution.
 
 # Todo
+  - Make code Presentable and Readable
   - ~~Extend API for product details~~
-  - ~~Optimize existing code~~
+  - Optimize existing code
   - ~~Improve accuracy~~
   - ~~New Project : Telegram bot to notify about price drop alerts~~
     - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
