@@ -1,3 +1,8 @@
+// THIS SCRIPT IS SUPPOSED TO BE PARALLEL WITH product.js
+// and won't be considered to be updated with time as is 
+// not actively of much use and can be implemented easily
+// on client side as well
+
 const property = async (link) => {
     try {
         var argProperty = link.split('/')[0]

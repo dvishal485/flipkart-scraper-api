@@ -1,38 +1,40 @@
 const search = async (q) => {
-    const urlSearch = 'https://www.flipkart.com/search?marketplace=FLIPKART&q=' + q;
-    console.log("Search initiated : " + urlSearch)
-    var webPage = await (await fetch(urlSearch)).text();
+    const searchURL = 'https://www.flipkart.com/search?marketplace=FLIPKART&q=' + q;
+    console.log("Search initiated : " + searchURL)
+    var webPageContents = await (await fetch(searchURL)).text();
     // To rectify pages with exchange option
-    webPage = webPage.replace(/style="color:#000000;font-size:14px;font-style:normal;font-weight:700">₹/g, '>Rs. ')
-    var products = webPage.split('>₹');
-    var i, result = [], method = null, reversion = false;
-    for (i = 1; i < products.length; i++) {
+    webPageContents = webPageContents.replace(/style="color:#000000;font-size:14px;font-style:normal;font-weight:700">₹/g, '>Rs. ')
+    var products = webPageContents.split('>₹');
+    var result = [], method = null, reversion = false;
+    for (var i = 1; i < products.length; i++) {
+        // The product details will be tried to be found through various
+        // methods. Each method has been carefully thought upon at time
+        // of building the script. And it works very well till date.
+        // Updates will be difficult and editing is not recommened in
+        // this script until and unless you know what each line does.
         try {
-            var price = null, oprice = null, link = null, name = null, discounted = false, thumbnail = null
-            var linkGetter = null, lastLinkIndex = null, linkGetterFront = null
+            var currentPrice = null, originalPrice = null, productLink = null, productName = null, isDiscounted = false, thumbnail = null
+            var linkDetails = null, lastLinkIndex = null, linkDetailsFinder = null
             var priceCheck = products[i].split('</div>')[0].replace(/,/g, '');
-            //console.log(priceCheck)
-            price = parseInt(priceCheck);
+            currentPrice = parseInt(priceCheck);
             if (priceCheck.split('</option>').length == 1) {
                 //Method A - Compact screen with about mulltiple columns
                 try {
-                    linkGetter = products[i - 1].split('</a>');
-                    lastLinkIndex = linkGetter.length - 2;
-                    linkGetterFront = linkGetter[lastLinkIndex].split('target="_blank"');
-                    if (linkGetterFront.length > 1) {
-                        link = "https://www.flipkart.com" + linkGetterFront[1].split('href="')[1].split('"')[0];
-                        name = linkGetterFront[1].split('href="')[1].split('"')[1].split('>')[1]
+                    linkDetails = products[i - 1].split('</a>');
+                    lastLinkIndex = linkDetails.length - 2;
+                    linkDetailsFinder = linkDetails[lastLinkIndex].split('target="_blank"');
+                    if (linkDetailsFinder.length > 1) {
+                        productLink = "https://www.flipkart.com" + linkDetailsFinder[1].split('href="')[1].split('"')[0];
+                        productName = linkDetailsFinder[1].split('href="')[1].split('"')[1].split('>')[1]
                         method = "A"
                     }
                 } catch (error) {
-                    // console.log("Failed to obtain product name and link from Method A : " + error.message)
+                    console.log("Failed to obtain product name and link from Method A")
                 }
-                oprice = parseInt(price);
+                originalPrice = parseInt(currentPrice);
 
-                if (name == "" || name == null) {
-                    //    console.log("Executing method B")
-                    //console.log("Price : " + price)
-                    var linkGetter = null, lastLinkIndex = null, linkGetterFront = null
+                if (productName == "" || productName == null) {
+                    var linkDetails = null, lastLinkIndex = null, linkDetailsFinder = null
                     // Method B - Full product description page
                     try {
                         if (method == "C" || method == "D") {
@@ -40,71 +42,73 @@ const search = async (q) => {
                             i++
                             reversion = true;
                         }
-                        linkGetter = products[i - 2].split('<a');
-                        //console.log(linkGetter)
+                        linkDetails = products[i - 2].split('<a');
                         method = "B"
-                        if (linkGetter.length == 1) {
+                        if (linkDetails.length == 1) {
                             // Method C
-                            //   console.log("Executing method C")
-                            linkGetter = products[i - 1].split('<a');
+                            linkDetails = products[i - 1].split('<a');
                             method = "C"
+                        } else {
+                            console.log("Failed to obtain product name and link from Method B")
                         }
-                        lastLinkIndex = linkGetter.length - 1;
-                        linkGetterFront = linkGetter[lastLinkIndex].split('target="_blank"');
-                        if (linkGetterFront.length > 1) {
-                            link = "https://www.flipkart.com" + linkGetterFront[1].split('href="')[1].split('"')[0];
-                            name = linkGetterFront[1].split('href="')[1].split('"col col-7-12">')[1].split('</div>')[0].split('>')[1]
+                        lastLinkIndex = linkDetails.length - 1;
+                        linkDetailsFinder = linkDetails[lastLinkIndex].split('target="_blank"');
+                        if (linkDetailsFinder.length > 1) {
+                            productLink = "https://www.flipkart.com" + linkDetailsFinder[1].split('href="')[1].split('"')[0];
+                            productName = linkDetailsFinder[1].split('href="')[1].split('"col col-7-12">')[1].split('</div>')[0].split('>')[1]
                         }
                         if (reversion) {
                             i--
                             reversion = false
                             method = "D"
+                            console.log("Failed to obtain product name and link from Method C")
                         }
                     } catch (e) {
-                        //  console.log("Failed to obtain product name and link from Method A : " + e.message)
+                        console.log(e.message)
                     }
-                    if (name == "" || name == null) {
-                        //       console.log("Unimplemented")
+                    if (productName == "" || productName == null) {
+                        console.log("Failed to obtain product name and link from known methods")
                     } else {
+                        console.log("Sucessfully obtained product name and link from known methods")
                         try {
-                            thumbnail = webPage.split(`alt="${name}"`)[1].split('src="')[1].split('"')[0]
+                            thumbnail = webPageContents.split(`alt="${productName}"`)[1].split('src="')[1].split('"')[0]
                         } catch (e) { thumbnail = null }
                         if (i + 1 != products.length) {
                             var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->')
-                            discounted = nextItem.length > 1
-                            if (discounted) { i++; oprice = parseInt(nextItem[1]); }
+                            isDiscounted = nextItem.length > 1
+                            if (isDiscounted) { i++; originalPrice = parseInt(nextItem[1]); }
                         }
 
                         result.push({
-                            "name": name.replace(/&#x27;/g, `'`),
-                            "link": clean(link),
-                            "current_price": price,
-                            "original_price": oprice,
-                            "discounted": discounted,
-                            "thumbnail":thumbnail
+                            "name": productName.replace(/&#x27;/g, `'`),
+                            "link": clean(productLink),
+                            "current_price": currentPrice,
+                            "original_price": originalPrice,
+                            "discounted": isDiscounted,
+                            "thumbnail": thumbnail
                         })
                     }
                 } else {
                     try {
-                        thumbnail = webPage.split(`alt="${name}"`)[1].split('src="')[1].split('"')[0]
+                        thumbnail = webPageContents.split(`alt="${productName}"`)[1].split('src="')[1].split('"')[0]
                     } catch (e) { thumbnail = [] }
                     if (i + 1 != products.length) {
                         var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->')
-                        discounted = nextItem.length > 1
-                        if (discounted) { i++; oprice = parseInt(nextItem[1]); }
+                        isDiscounted = nextItem.length > 1
+                        if (isDiscounted) { i++; originalPrice = parseInt(nextItem[1]); }
                     }
                     result.push({
-                        "name": name.replace(/&#x27;/g, `'`).trim(),
-                        "link": clean(link).replace('http://', 'https://'),
-                        "current_price": price,
-                        "original_price": oprice,
-                        "discounted": discounted,
+                        "name": productName.replace(/&#x27;/g, `'`).trim(),
+                        "link": clean(productLink).replace('http://', 'https://'),
+                        "current_price": currentPrice,
+                        "original_price": originalPrice,
+                        "discounted": isDiscounted,
                         "thumbnail": thumbnail
                     })
                 }
             } else {
-                webPage = webPage.replace('₹', 'Rs.')
-                console.log("Ignoring amount " + price + " : Suspected to be dropdown menu item")
+                webPageContents = webPageContents.replace('₹', 'Rs.')
+                console.log("Ignoring amount " + currentPrice + " : Suspected to be dropdown menu item")
             };
         } catch (e) {
             console.log(e.message);
@@ -118,6 +122,7 @@ const search = async (q) => {
 }
 
 const clean = (link) => {
+    // delete all useless parameters from product url
     var url = new URL(link.replace(/amp;/g, ''));
     url.searchParams.delete('_appId')
     url.searchParams.delete('_refId')

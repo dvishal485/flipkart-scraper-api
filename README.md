@@ -49,10 +49,13 @@ Deploy your own API with Cloudflare Workers
   - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
 
 # Todo
-  - Make code Presentable and Readable
-  - ~~Extend API for product details~~
-  - Optimize existing code
-  - ~~Improve accuracy~~
-  - ~~New Project : Telegram bot to notify about price drop alerts~~
+
+  - [x] Make code Presentable and Readable
+  - [x] Extend API for product details
+  - [x] Optimize existing code
+  - [x] Improve accuracy
+  - [x] Get product details (price & stock) specific to individual's pincode
+    - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
+  - [x] New Project : Telegram bot to notify about price drop alerts
     - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
     - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
