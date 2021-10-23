@@ -9,6 +9,12 @@ API to scrapes search result and product details from flipkart
 
 **API :** [flipkart.dvishal485.workers.dev/](https://flipkart.dvishal485.workers.dev/)
 
+##  Deployment
+
+Deploy your own API with Cloudflare Workers
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
+
 # Features
 
   - API **does not require any client id/secret or any other authorisation** unlike most of Flipkart API

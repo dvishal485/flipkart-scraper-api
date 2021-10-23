@@ -43,6 +43,12 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
   - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
 
+# Deployment
+
+Deploy your own API with Cloudflare Workers
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
+
 ### Note
 
 - All the amounts are in currency INR
