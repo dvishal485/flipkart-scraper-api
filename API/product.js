@@ -82,13 +82,16 @@ const product = async (link, type) => {
                 properURI = smallUri
             }
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
-            if (doesExist(String(properURI).toLowerCase().split('login'))) {
-                if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
-                if (uri.split('/')[x] == 's' || uri.split('/')[x] == 'dl') {
-                    var properURI = `https://dl.flipkart.com/${uri}`
-                } else {
-                    var properURI = `https://www.flipkart.com/${uri}`
-                }
+            if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
+            if (uri.split('/')[x] == 's' || uri.split('/')[x] == 'dl') {
+                var properURI2 = `https://dl.flipkart.com/${uri}`
+            } else {
+                var properURI2 = `https://www.flipkart.com/${uri}`
+            }
+            properURI2 = cleanURL(properURI2)
+            properURI = cleanURL(properURI)
+            if (properURI2.length < properURI.length || doesExist(String(properURI).toLowerCase().split('login'))) {
+                properURI = properURI2
             }
         } catch (e) {
             if (uri.split('/')[0] == 's' || uri.split('/')[0] == 'dl') {
@@ -97,12 +100,6 @@ const product = async (link, type) => {
                 var properURI = `https://www.flipkart.com/${uri}`
             }
         }
-        var url = new URL(properURI);
-        // delete useless parameters from product page url
-        url.searchParams.delete('_appId')
-        url.searchParams.delete('_refId')
-        url.searchParams.delete('cmpid')
-        properURI = url.toString()
         var comingSoon = doesExist(webPageContents.split('Coming Soon</div>'))
         var inStock = doesExist(webPageContents.split('This item is currently out of stock</div>')) || comingSoon
         try {
@@ -235,4 +232,13 @@ function makeThumbnails(locationArray) {
     return thumbnails
 }
 
+const cleanURL = (url) => {
+    // delete useless parameters from product page url
+    url = new URL(url)
+    url.searchParams.delete('_appId')
+    url.searchParams.delete('pid')
+    url.searchParams.delete('_refId')
+    url.searchParams.delete('cmpid')
+    return url.toString()
+}
 export default product
