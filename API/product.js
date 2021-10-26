@@ -76,6 +76,11 @@ const product = async (link, type) => {
             originalPrice = null
         }
         try {
+            var smallUri = webPageContents.split('product.share.pp"')
+            if (doesExist(smallUri)) {
+                smallUri = lastEntry(smallUri[smallUri.length - 2].split('"')) + 'product.share.pp'
+                properURI = smallUri
+            }
             if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
             if (doesExist(String(properURI).toLowerCase().split('login'))) {
                 if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
