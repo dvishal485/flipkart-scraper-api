@@ -71,8 +71,9 @@ Deploy your own API with Cloudflare Workers
             "link": "PRODUCT_LINK",
             "current_price": PRODUCT_CURRENT_PRICE,
             "original_price": PRODUCT_ORIGINAL_PRICE,
-            "discounted": true or false
-            "thumbnail": "thumbnail_url"
+            "discounted": true or false,
+            "thumbnail": "thumbnail_url",
+            "query_url": "url_to_fetch_product_details"
         }, ...
     ]
 }
@@ -94,7 +95,7 @@ Deploy your own API with Cloudflare Workers
   "original_price": original_price,
   "discounted": true or false,
   "discount_percent": discount_percent,
-  "rating": "rating of product",
+  "rating": rating of product,
   "in_stock": true or false,
   "f-assured": true or false,
   "share_url": "Share URL",

@@ -192,7 +192,7 @@ const product = async (link, type) => {
             "original_price": originalPrice,
             "discounted": isDiscounted,
             "discount_percent": discount_percent,
-            "rating": rating,
+            "rating": parseFloat(rating),
             "in_stock": inStock,
             "f_assured": fassured,
             "share_url": properURI,

@@ -9,7 +9,7 @@ async function handleRequest(request) {
 
     if (request.method == 'GET') {
         if (path.startsWith('/search/')) {
-            return new Response(await search(path.replace('/search/', '')), {
+            return new Response(await search(path.replace('/search/', ''), request.headers.get("host")), {
                 status: 200,
                 headers
             })
@@ -29,11 +29,11 @@ async function handleRequest(request) {
                 headers
             })
         } else if (path.startsWith('/property/')) {
-           return new Response(await property(path.replace('/property/', ''), 'general'), {
-             status: 200,
-             headers
-           })
-         } else {
+            return new Response(await property(path.replace('/property/', ''), 'general'), {
+                status: 200,
+                headers
+            })
+        } else {
             return new Response(JSON.stringify(
                 {
                     "name": "flipkart-scraper",

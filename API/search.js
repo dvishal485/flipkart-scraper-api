@@ -1,4 +1,4 @@
-const search = async (q) => {
+const search = async (q,host) => {
     const searchURL = 'https://www.flipkart.com/search?marketplace=FLIPKART&q=' + q;
     console.log("Search initiated : " + searchURL)
     var webPageContents = await (await fetch(searchURL)).text();
@@ -85,7 +85,8 @@ const search = async (q) => {
                             "current_price": currentPrice,
                             "original_price": originalPrice,
                             "discounted": isDiscounted,
-                            "thumbnail": thumbnail
+                            thumbnail,
+                            "query_url": clean(productLink).replace('www.flipkart.com', host + '/product').replace('dl.flipkart.com', host + '/product')
                         })
                     }
                 } else {
@@ -103,7 +104,8 @@ const search = async (q) => {
                         "current_price": currentPrice,
                         "original_price": originalPrice,
                         "discounted": isDiscounted,
-                        "thumbnail": thumbnail
+                        thumbnail,
+                        "query_url": clean(productLink).replace('www.flipkart.com', host + '/product').replace('dl.flipkart.com', host + '/product')
                     })
                 }
             } else {
@@ -116,6 +118,9 @@ const search = async (q) => {
     }
 
     return JSON.stringify({
+        total_result: result.length,
+        query: q,
+        fetch_from: searchURL,
         result
     }, null, 2)
 
@@ -127,6 +132,7 @@ const clean = (link) => {
     url.searchParams.delete('_appId')
     url.searchParams.delete('_refId')
     url.searchParams.delete('cmpid')
+    url.searchParams.delete('pid')
     url.searchParams.delete('marketplace')
     url.searchParams.delete('ppt')
     url.searchParams.delete('lid')
