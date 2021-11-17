@@ -59,3 +59,8 @@ Deploy your own API with Cloudflare Workers
   - [x] New Project : Telegram bot to notify about price drop alerts
     - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
     - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
+
+# License & Copyright
+
+  - This Project is [Apache-2.0](./LICENSE) Licensed
+  - Copyright 2021 [Vishal Das](https://github.com/dvishal485)
