@@ -19,7 +19,13 @@ const product = async (link, type) => {
         }
         var rating = null, currentPrice = null, properURI = null, productName = null, originalPrice, highlights = [];
         if (doesExist(webPageContents.split('<h1'))) {
-            var productName = webPageContents.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '');
+            var productName = webPageContents.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/<!-- --/g, '').replace(/&nbsp;/g, '');
+            try {
+                var subName = webPageContents.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/<!-- --/g, '').replace(/&nbsp;/g, '')
+                if (subName != '') {
+                    productName += subName
+                }
+            } catch (e) { }
         } else {
             var productName = webPageContents.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
         }
