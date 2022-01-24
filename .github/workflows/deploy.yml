@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers
+name: Deploy
 
 on:
   push:
@@ -7,20 +7,20 @@ on:
   repository_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    name: Build & Deploy
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-      - run: npm install
-      - name: Publish
-        uses: cloudflare/wrangler-action@1.2.0
-        with:
-          apiKey: ${{ secrets.CF_API_KEY }}
-          email: ${{ secrets.CF_EMAIL }}
-        env:
-          CF_ACCOUNT_ID: ${{secrets.CF_ACCOUNT_ID}}
+    - uses: actions/checkout@v1
+    - name: Navigate to repo
+      run: cd $GITHUB_WORKSPACE
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install deps
+      run: npm install
+    - name: Publish
+      uses: cloudflare/wrangler-action@1.2.0
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}
+      env:
+        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
