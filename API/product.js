@@ -1,4 +1,5 @@
 const product = async (link, type) => {
+    const star = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=='
     if (type == 'compact') { var compactResult = true, minimumResult = false; } else if (type == 'minimum') { var compactResult = false, minimumResult = true; } else { var compactResult = false, minimumResult = false; }
     try {
         const uri = encodeURI(link)
@@ -118,7 +119,7 @@ const product = async (link, type) => {
                 }
             }
         } catch (e) { highlights = [] }
-        var isRated = fAssuredDetails[0].split('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==')
+        var isRated = fAssuredDetails[0].split(star)
         if (comingSoon) {
             // products not released yet will not be rated
             var rating = null
@@ -202,9 +203,23 @@ const product = async (link, type) => {
             "in_stock": inStock,
             "f_assured": fassured,
             "share_url": properURI,
+            "seller": {
+                "seller_name": 'Unknown',
+                "seller_rating": null
+            },
             "thumbnails": thumbnails,
             "highlights": highlights
         }
+        try {
+            var seller = webPageContents.split('sellerName')[1]
+            var sellerName = lastEntry(seller.split('</span>')[0].split('<span>'))
+            try {
+                var seller_rating = lastEntry(seller.split(star)[0].split('>')).split('<')[0]
+                if (seller_rating.length <= 3) resultJson["seller"]["seller_rating"] = parseFloat(seller_rating)
+            } catch (e) { }
+            resultJson["seller"]["seller_name"] = sellerName
+        } catch (e) { }
+
         if (!minimumResult) {
             Object.assign(resultJson, {
                 "specs": specs
