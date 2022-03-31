@@ -6,7 +6,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
 ![Flipkart API Banner](./banner.png)
 
-![Version](https://img.shields.io/badge/Version-2.1.0-green)
+![Version](https://img.shields.io/badge/Version-3.0.0-green)
 [![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues)
 [![Telegram](https://img.shields.io/badge/chat-Telegram-blue)](https://t.me/dvishal485)
