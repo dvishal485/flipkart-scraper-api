@@ -147,6 +147,17 @@ const product = async (link, type) => {
             inStock = !inStock
         } catch (e) { }
         if (!minimumResult) {
+            var offers = []
+            try {
+                var offer_section = webPageContents.split('https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90')
+                for (var i = 0; i < offer_section.length; i++) {
+                    try {
+                        offer_section[i] = offer_section[i].split('<li')[1].split('<div')[0].replace(/<span>/g, ' : ').replace(/<\/span>/g, '').split('>')[2].trim()
+                        offers.push(offer_section[i])
+                    }
+                    catch (e) { }
+                }
+            } catch (e) { }
             var specs = []
             try {
                 var specsDetails = webPageContents.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
@@ -223,8 +234,10 @@ const product = async (link, type) => {
 
         if (!minimumResult) {
             Object.assign(resultJson, {
+                "offers": offers,
                 "specs": specs
             });
+            resultJson['offers'] = offers
             resultJson.specs = specs
         }
         if (compactResult || minimumResult) {
