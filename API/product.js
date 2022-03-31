@@ -204,21 +204,22 @@ const product = async (link, type) => {
             "f_assured": fassured,
             "share_url": properURI,
             "seller": {
-                "seller_name": 'Unknown',
+                "seller_name": null,
                 "seller_rating": null
             },
             "thumbnails": thumbnails,
             "highlights": highlights
         }
-        try {
-            var seller = webPageContents.split('sellerName')[1]
-            var sellerName = lastEntry(seller.split('</span>')[0].split('<span>'))
+        if (inStock)
             try {
-                var seller_rating = lastEntry(seller.split(star)[0].split('>')).split('<')[0]
-                if (seller_rating.length <= 3) resultJson["seller"]["seller_rating"] = parseFloat(seller_rating)
+                var seller = webPageContents.split('sellerName')[1]
+                var sellerName = lastEntry(seller.split('</span>')[0].split('<span>'))
+                try {
+                    var seller_rating = lastEntry(seller.split(star)[0].split('>')).split('<')[0]
+                    if (seller_rating.length <= 3) resultJson["seller"]["seller_rating"] = parseFloat(seller_rating)
+                } catch (e) { }
+                resultJson["seller"]["seller_name"] = sellerName
             } catch (e) { }
-            resultJson["seller"]["seller_name"] = sellerName
-        } catch (e) { }
 
         if (!minimumResult) {
             Object.assign(resultJson, {
