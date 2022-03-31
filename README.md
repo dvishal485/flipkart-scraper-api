@@ -38,8 +38,10 @@ Deploy your own API with Cloudflare Workers
       - Stock avalibility (`true` or `false`)
       - Flipkart Assured Product (`true` or `false`)
       - Share URL (More presentable URL)
+      - Seller Information (Seller Name and Rating)
       - Product Thumbnails
       - Highlights
+      - Available Offers / Bank Offers
       - Specifications
 
   - Different Mode with different output size as per requirement    
@@ -50,10 +52,10 @@ Deploy your own API with Cloudflare Workers
 
 # Todo
 
-  - [x] Make code Presentable and Readable
+  - [] Make code Presentable and Readable
   - [x] Extend API for product details
   - [x] Optimize existing code
-  - [x] Improve accuracy
+  - [] Improve accuracy
   - [x] Get product details (price & stock) specific to individual's pincode
     - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
   - [x] New Project : Telegram bot to notify about price drop alerts
