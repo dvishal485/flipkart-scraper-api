@@ -1,6 +1,6 @@
 {
   "name": "flipkart-scraper",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "API to scrapes search result and product details from Flipkart",
   "main": "index.js",
   "scripts": {
