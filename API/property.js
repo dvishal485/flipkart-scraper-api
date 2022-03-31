@@ -20,7 +20,7 @@ const property = async (link) => {
             }
         } catch (e) {
             return JSON.stringify({
-                "error_message": e,
+                "error_message": e.message,
                 "possible_solution": "Validate your link and try removing https://www.flipkart.com from your product link",
                 "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
             })
