@@ -58,10 +58,10 @@ Deploy your own API with Cloudflare Workers
 
 # Todo
 
-  - [] Make code Presentable and Readable
+  - [ ] Make code Presentable and Readable
   - [x] Extend API for product details
   - [x] Optimize existing code
-  - [] Improve accuracy
+  - [ ] Improve accuracy
   - [x] Get product details (price & stock) specific to individual's pincode
     - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
   - [x] New Project : Telegram bot to notify about price drop alerts
