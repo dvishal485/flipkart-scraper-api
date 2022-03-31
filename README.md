@@ -9,11 +9,15 @@ API to scrapes search result and product details from flipkart
 
 **API :** [flipkart.dvishal485.workers.dev/](https://flipkart.dvishal485.workers.dev/)
 
+---
+
 ##  Deployment
 
 Deploy your own API with Cloudflare Workers
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
+
+---
 
 # Features
 
@@ -50,6 +54,8 @@ Deploy your own API with Cloudflare Workers
 
   - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
 
+---
+
 # Todo
 
   - [] Make code Presentable and Readable
@@ -62,7 +68,9 @@ Deploy your own API with Cloudflare Workers
     - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
     - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
 
+---
+
 # License & Copyright
 
   - This Project is [Apache-2.0](./LICENSE) Licensed
-  - Copyright 2021 [Vishal Das](https://github.com/dvishal485)
+  - Copyright 2022 [Vishal Das](https://github.com/dvishal485)
