@@ -39,22 +39,20 @@ async function handleRequest(request) {
                     "name": "flipkart-scraper",
                     "description": "API to scrapes search result and product details from Flipkart",
                     "version": "3.0.0",
-                    "author": "Vishal Das",
-                    "email": "dvishal485@gmail.com",
-                    "documentation": "https://dvishal485.github.io/flipkart-scraper-api/",
+                    "documentation": "https://github.com/ErParmod/flipkart-s/",
                     "usage": {
-                        "search_api": "https://flipkart.dvishal485.workers.dev/search/<product_name>",
-                        "product_api": "https://flipkart.dvishal485.workers.dev/product/<product_link_argument>",
-                        "product_min_api": "https://flipkart.dvishal485.workers.dev/product/min/<product_link_argument>",
-                        "product_compact_api": "https://flipkart.dvishal485.workers.dev/product/compact/<product_link_argument>",
-                        "product_search_specs": "https://flipkart.dvishal485.workers.dev/property/<specs_to_search>/<product_link_argument>"
+                        "search_api": "https://flipkart.chhichora.workers.dev/search/<product_name>",
+                        "product_api": "https://flipkart.chhichora.workers.dev/product/<product_link_argument>",
+                        "product_min_api": "https://flipkart.chhichora.workers.dev/product/min/<product_link_argument>",
+                        "product_compact_api": "https://flipkart.chhichora.workers.dev/product/compact/<product_link_argument>",
+                        "product_search_specs": "https://flipkart.chhichora.workers.dev/property/<specs_to_search>/<product_link_argument>"
                     },
                     "examples": {
-                        "search_api": "https://flipkart.dvishal485.workers.dev/search/smartwatch",
-                        "product_api": "https://flipkart.dvishal485.workers.dev/product/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
-                        "product_min_api": "https://flipkart.dvishal485.workers.dev/product/min/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
-                        "product_compact_api": "https://flipkart.dvishal485.workers.dev/product/compact/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
-                        "product_search_specs": "https://flipkart.dvishal485.workers.dev/property/battery&display/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ"
+                        "search_api": "https://flipkart.chhichora.workers.dev/search/smartwatch",
+                        "product_api": "https://flipkart.chhichora.workers.dev/product/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
+                        "product_min_api": "https://flipkart.chhichora.workers.dev/product/min/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
+                        "product_compact_api": "https://flipkart.chhichora.workers.dev/product/compact/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ",
+                        "product_search_specs": "https://flipkart.chhichora.workers.dev/property/battery&display/dl/huami-amazfit-bip-u-smartwatch/p/itmc6ae7a0e9f440?pid=SMWFY7PPGQTEH2BZ"
                     }
                 }
                 , null, 2), {
