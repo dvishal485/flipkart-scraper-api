@@ -209,21 +209,25 @@ const product = async (link, type) => {
         }
         var resultJson = {
             "name": productName,
-            "current_price": currentPrice,
+            "image": thumbnails,
+            "price": currentPrice,
             "original_price": originalPrice,
             "discounted": isDiscounted,
-            "discount_percent": discount_percent,
-            "rating": parseFloat(rating),
             "in_stock": inStock,
+            "rating_details": {
+                "ratings_count" : 0,
+                "rating" : parseFloat(rating)
+            },
+            "features": highlights,
+            "product_id" : product_id,
+            "product_link":cleanURL,
+            "discount_percent": discount_percent,
             "f_assured": fassured,
             "share_url": properURI,
             "seller": {
                 "seller_name": null,
                 "seller_rating": null
-            },
-            "thumbnails": thumbnails,
-            "highlights": highlights,
-            "product_id" : product_id
+            }
         }
         if (inStock)
             try {
@@ -244,16 +248,32 @@ const product = async (link, type) => {
             resultJson['offers'] = offers
             resultJson.specs = specs
         }
+
+
+        //create combine payload
+        let result_payload = {
+            status: true,
+            'query':uri,
+            fetch_from: `https://www.flipkart.com/${uri}`,
+            "product_detail": resultJson,
+          };
+
+
         if (compactResult || minimumResult) {
-            return JSON.stringify(resultJson)
+            return JSON.stringify(result_payload)
         } else {
-            return JSON.stringify(resultJson, null, 1)
+            //return JSON.stringify(resultJson, null, 1)
+            return JSON.stringify(
+                result_payload,
+                null,
+                2
+              );
         }
     } catch (err) {
         return JSON.stringify({
             "error": "Couldn't fetch information : " + err.message,
             "possible_solution": "Don't lose hope, contact the support",
-            "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
+            "bug_report": "https://github.com/ErParmod/flipkart-s/issues"
         }, null, 2)
     }
 }
