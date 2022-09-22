@@ -1,6 +1,7 @@
 const product = async (link, type) => {
     const star = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=='
     if (type == 'compact') { var compactResult = true, minimumResult = false; } else if (type == 'minimum') { var compactResult = false, minimumResult = true; } else { var compactResult = false, minimumResult = false; }
+    var product_id = null;
     try {
         const uri = encodeURI(link)
         console.log("Product details initiated")
@@ -32,6 +33,7 @@ const product = async (link, type) => {
         }
         try {
             var currentPrice = webPageContents.split('<h1')[1].split(">₹")[1].split("</div>")[0]
+            product_id = webPageContents.split('productId":"')[1].split('","')[0];
         } catch (e) {
             var currentPrice = null
         }
@@ -220,7 +222,8 @@ const product = async (link, type) => {
                 "seller_rating": null
             },
             "thumbnails": thumbnails,
-            "highlights": highlights
+            "highlights": highlights,
+            "product_id" : product_id
         }
         if (inStock)
             try {
