@@ -219,7 +219,7 @@ const product = async (link, type) => {
             },
             "features": highlights,
             "product_id" : product_id,
-            "product_link":cleanURL,
+            "product_link": properURI
         }
         if (inStock)
             try {
