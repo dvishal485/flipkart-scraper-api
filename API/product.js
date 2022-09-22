@@ -209,25 +209,17 @@ const product = async (link, type) => {
         }
         var resultJson = {
             "name": productName,
-            "image": thumbnails,
+            "image": thumbnails[0],
             "price": currentPrice,
             "original_price": originalPrice,
-            "discounted": isDiscounted,
             "in_stock": inStock,
             "rating_details": {
-                "ratings_count" : 0,
+                "ratings_count" : -1,
                 "rating" : parseFloat(rating)
             },
             "features": highlights,
             "product_id" : product_id,
             "product_link":cleanURL,
-            "discount_percent": discount_percent,
-            "f_assured": fassured,
-            "share_url": properURI,
-            "seller": {
-                "seller_name": null,
-                "seller_rating": null
-            }
         }
         if (inStock)
             try {
@@ -243,7 +235,16 @@ const product = async (link, type) => {
         if (!minimumResult) {
             Object.assign(resultJson, {
                 "offers": offers,
-                "specs": specs
+                "specs": specs,
+                "discounted": isDiscounted,
+                "discount_percent": discount_percent,
+                "f_assured": fassured,
+                "share_url": properURI,
+                "seller": {
+                    "seller_name": null,
+                    "seller_rating": null
+                },
+                "thumbnails" : thumbnails    
             });
             resultJson['offers'] = offers
             resultJson.specs = specs
