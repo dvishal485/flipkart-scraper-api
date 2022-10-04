@@ -38,7 +38,7 @@ async function handleRequest(request) {
                 {
                     "name": "flipkart-scraper",
                     "description": "API to scrapes search result and product details from Flipkart",
-                    "version": "3.0.0",
+                    "version": "3.0.2",
                     "author": "Vishal Das",
                     "email": "dvishal485@gmail.com",
                     "documentation": "https://dvishal485.github.io/flipkart-scraper-api/",
