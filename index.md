@@ -26,7 +26,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
   - [Accuracy](#accuracy)
   - [Error Handling](#error-handling)
   - [ToDo](#todo)
-  - [License \& Copyright](#license--copyright)
+  - [License and Copyright](#license-and-copyright)
 
 ---
 
@@ -76,7 +76,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
 ### Search Item
 
-```http
+```
   GET /search/${product_name}
 ```
 
@@ -97,7 +97,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Elaborated
 
-  ```http
+  ```
     GET /product/${product_link_argument}
   ```
 
@@ -153,7 +153,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Compact
 
-  ```http
+  ```
     GET /product/compact/${product_link_argument}
   ```
 
@@ -170,7 +170,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Minimum Mode
 
-  ```http
+  ```
     GET /product/min/${product_link_argument}
   ```
 
@@ -209,15 +209,15 @@ You can increase the resolution of image by changing certain parameters in the t
 
 For example, in the link :
 
-`
+```
 https://rukminim2.flixcart.com/image/312/312/kzfvzww0/computer/r/g/i/hp-laptop-15s-eq2144au-amd-ryzen-5-5500u-8gb-ddr4-512-gb-pcie-original-imagbg5jctdf4xwf.jpeg?q=70
-`
+```
 
 The *312/312* describes the resolution. Just change it to *1024/1024* for product image.
 
-`
+```
 https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop-15s-eq2144au-amd-ryzen-5-5500u-8gb-ddr4-512-gb-pcie-original-imagbg5jctdf4xwf.jpeg?q=70
-`
+```
 
 ---
 
@@ -277,7 +277,7 @@ Deploy your own API with Cloudflare Workers
 
 ---
 
-## License & Copyright
+## License and Copyright
 
 - This Project is [Apache-2.0](./LICENSE) Licensed
 - Copyright 2022 [Vishal Das](https://github.com/dvishal485)
