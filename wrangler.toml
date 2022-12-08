@@ -1,4 +1,3 @@
 name = "flipkart-scraper-api"
 main = "src/index.js"
 compatibility_date = "2022-12-08"
-target_type = "webpack"
