@@ -1,9 +1,3 @@
-name = "flipkart"
-type = 'webpack'
-account_id = ''
-route = ''
-zone_id = ''
-usage_model = ''
-workers_dev = true
-target_type = "webpack"
-compatibility_date = "2021-11-01"
+name = "flipkart-scraper-api"
+main = "src/index.js"
+compatibility_date = "2022-12-08"

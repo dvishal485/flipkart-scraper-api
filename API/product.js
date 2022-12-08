@@ -1,62 +1,81 @@
 const product = async (link, type) => {
     const star = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=='
     if (type == 'compact') { var compactResult = true, minimumResult = false; } else if (type == 'minimum') { var compactResult = false, minimumResult = true; } else { var compactResult = false, minimumResult = false; }
-    var product_id = null;
+
     try {
-        const uri = encodeURI(link)
-        console.log("Product details initiated")
+        const uri = encodeURI(link);
+        console.log("Product details initiated");
         try {
             var webPageContents = await (await fetch('https://www.flipkart.com/' + uri)).text();
-            webPageContents = webPageContents.replace(/&amp;/g, '&')
+            webPageContents = webPageContents.replace(/&amp;/g, '&');
+            webPageContents = webPageContents.replace(/&nbsp;|&#...;/g, '');
+            var comingSoon = doesExist(webPageContents.split('Coming Soon</div>'));
+            var inStock = !doesExist(webPageContents.split('This item is currently out of stock</div>')) || comingSoon;
             // check if page has been moved or deleted
-            if (doesExist(webPageContents.split('for has been moved or deleted'))) {
+            if (webPageContents.includes('for has been moved or deleted'))
                 throw "Link provided doesn't corresponds to any product";
-            }
         } catch (e) {
             return JSON.stringify({
                 "error_message": e.message,
                 "possible_solution": "Validate your link and try removing https://www.flipkart.com from your product link",
                 "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
-            })
+            });
         }
-        var rating = null, currentPrice = null, properURI = null, productName = null, originalPrice, highlights = [];
-        if (doesExist(webPageContents.split('<h1'))) {
-            var productName = webPageContents.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/<!-- --/g, '').replace(/&nbsp;/g, '');
+        let rating = null, currentPrice = null, properURI = null, productName = null, originalPrice, highlights = [], product_id = null;
+
+        // product name
+
+        if (webPageContents.includes('<h1')) {
+            productName = webPageContents.split('<h1')[1].split('</span>')[0].split('">')[2].replace(/<!-- -->/g, '').replace(/<!-- --/g, '');
             try {
-                var subName = webPageContents.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/<!-- --/g, '').replace(/&nbsp;/g, '')
-                if (subName != '') {
-                    productName += subName
-                }
+                var subName = webPageContents.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/<!-- --/g, '');
+                productName += subName;
             } catch (e) { }
         } else {
-            var productName = webPageContents.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '').replace(/&nbsp;/g, '')
+            productName = webPageContents.split('class="B_NuCI')[1].split('</span>')[0].split('>')[1].replace(/<!-- -->/g, '');
         }
+
+        // product price
+
         try {
-            var currentPrice = webPageContents.split('<h1')[1].split(">₹")[1].split("</div>")[0]
+            currentPrice = webPageContents.split('<h1')[1].split(">₹")[1].split("</div>")[0];
+            currentPrice = parseInt(currentPrice.replace(/,/g, ''));
             product_id = webPageContents.split('productId":"')[1].split('","')[0];
-        } catch (e) {
-            var currentPrice = null
-        }
+            var discountDetailsArray = webPageContents.split('<h1')[1].split(">₹")[2].split("</div>")[0].split('<!-- -->');
+            originalPrice = parseInt(discountDetailsArray[1].replace(/,/g, ''));
+        } catch (e) { originalPrice = currentPrice; }
+
         try {
-            var discountDetailsArray = webPageContents.split('<h1')[1].split(">₹")[2].split("</div>")[0].split('<!-- -->')
-            var isDiscounted = doesExist(discountDetailsArray)
-        } catch (e) {
-            var isDiscounted = false
-        }
-        // thumbnail finder mechanism works on pattern based on comman flipkart products
-        // may not work with each and every product page
-        var thumbnailDetailsArray = webPageContents.split('height:64px')
-        var thumbnails = []
+            if (currentPrice == null || currentPrice == undefined || currentPrice == NaN || currentPrice < 1) {
+                currentPrice = parseInt(webPageContents.split(`_30jeq3 _16Jk6d`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
+            }
+        } catch (e) { }
+
+        try {
+            if (originalPrice == null || originalPrice == undefined || originalPrice == NaN || originalPrice < 1) {
+                originalPrice = parseInt(webPageContents.split(`_3I9_wc _2p6lqe`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
+            }
+        } catch (e) { }
+
+        let discount_percent = parseInt(100 * (1 - currentPrice / originalPrice))
+
+        // product thumbnail
+
+        /* thumbnail finder mechanism works on pattern
+        based on comman flipkart products may not work
+        with each and everyproduct page */
+        let thumbnailDetailsArray = webPageContents.split('height:64px');
+        let thumbnails = [];
         if (doesExist(thumbnailDetailsArray)) {
-            thumbnails = makeThumbnails(thumbnailDetailsArray)
+            thumbnails = makeThumbnails(thumbnailDetailsArray);
         } else {
-            thumbnailDetailsArray = webPageContents.split('_20Gt85 _1Y')
+            thumbnailDetailsArray = webPageContents.split('_20Gt85 _1Y');
             if (doesExist(thumbnailDetailsArray)) {
-                thumbnails = makeThumbnails(thumbnailDetailsArray)
+                thumbnails = makeThumbnails(thumbnailDetailsArray);
             } else {
-                thumbnailDetailsArray = webPageContents.split('_2r_T1I')
+                thumbnailDetailsArray = webPageContents.split('_2r_T1I');
                 if (doesExist(thumbnailDetailsArray)) {
-                    thumbnails = makeThumbnails(thumbnailDetailsArray)
+                    thumbnails = makeThumbnails(thumbnailDetailsArray);
                 }
             }
         }
@@ -64,154 +83,160 @@ const product = async (link, type) => {
         // as the image alt usually contains the product name only
         if (thumbnails.length == 0) {
             try {
-                var thumbnailDetailsUsingName = productName.split('(')[0].trim()
-                var thumb = webPageContents.split(`alt="${thumbnailDetailsUsingName}`)
-                thumb = thumb[1].split('src="')[1].split('"')[0]
-                thumbnails.push(thumb)
+                let thumbnailDetailsUsingName = productName.split('(')[0].trim();
+                let thumb = webPageContents.split(`alt="${thumbnailDetailsUsingName}`);
+                if (thumb.length == 1) {
+                    thumb = webPageContents.split(`alt="${thumbnailDetailsUsingName.slice(0, 5)}}`);
+                }
+                thumb = thumb[1].split('src="')[1].split('"')[0];
+                thumbnails.push(thumb);
             } catch (e) { }
         }
+
+        // fassured
+        let fassured = false;
         try {
-            var fAssuredDetails = webPageContents.split('<h1')[1].split('Product Description')[0].split('fk-cp-zion/img/fa_62673a.png')
-            var fassured = doesExist(fAssuredDetails)
+            var fAssuredDetails = webPageContents.split('<h1')[1].split('Product Description')[0].split('fk-cp-zion/img/fa_62673a.png');
+            fassured = doesExist(fAssuredDetails);
         } catch (e) {
-            var fassured = doesExist(webPageContents.split('Product Description')[0].split('fk-cp-zion/img/fa_62673a.png'))
+            fassured = doesExist(webPageContents.split('Product Description')[0].split('fk-cp-zion/img/fa_62673a.png'));
         }
+
+        // page url
+
         try {
-            currentPrice = parseInt(currentPrice.replace(/,/g, ''))
-            if (isDiscounted) {
-                originalPrice = parseInt(discountDetailsArray[1].replace(/,/g, ''))
-            } else { originalPrice = currentPrice }
-        } catch (e) {
-            originalPrice = null
-        }
-        try {
-            var smallUri = webPageContents.split('product.share.pp"')
+            let smallUri = webPageContents.split('product.share.pp"');
             if (doesExist(smallUri)) {
-                smallUri = lastEntry(smallUri[smallUri.length - 2].split('"')) + 'product.share.pp'
-                properURI = smallUri
+                smallUri = lastEntry(smallUri[smallUri.length - 2].split('"')) + 'product.share.pp';
+                properURI = smallUri;
             }
-            if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI }
-            if (uri.split('/')[0] == '') { var x = 1 } else { var x = 0 }
+            if (properURI[0] == '/') { properURI = 'https://www.flipkart.com' + properURI; }
+            let x = 0;
+            if (uri.split('/')[0] == '') { x = 1; }
+            let properURI2 = `https://www.flipkart.com/${uri}`;
             if (uri.split('/')[x] == 's' || uri.split('/')[x] == 'dl') {
-                var properURI2 = `https://dl.flipkart.com/${uri}`
-            } else {
-                var properURI2 = `https://www.flipkart.com/${uri}`
+                properURI2 = `https://dl.flipkart.com/${uri}`;
             }
-            properURI2 = cleanURL(properURI2)
-            properURI = cleanURL(properURI)
+            properURI2 = cleanURL(properURI2);
+            properURI = cleanURL(properURI);
             if (properURI2.length < properURI.length || doesExist(String(properURI).toLowerCase().split('login'))) {
-                properURI = properURI2
+                properURI = properURI2;
             }
         } catch (e) {
+            properURI = cleanURL(`https://www.flipkart.com/${uri}`);
             if (uri.split('/')[0] == 's' || uri.split('/')[0] == 'dl') {
-                var properURI = `https://dl.flipkart.com/${uri}`
-            } else {
-                var properURI = `https://www.flipkart.com/${uri}`
+                properURI = cleanURL(`https://dl.flipkart.com/${uri}`);
             }
         }
-        var comingSoon = doesExist(webPageContents.split('Coming Soon</div>'))
-        var inStock = doesExist(webPageContents.split('This item is currently out of stock</div>')) || comingSoon
+
+        // product highlights
+
         try {
-            var highlightsDetails = webPageContents.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li')
+            let highlightsDetails = webPageContents.split('Highlights')[1].split('</ul>')[0].replace(/<\/li>/g, '').split('<li');
             if (doesExist(highlightsDetails)) {
                 for (var i = 1; i < highlightsDetails.length; i++) {
                     try {
-                        highlights.push(highlightsDetails[i].split('>')[1])
+                        highlights.push(highlightsDetails[i].split('>')[1]);
                     } catch (e) { }
                 }
             }
-        } catch (e) { highlights = [] }
-        var isRated = fAssuredDetails[0].split(star)
+        } catch (e) { highlights = []; }
+
+        // product rating
+
+        var isRated = fAssuredDetails[0].split(star);
         if (comingSoon) {
-            // products not released yet will not be rated
-            var rating = null
+            // products not released, so will not be rated
+            rating = null;
         } else {
             if (doesExist(isRated)) {
-                var ratingDetails = isRated[0].split('">')
-                var rating = lastEntry(ratingDetails).split('<')[0]
+                let ratingDetails = isRated[0].split('">');
+                rating = lastEntry(ratingDetails).split('<')[0];
             } else {
                 try {
-                    var rating = webPageContents.split(`_3LWZlK`)[1].split(`<`)[0].split(`>`)[1].trim()
+                    rating = webPageContents.split(`_3LWZlK`)[1].split(`<`)[0].split(`>`)[1].trim();
                 } catch (e) { }
             }
         }
-        if (currentPrice == null || currentPrice == undefined || currentPrice == NaN || currentPrice < 1) {
-            currentPrice = parseInt(webPageContents.split(`_30jeq3 _16Jk6d`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
-        }
-        if (originalPrice == null || originalPrice == undefined || originalPrice == NaN || originalPrice < 1) {
-            originalPrice = parseInt(webPageContents.split(`_3I9_wc _2p6lqe`)[1].split(`</div>`)[0].split(`>`)[1].replace(/₹/g, '').replace(/,/g, ''))
-        }
-        var discount_percent = parseInt(100 * (1 - currentPrice / originalPrice))
+
         try {
             // final changes
-            productName = productName.replace(/&#x27;/g, `'`).trim()
-            properURI = properURI.replace('http://', 'https://')
-            inStock = !inStock
+            productName = productName.replace(/&#x27;/g, `'`).trim();
+            properURI = properURI.replace('http://', 'https://');
         } catch (e) { }
+
+        // product offers
+
         if (!minimumResult) {
-            var offers = []
+            var offers = [];
             if (inStock)
                 try {
-                    var offer_section = webPageContents.split('https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90')
+                    let offer_section = webPageContents.split('https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90');
                     for (var i = 0; i < offer_section.length; i++) {
                         try {
                             offer_section[i] = offer_section[i].split('<li')[1].split('<div')[0].replace(/<span>/g, ' : ').replace(/<\/span>/g, '').split('>')[2].trim()
-                            offers.push(offer_section[i])
+                            offers.push(offer_section[i]);
                         }
                         catch (e) { }
                     }
                 } catch (e) { }
-            var specs = []
+
+            // product specifications
+
+            var specs = [];
             try {
-                var specsDetails = webPageContents.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table')
-            } catch (e) { var specsDetails = [] }
-            for (var i = 1; i < specsDetails.length; i++) {
-                try {
-                    var compactDetails = '';
-                    var specsData = [];
-                    var headingDetails = specsDetails[i - 1].split('>')
-                    var heading = lastEntry(headingDetails)
-                    var specsTable = specsDetails[i].split('</td>')
-                    var k;
-                    for (k = 1; k < specsTable.length; k = k + 2) {
-                        try {
-                            var td = specsTable[k - 1].split('>')
-                            var property = lastEntry(td)
-                            var tr = specsTable[k].split('</li>')[0].split('>')
-                            var propertyValue = lastEntry(tr)
-                            if (property != null && property != "" && propertyValue.split("<").length == 1 && propertyValue != "") {
-                                if (!compactResult) {
-                                    specsData.push({
-                                        "property": property,
-                                        "value": propertyValue
-                                    })
-                                } else {
-                                    compactDetails += property + ' : ' + propertyValue + '; '
+                let specsDetails = webPageContents.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table');
+                for (var i = 1; i < specsDetails.length; i++) {
+                    try {
+                        var compactDetails = '';
+                        var specsData = [];
+                        var headingDetails = specsDetails[i - 1].split('>');
+                        var heading = lastEntry(headingDetails);
+                        var specsTable = specsDetails[i].split('</td>');
+                        var k;
+                        for (k = 1; k < specsTable.length; k = k + 2) {
+                            try {
+                                var td = specsTable[k - 1].split('>');
+                                var property = lastEntry(td);
+                                var tr = specsTable[k].split('</li>')[0].split('>');
+                                var propertyValue = lastEntry(tr);
+                                if (property != null && property != "" && propertyValue.split("<").length == 1 && propertyValue != "") {
+                                    if (!compactResult) {
+                                        specsData.push({
+                                            "property": property,
+                                            "value": propertyValue
+                                        });
+                                    } else {
+                                        compactDetails += property + ' : ' + propertyValue + '; ';
+                                    }
                                 }
-                            }
-                        } catch (e) { }
-                    }
-                    if (specsData != []) {
-                        if (!compactResult) {
-                            specs.push({
-                                "title": heading,
-                                "details": specsData
-                            })
-                        } else {
-                            specs.push({
-                                "title": heading,
-                                "details": compactDetails
-                            })
+                            } catch (e) { }
                         }
-                    }
-                } catch (e) { }
-            }
+                        if (specsData != []) {
+                            if (!compactResult) {
+                                specs.push({
+                                    "title": heading,
+                                    "details": specsData
+                                });
+                            } else {
+                                specs.push({
+                                    "title": heading,
+                                    "details": compactDetails
+                                });
+                            }
+                        }
+                    } catch (e) { }
+                }
+            } catch (e) { }
         }
+
+        // result
+
         var resultJson = {
             "name": productName,
             "current_price": currentPrice,
             "original_price": originalPrice,
-            "discounted": isDiscounted,
+            "discounted": originalPrice != currentPrice,
             "discount_percent": discount_percent,
             "rating": parseFloat(rating),
             "in_stock": inStock,
@@ -223,8 +248,11 @@ const product = async (link, type) => {
             },
             "thumbnails": thumbnails,
             "highlights": highlights,
-            "product_id" : product_id
+            "product_id": product_id
         }
+
+        // seller details
+
         if (inStock)
             try {
                 var seller = webPageContents.split('sellerName')[1]
@@ -258,26 +286,27 @@ const product = async (link, type) => {
     }
 }
 
-function lastEntry(x) { return x[x.length - 1] }
-function doesExist(x) { return x.length > 1 }
+function lastEntry(x) { return x[x.length - 1]; }
+function doesExist(x) { return x.length > 1; }
 function makeThumbnails(locationArray) {
-    var thumbnails = []
+    let thumbnails = [];
     for (var i = 1; i < locationArray.length; i++) {
         try {
-            var thumbnailDetails = locationArray[i].split('</div>')[0].split('background-image:url(')[1].split(')')[0]
-            thumbnails.push(thumbnailDetails)
+            var thumbnailDetails = locationArray[i].split('</div>')[0].split('background-image:url(')[1].split(')')[0];
+            thumbnails.push(thumbnailDetails);
         } catch (e) { }
     }
-    return thumbnails
+    return thumbnails;
 }
 
 const cleanURL = (url) => {
     // delete useless parameters from product page url
-    url = new URL(url)
-    url.searchParams.delete('_appId')
-    url.searchParams.delete('pid')
-    url.searchParams.delete('_refId')
-    url.searchParams.delete('cmpid')
-    return url.toString()
+    url = new URL(url);
+    url.searchParams.delete('_appId');
+    url.searchParams.delete('pid');
+    url.searchParams.delete('_refId');
+    url.searchParams.delete('cmpid');
+    return url.toString();
 }
+
 export default product
