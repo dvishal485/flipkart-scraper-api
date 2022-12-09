@@ -1,3 +1,9 @@
+/* Copyright 2022 Vishal Das
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+*/
+
 import header from './header.js';
 import product from '../API/product';
 import search from '../API/search';

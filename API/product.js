@@ -1,3 +1,9 @@
+/* Copyright 2022 Vishal Das
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+*/
+
 const product = async (link, type) => {
     const star = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=='
     if (type == 'compact') { var compactResult = true, minimumResult = false; } else if (type == 'minimum') { var compactResult = false, minimumResult = true; } else { var compactResult = false, minimumResult = false; }
@@ -188,18 +194,17 @@ const product = async (link, type) => {
                 let specsDetails = webPageContents.split('Specifications</div>')[1].split('>Safe and Secure Payments.')[0].replace(/&amp;/g, '&').split('</div><table');
                 for (var i = 1; i < specsDetails.length; i++) {
                     try {
-                        var compactDetails = '';
+                        let compactDetails = '';
                         var specsData = [];
-                        var headingDetails = specsDetails[i - 1].split('>');
-                        var heading = lastEntry(headingDetails);
-                        var specsTable = specsDetails[i].split('</td>');
-                        var k;
-                        for (k = 1; k < specsTable.length; k = k + 2) {
+                        let headingDetails = specsDetails[i - 1].split('>');
+                        let heading = lastEntry(headingDetails);
+                        let specsTable = specsDetails[i].split('</td>');
+                        for (let k = 1; k < specsTable.length; k = k + 2) {
                             try {
-                                var td = specsTable[k - 1].split('>');
-                                var property = lastEntry(td);
-                                var tr = specsTable[k].split('</li>')[0].split('>');
-                                var propertyValue = lastEntry(tr);
+                                let td = specsTable[k - 1].split('>');
+                                let property = lastEntry(td);
+                                let tr = specsTable[k].split('</li>')[0].split('>');
+                                let propertyValue = lastEntry(tr);
                                 if (property != null && property != "" && propertyValue.split("<").length == 1 && propertyValue != "") {
                                     if (!compactResult) {
                                         specsData.push({
@@ -286,6 +291,8 @@ const product = async (link, type) => {
     }
 }
 
+// helper functions
+
 function lastEntry(x) { return x[x.length - 1]; }
 function doesExist(x) { return x.length > 1; }
 function makeThumbnails(locationArray) {
@@ -300,7 +307,7 @@ function makeThumbnails(locationArray) {
 }
 
 const cleanURL = (url) => {
-    // delete useless parameters from product page url
+    // delete unnecessary parameters from product page url
     url = new URL(url);
     url.searchParams.delete('_appId');
     url.searchParams.delete('pid');

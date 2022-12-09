@@ -1,3 +1,9 @@
+/* Copyright 2022 Vishal Das
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+*/
+
 // THIS SCRIPT IS SUPPOSED TO BE PARALLEL WITH product.js
 // and won't be considered to be updated with time as is 
 // not actively of much use and can be implemented easily

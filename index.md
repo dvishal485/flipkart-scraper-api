@@ -19,7 +19,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
     - [Note](#note)
   - [API Reference](#api-reference)
     - [Search Item](#search-item)
-      - [Product Link Argument](#product-link-argument)
+    - [Product Link Argument](#product-link-argument)
     - [Product Details](#product-details)
   - [Increasing Resolution of Image](#increasing-resolution-of-image)
   - [Deployment](#deployment)
@@ -89,7 +89,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 - [View live demo](https://flipkart.dvishal485.workers.dev/search/laptop)
 - [View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-search.json)
 
-#### Product Link Argument
+### Product Link Argument
 
 Link argument of a product will be URL of Flipkart product after removing the `https://www.flipkart.com/` or any other similar component from it.
 
@@ -265,15 +265,18 @@ Deploy your own API with Cloudflare Workers
 
 ## ToDo
 
-- [ ] Make code Presentable and Readable
-- [x] Extend API for product details
-- [x] Optimize existing code
-- [ ] Support for newer deployment methods
-- [x] Get product details (price & stock) specific to individual's pincode
-  - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
-- [x] New Project : Telegram bot to notify about price drop alerts
-  - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
-  - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
+[ ] Make code Presentable and Readable
+[x] Extend API for product details
+[x] Optimize existing code
+[ ] Support for newer deployment methods
+[x] Get product details (price & stock) specific to individual's pincode
+
+- Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
+
+[x] New Project : Telegram bot to notify about price drop alert
+
+- Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
+- The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
 
 ---
 
