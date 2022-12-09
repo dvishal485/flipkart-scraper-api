@@ -63,7 +63,7 @@ Deploy your own API with Cloudflare Workers
 
 ## ToDo
 
-[ ] Make code Presentable and Readable
+[x] Make code Presentable and Readable
 [x] Extend API for product details
 [x] Optimize existing code
 [ ] Support for newer deployment methods
