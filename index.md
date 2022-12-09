@@ -76,7 +76,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
 ### Search Item
 
-```
+```;
   GET /search/${product_name}
 ```
 
@@ -97,7 +97,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Elaborated
 
-  ```
+  ```;
     GET /product/${product_link_argument}
   ```
 
@@ -111,7 +111,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
   The response will be given in following JSON format :
 
-  ```t
+  ```javascript
   {
     "name": "Product Full Name",
     "current_price": current_price,
@@ -153,7 +153,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Compact
 
-  ```
+  ```;
     GET /product/compact/${product_link_argument}
   ```
 
@@ -170,7 +170,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Minimum Mode
 
-  ```
+  ```;
     GET /product/min/${product_link_argument}
   ```
 
@@ -185,7 +185,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 - Property Mode *(Deprecated)*
 
-  ```http
+  ```;
     GET /property/${specs_to_search}/${product_link_argument}
   ```
 
@@ -209,13 +209,13 @@ You can increase the resolution of image by changing certain parameters in the t
 
 For example, in the link :
 
-```
+```;
 https://rukminim2.flixcart.com/image/312/312/kzfvzww0/computer/r/g/i/hp-laptop-15s-eq2144au-amd-ryzen-5-5500u-8gb-ddr4-512-gb-pcie-original-imagbg5jctdf4xwf.jpeg?q=70
 ```
 
 The *312/312* describes the resolution. Just change it to *1024/1024* for product image.
 
-```
+```;
 https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop-15s-eq2144au-amd-ryzen-5-5500u-8gb-ddr4-512-gb-pcie-original-imagbg5jctdf4xwf.jpeg?q=70
 ```
 
