@@ -1,6 +1,8 @@
-<link rel="shortcut icon" type="image/png" href="/favicon.png">
-
 # Flipkart Scraper API
+
+<head>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+</head>
 
 API to scrapes search result and product details from flipkart
 
