@@ -1,4 +1,5 @@
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
 
 # Flipkart Scraper API
 
