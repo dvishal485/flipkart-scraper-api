@@ -98,6 +98,17 @@ const product = async (link, type) => {
                 thumbnails.push(thumb);
             } catch (e) { }
         }
+        try {
+            let imgArray = webPageContents.split('<img src="');
+            imgArray.shift();
+            for (let i of imgArray) {
+                i = i.split('"')[0];
+                if (!i.includes('promos') && i.slice(-2).match(/^\d+$/) && parseInt(i.slice(-2)) >= 50) {
+                    if (!thumbnails.includes(i))
+                        thumbnails.push(i);
+                }
+            }
+        } catch (e) { }
 
         // fassured
         let fassured = false;
