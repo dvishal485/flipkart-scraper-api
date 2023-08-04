@@ -18,9 +18,9 @@ API to scrapes search result and product details from flipkart
 
 ## Deployment
 
-Deploy your own API with Cloudflare Workers
+Deployment is supported on Cloudflare Worker, using Node, and using Docker Image.
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
+[For more information on Deployment, refer documentation.](https://dvishal485.github.io/flipkart-scraper-api/#deployment)
 
 ---
 

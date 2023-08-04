@@ -11,7 +11,7 @@ import property from '../API/property.js'
 
 const metadata = (hostname) => {
     return {
-        "name": "flipkart-scraper",
+        "name": "flipkart-scraper-api",
         "description": "API to scrapes search result and product details from Flipkart",
         "version": "3.1.2",
         "author": "Vishal Das",

@@ -227,9 +227,53 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 
 ## Deployment
 
-Deploy your own API with Cloudflare Workers
+1. Deploy using Docker.
+- Fork and clone the repository on your system.
+
+  ```bash
+  git clone https://github.com/dvishal485/flipkart-scraper-api.git
+  ```
+- Build docker image.
+
+  ```bash
+  docker build . --tag flipkart-scraper-api
+  ```
+- Start container from image.
+
+  ```bash
+  docker run -p3000:3000 localhost/flipkart-scraper-api
+  ```
+- API is now running actively on localhost with port 3000.
+- This by default uses express js to serve routes. If you want exact behaviour replicated, you can run docker container with command `test`.
+  ```bash
+  docker run -p3000:3000 localhost/flipkart-scraper-api test
+  ```
+
+2. Deploy with Cloudflare Workers
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
+
+3. Deploy with Node
+- Make sure `node` and some package manager are installed on your system.
+- Fork and clone the repository on your system.
+
+  ```bash
+  git clone https://github.com/dvishal485/flipkart-scraper-api.git
+  ```
+- Install required dependencies.
+
+  ```bash
+  npm install
+  ```
+- Run the server.
+  ```bash
+  npm run start
+  ```
+- You can optionally run using Cloudflare's official wrangler tool as well.
+  ```bash
+  npm install -g wrangler
+  WRANGLER_SEND_METRICS=false wrangler dev
+  ```
 
 ---
 
