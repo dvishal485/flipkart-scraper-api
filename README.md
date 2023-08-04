@@ -12,13 +12,17 @@ API to scrapes search result and product details from flipkart
 
 **For documentation visit :** [Flipkart Scraper API](https://dvishal485.github.io/flipkart-scraper-api/)
 
-**API :** [flipkart.dvishal485.workers.dev/](https://flipkart.dvishal485.workers.dev/)
+**API :** [flipkart-scraper-api.dvishal485.workers.dev/](https://flipkart-scraper-api.dvishal485.workers.dev/)
 
 ---
 
 ## Deployment
 
-Deployment is supported on Cloudflare Worker, using Node, and using Docker Image.
+![Docker](https://img.shields.io/badge/Docker--blue?logo=docker)
+![Cloudflare](https://img.shields.io/badge/Cloudflare--orange?logo=cloudflare)
+![NodeJS](https://img.shields.io/badge/NodeJS--yellow?logo=javascript)
+
+Deployment is supported on [Cloudflare Worker](https://dvishal485.github.io/flipkart-scraper-api/#deploy-with-cloudflare-workers), using [NodeJS](https://dvishal485.github.io/flipkart-scraper-api#deploy-with-nodejs), and using [Docker Image](https://dvishal485.github.io/flipkart-scraper-api#deploy-using-docker).
 
 [For more information on Deployment, refer documentation.](https://dvishal485.github.io/flipkart-scraper-api/#deployment)
 

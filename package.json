@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node server.js",
         "test": "wrangler dev --port 3000",
-        "deploy": "wrangler publish"
+        "deploy": "wrangler deploy --minify"
     },
     "repository": {
         "type": "git",

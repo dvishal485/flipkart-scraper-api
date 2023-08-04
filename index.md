@@ -27,6 +27,9 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
     - [Product Details](#product-details)
   - [Increasing Resolution of Image](#increasing-resolution-of-image)
   - [Deployment](#deployment)
+    - [Deploy using Docker](#deploy-using-docker)
+    - [Deploy with Cloudflare Workers](#deploy-with-cloudflare-workers)
+    - [Deploy with NodeJS](#deploy-with-nodejs)
   - [Accuracy](#accuracy)
   - [Error Handling](#error-handling)
   - [ToDo](#todo)
@@ -72,7 +75,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 ### Note
 
 - All the amounts are in currency INR
-- You can also explore products by [passing an empty search command](https://flipkart.dvishal485.workers.dev/search/)
+- You can also explore products by [passing an empty search command](https://flipkart-scraper-api.dvishal485.workers.dev/search/)
 
 ---
 
@@ -90,7 +93,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 
   Example :
 
-- [View live demo](https://flipkart.dvishal485.workers.dev/search/laptop)
+- [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/search/laptop)
 - [View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-search.json)
 
 ### Product Link Argument
@@ -110,7 +113,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
   | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
 
   Example :
-  - [View live demo](https://flipkart.dvishal485.workers.dev/product/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
+  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/product/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
   - [View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-product.json)
 
   The response will be given in following JSON format :
@@ -166,7 +169,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
   | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
 
   Example :
-  - [View live demo](https://flipkart.dvishal485.workers.dev/product/compact/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
+  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/product/compact/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
 
   Returns same information but the sub-specifications are merged into one group, each seperated by `;`
 
@@ -183,7 +186,7 @@ Link argument of a product will be URL of Flipkart product after removing the `h
   | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
 
   Example :
-  - [View live demo](https://flipkart.dvishal485.workers.dev/product/min/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
+  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/product/min/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
 
   Returns information without Specifications reducing the size of output largely.
 
@@ -199,9 +202,9 @@ Link argument of a product will be URL of Flipkart product after removing the `h
   | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
 
   Example :
-  - [View live demo](https://flipkart.dvishal485.workers.dev/property/battery&display/s/kzZg7WuuuN)
+  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/property/battery&display/s/kzZg7WuuuN)
   
-  In the given example, we are get all the specs containg `battery` or `display` in the product with link argument [`s/kzZg7WuuuN`](https://flipkart.dvishal485.workers.dev/product/s/kzZg7WuuuN)
+  In the given example, we are get all the specs containg `battery` or `display` in the product with link argument [`s/kzZg7WuuuN`](https://flipkart-scraper-api.dvishal485.workers.dev/product/s/kzZg7WuuuN)
   
   Replies with product details and only those specifications which are mentioned to be searched.
 
@@ -227,49 +230,61 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 
 ## Deployment
 
-1. Deploy using Docker.
+### Deploy using Docker
+
 - Fork and clone the repository on your system.
 
-  ```bash
-  git clone https://github.com/dvishal485/flipkart-scraper-api.git
-  ```
+    ```bash
+    git clone https://github.com/dvishal485/flipkart-scraper-api.git
+    cd flipkart-scraper-api
+    ```
+
 - Build docker image.
 
-  ```bash
-  docker build . --tag flipkart-scraper-api
-  ```
+    ```bash
+    docker build . --tag flipkart-scraper-api
+    ```
+
 - Start container from image.
 
-  ```bash
-  docker run -p3000:3000 localhost/flipkart-scraper-api
-  ```
+    ```bash
+    docker run -p3000:3000 localhost/flipkart-scraper-api
+    ```
+
 - API is now running actively on localhost with port 3000.
 - This by default uses express js to serve routes. If you want exact behaviour replicated, you can run docker container with command `test`.
-  ```bash
-  docker run -p3000:3000 localhost/flipkart-scraper-api test
-  ```
 
-2. Deploy with Cloudflare Workers
+    ```bash
+    docker run -p3000:3000 localhost/flipkart-scraper-api test
+    ```
+
+### Deploy with Cloudflare Workers
 
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
 
-3. Deploy with Node
+### Deploy with NodeJS
+
 - Make sure `node` and some package manager are installed on your system.
 - Fork and clone the repository on your system.
 
   ```bash
   git clone https://github.com/dvishal485/flipkart-scraper-api.git
   ```
+
 - Install required dependencies.
 
   ```bash
   npm install
   ```
+
 - Run the server.
+
   ```bash
   npm run start
   ```
+
 - You can optionally run using Cloudflare's official wrangler tool as well.
+
   ```bash
   npm install -g wrangler
   WRANGLER_SEND_METRICS=false wrangler dev
