@@ -1,4 +1,4 @@
-/* Copyright 2022 Vishal Das
+/* Copyright 2023 Vishal Das
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,11 +25,11 @@ const property = async (link) => {
                 throw "Link provided doesn't corresponds to any product";
             }
         } catch (e) {
-            return JSON.stringify({
+            return {
                 "error_message": e.message,
                 "possible_solution": "Validate your link and try removing https://www.flipkart.com from your product link",
                 "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
-            })
+            }
         }
         var rating = null, price = null, properURI = null, title = null, oprice, highlights = [];
         if (doesExist(webPage.split('<h1'))) {
@@ -166,7 +166,7 @@ const property = async (link) => {
                 }
             } catch (e) { }
         }
-        return JSON.stringify({
+        return {
             "name": title.replace(/&#x27;/g, `'`).trim(),
             "current_price": price,
             "original_price": oprice,
@@ -179,13 +179,13 @@ const property = async (link) => {
             "thumbnails": thumbnails,
             "highlights": highlights,
             "desired_specs": specs
-        })
+        };
     } catch (err) {
-        return JSON.stringify({
+        return {
             "error": "Couldn't fetch information : " + err.message,
             "possible_solution": "Don't lose hope, contact the support",
             "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
-        })
+        }
     }
 }
 

@@ -4,7 +4,7 @@ API to scrapes search result and product details from flipkart
 
 ![Flipkart API Banner](/banner.png)
 
-![Version](https://img.shields.io/badge/Version-3.1.0-green)
+![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2Fpackage.json&query=%24.version&label=version&color=green)
 [![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues)
 [![Telegram](https://img.shields.io/badge/-dvishal485-blue?style=flat&logo=telegram)](https://t.me/dvishal485)
@@ -66,7 +66,7 @@ Deploy your own API with Cloudflare Workers
 - [x] Make code Presentable and Readable
 - [x] Extend API for product details
 - [x] Optimize existing code
-- [ ] [Support for newer deployment methods](https://github.com/dvishal485/flipkart-scraper-api/issues/5)
+- [x] [Support for newer deployment methods](https://github.com/dvishal485/flipkart-scraper-api/issues/5)
 - [x] Get product details (price & stock) specific to individual's pincode
 
   - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
@@ -81,4 +81,4 @@ Deploy your own API with Cloudflare Workers
 ## License & Copyright
 
 - This Project is [Apache-2.0](./LICENSE) Licensed
-- Copyright 2022 [Vishal Das](https://github.com/dvishal485)
+- Copyright 2023 [Vishal Das](https://github.com/dvishal485)

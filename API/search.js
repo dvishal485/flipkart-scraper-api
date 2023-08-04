@@ -1,4 +1,4 @@
-/* Copyright 2022 Vishal Das
+/* Copyright 2023 Vishal Das
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -139,12 +139,12 @@ const search = async (q, host) => {
         }
     }
 
-    return JSON.stringify({
+    return {
         total_result: result.length,
         query: q,
         fetch_from: searchURL,
         result
-    }, null, 2);
+    };
 
 }
 
