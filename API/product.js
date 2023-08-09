@@ -188,10 +188,11 @@ const product = async (link, type) => {
             var offers = [];
             if (inStock)
                 try {
+                    // this is offer icon image
                     let offer_section = webPageContents.split('https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90');
                     for (var i = 0; i < offer_section.length; i++) {
                         try {
-                            offer_section[i] = offer_section[i].split('<li')[1].split('<div')[0].replace(/<span>/g, ' : ').replace(/<\/span>/g, '').split('>')[2].trim()
+                            offer_section[i] = offer_section[i].split('<li')[1].split('<div')[0].replace(/<span>/g, ' : ').replace(/<\/span>/g, '').split('>')[2].trim().split("<")[0]
                             offers.push(offer_section[i]);
                         }
                         catch (e) { }
@@ -223,13 +224,14 @@ const product = async (link, type) => {
                                             "value": propertyValue
                                         });
                                     } else {
-                                        compactDetails += property + ' : ' + propertyValue + '; ';
+                                        compactDetails += property + ':' + propertyValue + ';';
                                     }
                                 }
                             } catch (e) { }
                         }
-                        if (specsData && specsData.length > 0) {
-                            if (!compactResult) {
+                        console.log(specsData);
+                        if (compactDetails || specsData.length > 0) {
+                            if (specsData.length > 0) {
                                 specs.push({
                                     "title": heading,
                                     "details": specsData
