@@ -2,6 +2,8 @@
 
 API to scrapes search result and product details from flipkart
 
+*Disclaimer: * I am not affiliated or linked to flipkart in anyway. This repository is an exploratory project and not meant for commercial use.
+
 ![Flipkart API Banner](/banner.png)
 
 ![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2Fpackage.json&query=%24.version&label=version&color=green)
