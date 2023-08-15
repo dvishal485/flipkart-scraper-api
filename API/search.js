@@ -21,7 +21,7 @@ const search = async (q, host) => {
         // Updates will be difficult and editing is not recommened in
         // this script until and unless you know what each line does.
         try {
-            let currentPrice = null, originalPrice = null, productLink = null, productName = null, isDiscounted = false, thumbnail = [];
+            let currentPrice = null, originalPrice = null, productLink = null, productName = null, isDiscounted = false, thumbnail = null;
             let linkDetails = null, lastLinkIndex = null, linkDetailsFinder = null
 
             // product price
@@ -114,7 +114,7 @@ const search = async (q, host) => {
                         if (thumbnail.length == 1)
                             thumbnail = webPageContents.split(`alt="${productName.slice(0, 5)}`);
                         thumbnail = thumbnail[1].split('src="')[1].split('"')[0];
-                    } catch (e) { thumbnail = []; }
+                    } catch (e) { thumbnail = null; }
                     if (i + 1 != products.length) {
                         var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->');
                         isDiscounted = nextItem.length > 1;

@@ -2,7 +2,7 @@
 
 API to scrapes search result and product details from flipkart
 
-*Disclaimer: * I am not affiliated or linked to flipkart in anyway. This repository is an exploratory project and not meant for commercial use.
+**Disclaimer:** I am not affiliated or linked to flipkart in any way. This repository is an exploratory project and not meant for commercial use.
 
 ![Flipkart API Banner](/banner.png)
 
