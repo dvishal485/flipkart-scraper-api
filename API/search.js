@@ -36,6 +36,9 @@ const search = async (q, host) => {
                 //Method A - Compact screen with about mulltiple columns
                 try {
                     linkDetails = products[i - 1].split('</a>');
+                    try {
+                        thumbnail = "https" + products[i - 1].split('src="https')[1].split('"')[0];
+                    } catch (e) { }
                     lastLinkIndex = linkDetails.length - 2;
                     linkDetailsFinder = linkDetails[lastLinkIndex].split('target="_blank"');
                     if (linkDetailsFinder.length > 1) {
@@ -87,7 +90,9 @@ const search = async (q, host) => {
                         // product thumbnail
 
                         try {
-                            thumbnail = webPageContents.split(`alt="${productName}"`)[1].split('src="')[1].split('"')[0];
+                            if (thumbnail == null) {
+                                thumbnail = webPageContents.split(`alt="${productName}"`)[1].split('src="')[1].split('"')[0];
+                            }
                         } catch (e) { thumbnail = null; }
                         if (i + 1 != products.length) {
                             var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->');
@@ -110,10 +115,12 @@ const search = async (q, host) => {
                     // product thumbnail
 
                     try {
-                        thumbnail = webPageContents.split(`alt="${productName}"`);
-                        if (thumbnail.length == 1)
-                            thumbnail = webPageContents.split(`alt="${productName.slice(0, 5)}`);
-                        thumbnail = thumbnail[1].split('src="')[1].split('"')[0];
+                        if (thumbnail == null) {
+                            thumbnail = webPageContents.split(`alt="${productName}"`);
+                            if (thumbnail.length == 1)
+                                thumbnail = webPageContents.split(`alt="${productName.slice(0, 5)}`);
+                            thumbnail = thumbnail[1].split('src="')[1].split('"')[0];
+                        }
                     } catch (e) { thumbnail = null; }
                     if (i + 1 != products.length) {
                         var nextItem = products[i + 1].split('</div>')[0].replace(/,/g, '').split('<!-- -->');
