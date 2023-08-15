@@ -37,7 +37,14 @@ const search = async (q, host) => {
                 try {
                     linkDetails = products[i - 1].split('</a>');
                     try {
-                        thumbnail = "https" + products[i - 1].split('src="https')[1].split('"')[0];
+                        let thumbnails_arr = products[i - 1].split('src="https');
+                        for (let i = 0; i < thumbnails_arr.length; i++) {
+                            let possible_thumbnail = thumbnails_arr[i].split('"')[0];
+                            if (possible_thumbnail.lastIndexOf("jpeg") != -1
+                                || possible_thumbnail.lastIndexOf("image") != -1) {
+                                thumbnail = "https" + possible_thumbnail; break;
+                            }
+                        }
                     } catch (e) { }
                     lastLinkIndex = linkDetails.length - 2;
                     linkDetailsFinder = linkDetails[lastLinkIndex].split('target="_blank"');
