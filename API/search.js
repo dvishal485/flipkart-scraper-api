@@ -168,7 +168,6 @@ const clean = (link) => {
     url.searchParams.delete('_appId');
     url.searchParams.delete('_refId');
     url.searchParams.delete('cmpid');
-    url.searchParams.delete('pid');
     url.searchParams.delete('marketplace');
     url.searchParams.delete('ppt');
     url.searchParams.delete('lid');
