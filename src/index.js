@@ -36,18 +36,19 @@ const metadata = (hostname) => {
 
 async function handle_request(request) {
     const hostname = request.headers.get('host');
-    let pathname = new URL(request.url).pathname;
+    const link = new URL(request.url);
+    let pathname = link.pathname;
     if (request.method == 'GET') {
         if (pathname.startsWith('/search/')) {
-            return await search(pathname.replace('/search/', ''), hostname)
+            return await search(link.toString().split('/search/')[1], hostname)
         } else if (pathname.startsWith('/product/min/')) {
-            return await product(pathname.replace('/product/min/', ''), 'minimum');
+            return await product(link.toString().split('/product/min/')[1], 'minimum');
         } else if (pathname.startsWith('/product/compact/')) {
-            return await product(pathname.replace('/product/compact/', ''), 'compact')
+            return await product(link.toString().split('/product/compact/')[1], 'compact');
         } else if (pathname.startsWith('/product/')) {
-            return await product(pathname.replace('/product/', ''), 'general')
+            return await product(link.toString().split('/product/')[1], 'general');
         } else if (pathname.startsWith('/property/')) {
-            return await property(pathname.replace('/property/', ''), 'general')
+            return await property(link.toString().split('/property/')[1], 'general');
         } else {
             return metadata(hostname);
         }
