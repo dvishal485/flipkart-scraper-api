@@ -26,7 +26,7 @@ const search = async (q, host) => {
 
             // product price
 
-            let priceCheck = products[i].split('</div>')[0].replace(/,/g, '');
+            let priceCheck = products[i].split('</div>')[0].replace(/,|<|>|-|!/g, '');
             currentPrice = parseInt(priceCheck);
             originalPrice = parseInt(currentPrice);
 
@@ -78,7 +78,25 @@ const search = async (q, host) => {
                         linkDetailsFinder = linkDetails[lastLinkIndex].split('target="_blank"');
                         if (linkDetailsFinder.length > 1) {
                             productLink = "https://www.flipkart.com" + linkDetailsFinder[1].split('href="')[1].split('"')[0];
-                            productName = linkDetailsFinder[1].split('href="')[1].split('"col col-7-12">')[1].split('</div>')[0].split('>')[1];
+                            try {
+                                if (linkDetailsFinder[1].indexOf("Sponsored") == -1) {
+                                    try {
+                                        productName = linkDetailsFinder[1].split('href="')[1].split('"col col-7-12">')[1].split('</div>')[0].split('>')[1];
+                                    } catch (e) {
+                                        try {
+                                            let occur = linkDetailsFinder[1].split('href="')[1].split('</div>')[0];
+                                            productName = occur.split('>')[occur.length - 1];
+                                        } catch (e) {
+                                            console.log("Couldn't fetch product name at all.");
+                                        }
+                                    }
+                                } else {
+                                    let span_class = linkDetailsFinder[1].split('"col col-7-12"')[1].split("</div>")[1].split(">")[2];
+                                    productName = span_class;
+                                }
+                            } catch (e) {
+                                console.log("Failed to obtain product name, keeping it null");
+                            }
                         }
                         if (reversion) {
                             i--;
