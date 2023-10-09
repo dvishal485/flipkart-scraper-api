@@ -4,6 +4,17 @@ API to scrapes search result and product details from flipkart
 
 **Disclaimer:** I am not affiliated or linked to flipkart in any way. This repository is an exploratory project and not meant for commercial use.
 
+---
+
+## Under-Maintainence
+
+The API link provided has stopped working and a patch for the same is to deploy the API on local machine and set appropriate headers in the fetch request. [Refer issue #12](https://github.com/dvishal485/flipkart-scraper-api/issues/12)
+
+Nevertheless, I won't be shipping Javascript-based patch, but rather rewrite and redesign the project and API in Rust. **It won't affect any end user of the API.** With this decision, a lot of unexpected errors would be addressed and that too with better accuracy. [Refer issue #13](https://github.com/dvishal485/flipkart-scraper-api/issues/13). This step may take up some time, API will be down till then. *Note: The API's existing hosting may change*
+
+---
+
+
 ![Flipkart API Banner](/banner.png)
 
 ![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2Fpackage.json&query=%24.version&label=version&color=green)
