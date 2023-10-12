@@ -33,10 +33,21 @@ pub async fn search_product(query: String) -> Result<SearchResultResponse, Strin
                     .strip_prefix("dl.flipkart.com")
                     .unwrap_or(query_url);
                 let query_url = query_url.strip_prefix("flipkart.com").unwrap_or(query_url);
+                let query_url = query_url
+                    .split_once("?")
+                    .map(|(link, _)| link)
+                    .unwrap_or(query_url);
+
+                let link = p
+                    .product_link
+                    .split_once("&q=")
+                    .map(|(link, _)| link)
+                    .unwrap_or(&p.product_link)
+                    .to_string();
 
                 SearchResultProduct {
                     name: p.product_name,
-                    link: p.product_link.to_owned(),
+                    link,
                     current_price: p.current_price,
                     original_price: p.original_price,
                     discounted,

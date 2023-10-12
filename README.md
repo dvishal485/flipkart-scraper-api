@@ -65,7 +65,7 @@ Supported Deployments
   - Available Offers / Bank Offers
   - Specifications
 
-<!-- - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output. -->
+- The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
 
 ---
 

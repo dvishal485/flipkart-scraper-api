@@ -65,7 +65,7 @@ API to scrape search results and product details from Flipkart
   - Available Offers / Bank Offers
   - Specifications
 
-<!-- - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output. -->
+- The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
 
 ### Note
 
@@ -228,9 +228,9 @@ If you have Cargo installed on your system, you can compile and run the code on 
 
 - Make sure to set the environment variables `OPENSSL_LIB_DIR` and `OPENSSL_INCLUDE_DIR` before compilation. [Refer to openssl crate](https://docs.rs/openssl/latest/openssl/#manual) or simply use `pkg-config` to auto-configure.
 
-<!-- - Optional: Set the environment variable `DEPLOYMENT_URL` (defaults to `http://localhost:3000`).
+- Optional: Set the environment variable `DEPLOYMENT_URL` (defaults to `http://localhost:3000`).
 
-  Note: This is only required to make appropriate substitutions as required, to change PORT or any other settings, you have to get into the code. -->
+  Note: This is only required to make appropriate substitutions as required, to change PORT or any other settings, you have to get into the code.
 
 - Compile and Run.
   
