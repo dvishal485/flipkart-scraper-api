@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use axum::{
     body::Body,
     extract::{Path, Query},
@@ -8,6 +6,7 @@ use axum::{
     routing::get,
     Router,
 };
+use std::collections::HashMap;
 mod search;
 use flipkart_scraper::Url;
 use search::search_product;
@@ -28,13 +27,11 @@ async fn search_router(query: Option<Path<String>>) -> Response<Body> {
     }
 
     let data = data.unwrap();
-    let response = Response::builder()
+    Response::builder()
         .status(StatusCode::OK)
         .header("Content-Type", "application/json")
         .body(Body::from(serde_json::to_string(&data).unwrap()))
-        .unwrap_or_else(|_| Response::new(Body::empty()));
-
-    response
+        .unwrap_or_else(|_| Response::new(Body::empty()))
 }
 
 async fn product_router(
@@ -65,13 +62,11 @@ async fn product_router(
     }
 
     let data = data.unwrap();
-    let response = Response::builder()
+    Response::builder()
         .status(StatusCode::OK)
         .header("Content-Type", "application/json")
         .body(Body::from(serde_json::to_string(&data).unwrap()))
-        .unwrap();
-
-    response
+        .unwrap()
 }
 
 #[tokio::main]
