@@ -43,7 +43,7 @@ pub async fn search_product(query: String) -> Result<SearchResultResponse, Strin
                     thumbnail: p.thumbnail,
                     query_url: format!(
                         "{host}/product{query}",
-                        host = env!("DEPLOYMENT_URL"),
+                        host = option_env!("DEPLOYMENT_URL").unwrap_or("http://localhost:3000"),
                         query = query_url
                     ),
                 }

@@ -28,7 +28,9 @@ The API has been rewritten in Rust. With this process, a multitude of unexpected
 
 ## Deployment
 
-Supported Deployment ![Docker](https://img.shields.io/badge/Docker--blue?logo=docker)
+Supported Deployments
+
+![Cargo](https://img.shields.io/badge/Cargo--red?logo=rust) ![Docker](https://img.shields.io/badge/Docker--blue?logo=docker)
 
 [For information on Deployment, refer documentation.](https://dvishal485.github.io/flipkart-scraper-api/#deployment)
 
@@ -71,3 +73,5 @@ Supported Deployment ![Docker](https://img.shields.io/badge/Docker--blue?logo=do
 
 - This Project is [Apache-2.0](./LICENSE) Licensed
 - Copyright 2023 [Vishal Das](https://github.com/dvishal485)
+
+---

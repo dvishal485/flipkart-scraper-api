@@ -21,6 +21,7 @@ API to scrape search results and product details from Flipkart
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
     - [Note](#note)
+    - [Deprecation of hosted API](#deprecation-of-hosted-api)
   - [API Reference](#api-reference)
     - [Search Item](#search-item)
     - [Product Link Argument](#product-link-argument)
@@ -28,6 +29,7 @@ API to scrape search results and product details from Flipkart
   - [Increasing Resolution of Image](#increasing-resolution-of-image)
   - [Deployment](#deployment)
     - [Deploy using Docker](#deploy-using-docker)
+    - [Using Cargo](#using-cargo)
   - [Error Handling](#error-handling)
   - [Migration from JS to Rust](#migration-from-js-to-rust)
   - [License and Copyright](#license-and-copyright)
@@ -68,7 +70,13 @@ API to scrape search results and product details from Flipkart
 ### Note
 
 - All the amounts are in currency INR
-- You can also explore products by [passing an empty search command](https://flipkart-scraper-api.dvishal485.workers.dev/search/)
+- You can also explore products by passing an empty search command
+
+### Deprecation of hosted API
+
+This API is being shipped only as a Docker image now and **not as a hosted URL**, due to over-exploitation of the API and lack of funds & free-tier limitations. The hosted API URL has been taken down. [Check out Deployement](#deployment)
+
+The API has been [rewritten in Rust](#migration-from-js-to-rust). With this process, a multitude of unexpected errors have been addressed with improved accuracy and better scraping mechanism. [Refer issue #13](https://github.com/dvishal485/flipkart-scraper-api/issues/13) and [Refer issue #12](https://github.com/dvishal485/flipkart-scraper-api/issues/12).
 
 ---
 
@@ -94,13 +102,13 @@ The response will be given in following JSON format :
   "query": String,
   "fetch_from": String,
   "result": [
-    name: String,
-    link: String,
-    current_price: int | null,
-    original_price: int | null,
-    discounted: boolean,
-    thumbnail: String,
-    query_url: String,
+    "name": String,
+    "link": String,
+    "current_price": int | null,
+    "original_price": int | null,
+    "discounted": boolean,
+    "thumbnail": String,
+    "query_url": String,
   ]
 }
 ```
@@ -136,7 +144,7 @@ The response will be given in following JSON format :
   "share_url": String,
   "seller": {
     "seller_name": String,
-    "seller_rating": seller_rating
+    "seller_rating": float | null
   } | null,
   "thumbnails": [ String ],
   "highlights": [ String ],
@@ -205,6 +213,31 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 
 - API is now running actively on localhost with port 3000.
 
+### Using Cargo
+
+If you have Cargo installed on your system, you can compile and run the code on your system.
+
+- Fork and clone the repository on your system.
+
+    ```bash
+    git clone https://github.com/dvishal485/flipkart-scraper-api.git
+    cd flipkart-scraper-api
+    ```
+  
+- Make sure you have openssl installed. [Refer to openssl crate](https://docs.rs/openssl/latest/openssl/#automatic).
+
+- Make sure to set the environment variables `OPENSSL_LIB_DIR` and `OPENSSL_INCLUDE_DIR` before compilation. [Refer to openssl crate](https://docs.rs/openssl/latest/openssl/#manual) or simply use `pkg-config` to auto-configure.
+
+<!-- - Optional: Set the environment variable `DEPLOYMENT_URL` (defaults to `http://localhost:3000`).
+
+  Note: This is only required to make appropriate substitutions as required, to change PORT or any other settings, you have to get into the code. -->
+
+- Compile and Run.
+  
+    ```bash
+    cargo run --release
+    ```
+
 ---
 
 ## Error Handling
@@ -217,7 +250,7 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 }
 ```
   
-  **Note :** In case the API can't find Product URL or Name of Product, it will be set to `null`. Hence always null check the result. [Refer datatypes of the JSON response](#product-details)
+  **Note :** In case the API can't find Product URL or Name of Product, it will be set to `null`. Hence always null check the result. [Refer datatypes of the JSON response](#api-reference)
   
   [If you are facing unexpected results then Raise An Issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
 
