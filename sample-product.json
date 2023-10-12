@@ -1,174 +1,267 @@
 {
-  "name": "APPLE 2020 Macbook Air M1 - (8 GB/256 GB SSD/Mac OS Big Sur) MGN63HN/A  (13.3 inch, Space Grey, 1.29 kg)APPLE 2020 Macbook Air M1 - (8 GB/256 GB SSD/Mac OS Big Sur) MGN63HN/A",
-  "current_price": 84940,
-  "original_price": 92900,
+  "name": "realme 11x 5G (Purple Dawn, 128 GB)  (6 GB RAM)",
+  "current_price": 12999,
+  "original_price": 16999,
   "discounted": true,
-  "discount_percent": 8,
-  "rating": 4.7,
+  "discount_percent": 23,
+  "rating": 4.4,
   "in_stock": true,
   "f_assured": true,
-  "share_url": "https://www.flipkart.com/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce",
+  "share_url": "http://dl.flipkart.com/dl/realme-11x-5g-purple-dawn-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2WFBDQBD2B4&cmpid=product.share.pp",
   "seller": {
-    "seller_name": "SuperComNet",
-    "seller_rating": 4.6
+    "seller_name": "XONIGHT E-Commerce",
+    "seller_rating": 4.9
   },
   "thumbnails": [
-    "https://rukminim2.flixcart.com/image/416/416/kp5sya80/screen-guard/tempered-glass/o/v/n/apple-macbook-air-m1-13-3-inch-lightwings-original-imag3gh5xftgbpg3.jpeg?q=70"
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/e/q/g/-original-imagtqqd4vcdzqdg.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/e/x/p/-original-imagtqqds9nzjhaz.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/z/j/7/-original-imagtqqdzsbzybr5.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/a/k/u/-original-imagtqqddayaekur.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/2/q/r/-original-imagtqqdwum65q43.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/0/p/i/-original-imagtqqddy77nsq2.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/d/v/a/-original-imagtqqd2dqpzgvh.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/d/r/j/-original-imagtqqduyjr4fsd.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/t/p/a/-original-imagtqqdqquran4e.jpeg?q=70",
+    "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/u/b/1/-original-imagtqqdgxcnkzew.jpeg?q=70"
   ],
   "highlights": [
-    "Stylish & Portable Thin and Light Laptop",
-    "13.3 inch Quad LED Backlit IPS Display (227 PPI, 400 nits Brightness, Wide Colour (P3), True Tone Technology)",
-    "Light Laptop without Optical Disk Drive"
+    "6 GB RAM | 128 GB ROM | Expandable Upto 2 TB",
+    "17.07 cm (6.72 inch) Full HD+ Display",
+    "64MP + 2MP | 8MP Front Camera",
+    "5000 mAh Battery",
+    "Dimensity 6100+ Processor"
   ],
+  "product_id": "MOBGS2WFBDQBD2B4",
   "offers": [
-    "Bank Offer : 10% off on Citi Credit/Debit Cards, up to ₹1500. On orders of ₹5000 and above",
-    "Bank Offer : Additional Flat ₹500 off on Citi Credit Card and EMI transactions",
-    "Bank Offer : 5% Unlimited Cashback on Flipkart Axis Bank Credit Card",
-    "Partner Offer : Sign up for Flipkart Pay Later and get Flipkart Gift Card worth ₹100*"
+    {
+      "offer_type": "Bank Offer",
+      "description": "10% off on ICICI Bank Credit Card, up to ₹1000 on orders of ₹5,000 and above"
+    },
+    {
+      "offer_type": "Bank Offer",
+      "description": "10% off on Axis Bank and Citi Credit Cards, up to ₹1000 on orders of ₹5,000 and above"
+    },
+    {
+      "offer_type": "Bank Offer",
+      "description": "5% off on Flipkart Axis Bank Credit Card, up to ₹500 on orders of ₹5,000 and above"
+    },
+    {
+      "offer_type": "Special Price",
+      "description": "Get extra ₹4000 off (price inclusive of cashback/coupon)"
+    }
   ],
   "specs": [
     {
       "title": "General",
       "details": [
         {
-          "property": "Sales Package",
-          "value": "MacBook Air, 30 W USB-C Power Adapter, USB-C Charge Cable (2m), User Guide, Warranty Documents"
+          "property": "In The Box",
+          "value": "Handset, Adapter, USB Cable, Important Info Booklet with Warranty Card, Quick Guide, Sim Card Tool, Screen Protect Film, TPU Case"
         },
         {
           "property": "Model Number",
-          "value": "MGN63HN/A"
+          "value": "RMX3785"
         },
         {
-          "property": "Part Number",
-          "value": "MGN63HN/A"
-        },
-        {
-          "property": "Series",
-          "value": "2020 Macbook Air"
+          "property": "Model Name",
+          "value": "11x 5G"
         },
         {
           "property": "Color",
-          "value": "Space Grey"
+          "value": "Purple Dawn"
         },
         {
-          "property": "Type",
-          "value": "Thin and Light Laptop"
+          "property": "Browse Type",
+          "value": "Smartphones"
         },
         {
-          "property": "Suitable For",
-          "value": "Processing & Multitasking"
+          "property": "SIM Type",
+          "value": "Dual Sim"
         },
         {
-          "property": "Battery Backup",
-          "value": "Upto 15 Hours"
-        },
-        {
-          "property": "Power Supply",
-          "value": "30 W AC Adapter"
-        },
-        {
-          "property": "MS Office Provided",
+          "property": "Hybrid Sim Slot",
           "value": "No"
-        }
-      ]
-    },
-    {
-      "title": "Processor And Memory Features",
-      "details": [
-        {
-          "property": "Processor Brand",
-          "value": "Apple"
         },
         {
-          "property": "Processor Name",
-          "value": "M1"
-        },
-        {
-          "property": "SSD",
+          "property": "Touchscreen",
           "value": "Yes"
         },
         {
-          "property": "SSD Capacity",
-          "value": "256 GB"
+          "property": "OTG Compatible",
+          "value": "Yes"
         },
         {
-          "property": "RAM",
-          "value": "8 GB"
+          "property": "Sound Enhancements",
+          "value": "Dirac Sound Effect, Hi-Res Audio Certification"
         },
         {
-          "property": "RAM Type",
-          "value": "DDR4"
-        },
-        {
-          "property": "Processor Variant",
-          "value": "Apple M1 Chip"
-        },
-        {
-          "property": "Expandable Memory",
-          "value": "Upto 16 GB"
-        },
-        {
-          "property": "Graphic Processor",
-          "value": "NA"
-        },
-        {
-          "property": "Number of Cores",
-          "value": "8"
+          "property": "SAR Value",
+          "value": "Head: 1.08 W/kg, Body: 0.96 W/kg"
         }
       ]
     },
     {
-      "title": "Operating System",
+      "title": "Display Features",
+      "details": [
+        {
+          "property": "Display Size",
+          "value": "17.07 cm (6.72 inch)"
+        },
+        {
+          "property": "Resolution",
+          "value": "2400 x 1080 Pixels"
+        },
+        {
+          "property": "Resolution Type",
+          "value": "Full HD+"
+        },
+        {
+          "property": "GPU",
+          "value": "ARM G57 MC2"
+        },
+        {
+          "property": "Display Type",
+          "value": "Full HD+ LCD"
+        },
+        {
+          "property": "Display Colors",
+          "value": "16.7 Million"
+        },
+        {
+          "property": "Other Display Features",
+          "value": "120Hz Refresh Rate, Aspect Ratio: 20:9, Screen-to-Body Ratio: 91.40%, 240Hz Touch Sampling Rate, Screen Contrast: 1500:1, Maximum Brightness: 550nits, Color Saturation: 96%, Supports Sunlight Screen"
+        }
+      ]
+    },
+    {
+      "title": "Os & Processor Features",
       "details": [
         {
           "property": "Operating System",
-          "value": "Mac OS Big Sur"
+          "value": "Android 13"
+        },
+        {
+          "property": "Processor Type",
+          "value": "Dimensity 6100+"
+        },
+        {
+          "property": "Processor Core",
+          "value": "Octa Core"
+        },
+        {
+          "property": "Primary Clock Speed",
+          "value": "2.2 GHz"
+        },
+        {
+          "property": "Secondary Clock Speed",
+          "value": "2 GHz"
+        },
+        {
+          "property": "Operating Frequency",
+          "value": "2G GSM: 850 MHz/900 MHz/1800 MHz, 3G WCDMA: B1/B5/B8, 4G TD-LTE: B40/B41 (2535 MHz - 2655 MHz), 4G LTE FDD: B1/B3/B5/B8/B28A, 5G NR SA n1/n3/n5/n8/n28A/n40/n41 (2535 MHz - 2655 MHz)/n77/n78, 5G NR NSA: n1/n3/n41 (2535 MHz - 2655 MHz)/n78"
         }
       ]
     },
     {
-      "title": "Port And Slot Features",
+      "title": "Memory & Storage Features",
       "details": [
         {
-          "property": "Mic In",
+          "property": "Internal Storage",
+          "value": "128 GB"
+        },
+        {
+          "property": "RAM",
+          "value": "6 GB"
+        },
+        {
+          "property": "Expandable Storage",
+          "value": "2 TB"
+        },
+        {
+          "property": "Memory Card Slot Type",
+          "value": "Dedicated Slot"
+        }
+      ]
+    },
+    {
+      "title": "Camera Features",
+      "details": [
+        {
+          "property": "Primary Camera Available",
           "value": "Yes"
         },
         {
-          "property": "USB Port",
-          "value": "2 x Thunderbolt / USB 4 Ports (Supports Charging, DisplayPort, Thunderbolt 3 (Upto 40 Gbps), USB 3.1 (2nd Gen, Upto 10 Gbps))"
+          "property": "Primary Camera",
+          "value": "64MP + 2MP"
+        },
+        {
+          "property": "Primary Camera Features",
+          "value": "Dual Camera Setup: 64MP Primary Camera (OV OV64B40, f/1.79 Aperture, 1/2 inch Sensor Size, 0.702um Pixel Size, FOV: 80.7 Degree, 6P Lens, Focal Length: 25.1 mm, PDAF) + 2MP Portrait Camera (OV OV02B1B, f/2.4 Aperture, 1/5 inch Sensor Size, 1.75um Pixel Size, FOV: 89.1 Degree, 3P Lens, Focal Length: 21.6 mm, Fixed Focus), CMOS, 20 Continuous Shoots, Camera Feature: Night Mode, Street Mode, Photograph Mode, Portrait Mode, 64MP Mode, Professional Mode, Panoramic View, Text Scanner, Tift Shift, Video Feature: Dual View Video, Film Mode, Tift Shift, Slow Motion, Timelapse, Video Mode"
+        },
+        {
+          "property": "Optical Zoom",
+          "value": "No"
+        },
+        {
+          "property": "Secondary Camera Available",
+          "value": "Yes"
+        },
+        {
+          "property": "Secondary Camera",
+          "value": "8MP Front Camera"
+        },
+        {
+          "property": "Secondary Camera Features",
+          "value": "8MP Front Camera Setup: (OV OV08D10, f/2.05 Aperture, FOV: 80 Degree, 1/4 inch Sensor Size, 1.12um Pixel Size, 4P Lens, Fixed Focus, CMOS, Camera Features: Night Mode, Photograph Mode, Portrait Mode, Panoramic View"
+        },
+        {
+          "property": "Flash",
+          "value": "Rear: Single Flash | Front: Screen Flash"
+        },
+        {
+          "property": "HD Recording",
+          "value": "Yes"
+        },
+        {
+          "property": "Full HD Recording",
+          "value": "Yes"
+        },
+        {
+          "property": "Video Recording",
+          "value": "Yes"
+        },
+        {
+          "property": "Video Recording Resolution",
+          "value": "Rear Camera: 1080p (at 30 fps), 720p (at 120 fps)|Front Camera: 1080p (at 30 fps), 720p (at 30 fps)"
+        },
+        {
+          "property": "Digital Zoom",
+          "value": "10X"
+        },
+        {
+          "property": "Frame Rate",
+          "value": "120 fps, 30 fps"
+        },
+        {
+          "property": "Dual Camera Lens",
+          "value": "Primary Camera"
         }
       ]
     },
     {
-      "title": "Display And Audio Features",
+      "title": "Call Features",
       "details": [
         {
-          "property": "Touchscreen",
-          "value": "No"
+          "property": "Phone Book",
+          "value": "Yes"
         },
         {
-          "property": "Screen Size",
-          "value": "33.78 cm (13.3 inch)"
+          "property": "Speaker Phone",
+          "value": "Yes"
         },
         {
-          "property": "Screen Resolution",
-          "value": "2560 x 1600 Pixel"
-        },
-        {
-          "property": "Screen Type",
-          "value": "Quad LED Backlit IPS Display (227 PPI, 400 nits Brightness, Wide Colour (P3), True Tone Technology)"
-        },
-        {
-          "property": "Speakers",
-          "value": "Built-in Speakers"
-        },
-        {
-          "property": "Internal Mic",
-          "value": "Three-mic Array with Directional Beamforming"
-        },
-        {
-          "property": "Sound Properties",
-          "value": "Stereo Speakers, Wide Stereo Sound, Support for Dolby Atmos Playback"
+          "property": "Call Records",
+          "value": "Yes"
         }
       ]
     },
@@ -176,12 +269,151 @@
       "title": "Connectivity Features",
       "details": [
         {
-          "property": "Wireless LAN",
-          "value": "IEEE 802.11ax (Wi-Fi 6)"
+          "property": "Network Type",
+          "value": "5G, 4G VOLTE, 4G, 3G, 2G"
         },
         {
-          "property": "Bluetooth",
-          "value": "v5.0"
+          "property": "Supported Networks",
+          "value": "5G, 4G VoLTE, 4G LTE, WCDMA, GSM"
+        },
+        {
+          "property": "Internet Connectivity",
+          "value": "5G, 4G, 3G, EDGE, GPRS, Wi-Fi"
+        },
+        {
+          "property": "3G",
+          "value": "Yes"
+        },
+        {
+          "property": "GPRS",
+          "value": "Yes"
+        },
+        {
+          "property": "Micro USB Version",
+          "value": "USB 2.0 (Type C)"
+        },
+        {
+          "property": "Bluetooth Support",
+          "value": "Yes"
+        },
+        {
+          "property": "Bluetooth Version",
+          "value": "v5.2"
+        },
+        {
+          "property": "Wi-Fi",
+          "value": "Yes"
+        },
+        {
+          "property": "Wi-Fi Version",
+          "value": "Support 2.4 GHz, 5 GHz"
+        },
+        {
+          "property": "Wi-Fi Hotspot",
+          "value": "Yes"
+        },
+        {
+          "property": "NFC",
+          "value": "No"
+        },
+        {
+          "property": "Infrared",
+          "value": "No"
+        },
+        {
+          "property": "USB Connectivity",
+          "value": "Yes"
+        },
+        {
+          "property": "EDGE",
+          "value": "Yes"
+        },
+        {
+          "property": "Audio Jack",
+          "value": "3.5mm"
+        },
+        {
+          "property": "Map Support",
+          "value": "Google Maps"
+        },
+        {
+          "property": "GPS Support",
+          "value": "Yes"
+        }
+      ]
+    },
+    {
+      "title": "Other Details",
+      "details": [
+        {
+          "property": "Smartphone",
+          "value": "Yes"
+        },
+        {
+          "property": "Touchscreen Type",
+          "value": "Capacitive"
+        },
+        {
+          "property": "SIM Size",
+          "value": "Nano Sim"
+        },
+        {
+          "property": "User Interface",
+          "value": "Realme UI 4.0 (Based on Android T)"
+        },
+        {
+          "property": "SMS",
+          "value": "Yes"
+        },
+        {
+          "property": "Keypad",
+          "value": "No"
+        },
+        {
+          "property": "Graphics PPI",
+          "value": "391 PPI"
+        },
+        {
+          "property": "Sensors",
+          "value": "Magnetic Induction Sensor, Light Sensor, Proximity Sensor, Acceleration Sensor"
+        },
+        {
+          "property": "Ringtones Format",
+          "value": "OGG"
+        },
+        {
+          "property": "Other Features",
+          "value": "COG Sealing Process, In-Cell Touch Panel Technology, 10 Touch Points, Oleophpbic Coating, UFS 2.2, Maximum Charging Power: 33W, Reverse Charging, Reverse Charging Power: 5 V/1.2 A, SISO Wireless Antenna Technology, 4 x 4 MIMO RF Antenna Technology, Bluetooth Audio Codec: SBC, AAC, APTX, APTX HD, LDAC, Side Fingerprint Sensor, Wet Fingerprint Unlock, Face Unlock Technology, File Encryption, Private Space, Private Apps, Private Protection, OTG Storage Format: Upto 256 GB (Supported Formats: FAT32, EXFAT, NTFS), Dual Microphone, Dual Mic Nosie Cancellation, Flashlight Mode, L1 Level WideVine Supported, Web Video Play Supported, Press to Answer Calls, Wake Up Voice Assistant, Switch the Music, Headphones Monitor, Kids Space, Voice Wake Up, Night Shiled, Step Tracker, Game Space, App Market, Theme Store, Clone Phone, Phone Manager, Finshell Wallet, Data Backup, Files Compression and Decompression, World Time, Import and Export Contacts"
+        },
+        {
+          "property": "GPS Type",
+          "value": "GPS, AGPS, BEIDOU, GALILEO, GLONASS"
+        }
+      ]
+    },
+    {
+      "title": "Multimedia Features",
+      "details": [
+        {
+          "property": "FM Radio",
+          "value": "No"
+        },
+        {
+          "property": "Audio Formats",
+          "value": "AAC, APE, FLAC, AMR, MID, MP3, OGG, WAV, WMA, MKA"
+        },
+        {
+          "property": "Video Formats",
+          "value": "MP4, 3GP, ASF, AVI, FLV, M2TS, MKV, MPG, TS, WEBM, WMV"
+        }
+      ]
+    },
+    {
+      "title": "Battery & Power Features",
+      "details": [
+        {
+          "property": "Battery Capacity",
+          "value": "5000 mAh"
         }
       ]
     },
@@ -189,41 +421,20 @@
       "title": "Dimensions",
       "details": [
         {
-          "property": "Dimensions",
-          "value": "304.1 x 212.4 x 10.9 mm"
+          "property": "Width",
+          "value": "76 mm"
+        },
+        {
+          "property": "Height",
+          "value": "165.7 mm"
+        },
+        {
+          "property": "Depth",
+          "value": "7.89 mm"
         },
         {
           "property": "Weight",
-          "value": "1.29 kg"
-        }
-      ]
-    },
-    {
-      "title": "Additional Features",
-      "details": [
-        {
-          "property": "Disk Drive",
-          "value": "Not Available"
-        },
-        {
-          "property": "Web Camera",
-          "value": "720p FaceTime HD Webcam"
-        },
-        {
-          "property": "Keyboard",
-          "value": "Backlit Magic Keyboard"
-        },
-        {
-          "property": "Pointer Device",
-          "value": "Force Touch Trackpad"
-        },
-        {
-          "property": "Included Software",
-          "value": "Built-in Apps: iMovie, Siri, GarageBand, Pages, Numbers, Photos, Keynote, Safari, Mail, FaceTime, Messages, Maps, Stocks, Home, Voice Memos, Notes, Calendar, Contacts, Reminders, Photo Booth, Preview, Books, App Store, Time Machine, TV, Music, Podcasts, Find My, QuickTime Player"
-        },
-        {
-          "property": "Additional Features",
-          "value": "49.9 WHr Li-polymer Battery"
+          "value": "190 g"
         }
       ]
     },
@@ -232,19 +443,7 @@
       "details": [
         {
           "property": "Warranty Summary",
-          "value": "1 Year Limited Warra­nty"
-        },
-        {
-          "property": "Warranty Service Type",
-          "value": "Onsite"
-        },
-        {
-          "property": "Covered in Warranty",
-          "value": "Manufacturing Defects"
-        },
-        {
-          "property": "Not Covered in Warranty",
-          "value": "Physical Damage"
+          "value": "1 Year Manufacturer Warranty for Phone and 6 Months Warranty for In the Box Accessories"
         },
         {
           "property": "Domestic Warranty",

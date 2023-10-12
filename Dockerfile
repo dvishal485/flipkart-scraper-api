@@ -1,15 +1,17 @@
-FROM node:18
-WORKDIR /usr/src/app
-COPY . .
+FROM docker.io/rust:1.73-slim-bullseye as builder
+WORKDIR /usr/src/flipkart-scraper-api
+RUN apt update && apt install -y libssl-dev
+ENV DEPLOYMENT_URL http://localhost:3000
+ENV OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu
+ENV OPENSSL_INCLUDE_DIR=/usr/include
+COPY Cargo.toml .
+COPY ./src/ ./src
+RUN cargo build --release
 
-RUN npm install
+FROM docker.io/debian:bullseye-slim
+RUN apt update && apt install -y ca-certificates
+WORKDIR /usr/local/bin/
+COPY --from=builder /usr/src/flipkart-scraper-api/target/release/flipkart-scraper-api .
 
-# wrangler is optional and needed
-# if you want to use wrangler commands
-RUN npm install -g wrangler
-ENV WRANGLER_SEND_METRICS false
-
-ENTRYPOINT ["/usr/local/bin/npm", "run"]
-CMD ["start"]
-
+CMD ["flipkart-scraper-api"]
 EXPOSE 3000

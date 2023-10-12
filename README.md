@@ -1,23 +1,14 @@
 # Flipkart Scraper API
 
-API to scrapes search result and product details from flipkart
+API to scrape search results and product details from Flipkart
 
 **Disclaimer:** I am not affiliated or linked to flipkart in any way. This repository is an exploratory project and not meant for commercial use.
 
 ---
 
-## Under-Maintainence
-
-The API link provided has stopped working and a patch for the same is to deploy the API on local machine and set appropriate headers in the fetch request. [Refer issue #12](https://github.com/dvishal485/flipkart-scraper-api/issues/12)
-
-Nevertheless, I won't be shipping Javascript-based patch, but rather rewrite and redesign the project and API in Rust. **It won't affect any end user of the API.** With this decision, a lot of unexpected errors would be addressed and that too with better accuracy. [Refer issue #13](https://github.com/dvishal485/flipkart-scraper-api/issues/13). This step may take up some time, API will be down till then. *Note: The API's existing hosting may change*
-
----
-
-
 ![Flipkart API Banner](/banner.png)
 
-![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2Fpackage.json&query=%24.version&label=version&color=green)
+![Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2FCargo.toml&query=package.version&label=version)
 [![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues)
 [![Telegram](https://img.shields.io/badge/-dvishal485-blue?style=flat&logo=telegram)](https://t.me/dvishal485)
@@ -25,19 +16,21 @@ Nevertheless, I won't be shipping Javascript-based patch, but rather rewrite and
 
 **For documentation visit :** [Flipkart Scraper API](https://dvishal485.github.io/flipkart-scraper-api/)
 
-**API :** [flipkart-scraper-api.dvishal485.workers.dev/](https://flipkart-scraper-api.dvishal485.workers.dev/)
+---
+
+## Notice
+
+This API is being shipped only as a Docker image now and not as a hosted URL, due to over-exploitation of the API and lack of funds & free-tier limitations. The hosted API URL has been taken down. [Check out Deployement using Docker](#deployment)
+
+The API has been rewritten in Rust. With this process, a multitude of unexpected errors have been addressed with improved accuracy and better scraping mechanism. [Refer issue #13](https://github.com/dvishal485/flipkart-scraper-api/issues/13) and [Refer issue #12](https://github.com/dvishal485/flipkart-scraper-api/issues/12).
 
 ---
 
 ## Deployment
 
-![Docker](https://img.shields.io/badge/Docker--blue?logo=docker)
-![Cloudflare](https://img.shields.io/badge/Cloudflare--orange?logo=cloudflare)
-![NodeJS](https://img.shields.io/badge/NodeJS--yellow?logo=javascript)
+Supported Deployment ![Docker](https://img.shields.io/badge/Docker--blue?logo=docker)
 
-Deployment is supported on [Cloudflare Worker](https://dvishal485.github.io/flipkart-scraper-api/#deploy-with-cloudflare-workers), using [NodeJS](https://dvishal485.github.io/flipkart-scraper-api#deploy-with-nodejs), and using [Docker Image](https://dvishal485.github.io/flipkart-scraper-api#deploy-using-docker).
-
-[For more information on Deployment, refer documentation.](https://dvishal485.github.io/flipkart-scraper-api/#deployment)
+[For information on Deployment, refer documentation.](https://dvishal485.github.io/flipkart-scraper-api/#deployment)
 
 ---
 
@@ -70,28 +63,7 @@ Deployment is supported on [Cloudflare Worker](https://dvishal485.github.io/flip
   - Available Offers / Bank Offers
   - Specifications
 
-- Different Mode with different output size as per requirement
-  - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
-  - Search for some specific specification and only fetch those specs which meet the requirements.
-
-- The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
-
----
-
-## ToDo
-
-- [x] Make code Presentable and Readable
-- [x] Extend API for product details
-- [x] Optimize existing code
-- [x] [Support for newer deployment methods](https://github.com/dvishal485/flipkart-scraper-api/issues/5)
-- [x] Get product details (price & stock) specific to individual's pincode
-
-  - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
-
-- [x] New Project : Telegram bot to notify about price drop alerts
-
-  - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
-  - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
+<!-- - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output. -->
 
 ---
 

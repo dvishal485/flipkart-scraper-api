@@ -1,0 +1,15 @@
+[package]
+name = "flipkart-scraper-api"
+description = "API to scrape search results and product details from Flipkart"
+version = "4.0.0"
+edition = "2021"
+repository = "https://github.com/dvishal485/flipkart-scraper-api"
+authors = ["dvishal485 <dvishal485@gmail.com>"]
+license = "Apache-2.0"
+
+[dependencies]
+flipkart_scraper = { version = "0.1.141" }
+serde = "1.0.188"
+serde_json = "1.0.107"
+axum = "0.6.20"
+tokio = { version = "1.33.0", features = ["macros", "rt-multi-thread"] }

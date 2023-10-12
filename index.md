@@ -4,15 +4,13 @@
 
 # Flipkart Scraper API
 
-API to scrapes search result and product details from flipkart
+API to scrape search results and product details from Flipkart
 
 **Disclaimer:** I am not affiliated or linked to flipkart in any way. This repository is an exploratory project and not meant for commercial use.
 
-Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
+![Flipkart API Banner](/banner.png)
 
-![Flipkart API Banner](./banner.png)
-
-![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2Fpackage.json&query=%24.version&label=version&color=green)
+![Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdvishal485%2Fflipkart-scraper-api%2Fmain%2FCargo.toml&query=package.version&label=version)
 [![GitHub license](https://img.shields.io/github/license/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dvishal485/flipkart-scraper-api)](https://github.com/dvishal485/flipkart-scraper-api/issues)
 [![Telegram](https://img.shields.io/badge/-dvishal485-blue?style=flat&logo=telegram)](https://t.me/dvishal485)
@@ -30,11 +28,8 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
   - [Increasing Resolution of Image](#increasing-resolution-of-image)
   - [Deployment](#deployment)
     - [Deploy using Docker](#deploy-using-docker)
-    - [Deploy with Cloudflare Workers](#deploy-with-cloudflare-workers)
-    - [Deploy with NodeJS](#deploy-with-nodejs)
-  - [Accuracy](#accuracy)
   - [Error Handling](#error-handling)
-  - [ToDo](#todo)
+  - [Migration from JS to Rust](#migration-from-js-to-rust)
   - [License and Copyright](#license-and-copyright)
 
 ---
@@ -68,11 +63,7 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
   - Available Offers / Bank Offers
   - Specifications
 
-- Different Mode with different output size as per requirement
-  - Fetch the product result without any specifications as well as with condensed form of specifications as per requirement.
-  - Search for some specific specification and only fetch those specs which meet the requirements.
-
-- The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output.
+<!-- - The API also removes all trackers & loggers in every link from flipkart giving an completely unbaised and cleaner output. -->
 
 ### Note
 
@@ -93,10 +84,26 @@ Check out [@flipkartX_bot](https://t.me/flipkartX_bot) on Telegram
 | :------------- | :------- | :-------------------------------------- |
 | `product_name` | `string` | **Required**. Name of product to search |
 
-  Example :
-
-- [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/search/laptop)
 - [View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-search.json)
+
+The response will be given in following JSON format :
+
+```javascript
+{
+  "total_result": int,
+  "query": String,
+  "fetch_from": String,
+  "result": [
+    name: String,
+    link: String,
+    current_price: int | null,
+    original_price: int | null,
+    discounted: boolean,
+    thumbnail: String,
+    query_url: String,
+  ]
+}
+```
 
 ### Product Link Argument
 
@@ -104,111 +111,54 @@ Link argument of a product will be URL of Flipkart product after removing the `h
 
 ### Product Details
 
-- Elaborated
+```;
+  GET /product/${product_link_argument}
+```
 
-  ```;
-    GET /product/${product_link_argument}
-  ```
+| Parameter               | Type     | Description                                                    |
+| :---------------------- | :------- | :------------------------------------------------------------- |
+| `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
 
-  | Parameter               | Type     | Description                                                    |
-  | :---------------------- | :------- | :------------------------------------------------------------- |
-  | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
+- [View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-product.json)
 
-  Example :
-  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/product/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
-  - [View sample response](https://dvishal485.github.io/flipkart-scraper-api/sample-product.json)
+The response will be given in following JSON format :
 
-  The response will be given in following JSON format :
-
-  ```javascript
-  {
-    "name": "Product Full Name",
-    "current_price": current_price,
-    "original_price": original_price,
-    "discounted": true or false,
-    "discount_percent": discount_percent,
-    "rating": rating of product,
-    "in_stock": true or false,
-    "f-assured": true or false,
-    "share_url": "Share URL",
-    "seller": {
-      "seller_name": "seller_name",
-      "seller_rating": seller_rating
-    },
-    "thumbnails": [
-      "url_1","url_2", ...
-    ],
-    "highlights": [
-      "Highlight1",
-      "Highlight2", ...
-    ],
-    "offers": [
-      "offer_1",
-      "offer_2", ...
-    ]
-    "specs": [
-      {
-        "title": "Type of Properties",
-        "details": [
-          {
-            "property": "Property1",
-            "value": "Description of Property 1"
-          }, ...
-        ]
-      }, ...
-    ]
-  }
-  ```
-
-- Compact
-
-  ```;
-    GET /product/compact/${product_link_argument}
-  ```
-
-  | Parameter               | Type     | Description                                                    |
-  | :---------------------- | :------- | :------------------------------------------------------------- |
-  | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
-
-  Example :
-  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/product/compact/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
-
-  Returns same information but the sub-specifications are merged into one group, each seperated by `;`
-
-  Useful when scrapping a huge data with low data transmission
-
-- Minimum Mode
-
-  ```;
-    GET /product/min/${product_link_argument}
-  ```
-
-  | Parameter               | Type     | Description                                                    |
-  | :---------------------- | :------- | :------------------------------------------------------------- |
-  | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
-
-  Example :
-  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/product/min/apple-2020-macbook-air-m1-8-gb-256-gb-ssd-mac-os-big-sur-mgn63hn-a/p/itmde54f026889ce)
-
-  Returns information without Specifications reducing the size of output largely.
-
-- Property Mode *(Deprecated)*
-
-  ```;
-    GET /property/${specs_to_search}/${product_link_argument}
-  ```
-
-  | Parameter               | Type     | Description                                                    |
-  | :---------------------- | :------- | :------------------------------------------------------------- |
-  | `specs_to_search`       | `string` | **Required**. Specs of product to search seperated with `&`    |
-  | `product_link_argument` | `string` | **Required**. Product link without `https://www.flipkart.com/` |
-
-  Example :
-  - [View live demo](https://flipkart-scraper-api.dvishal485.workers.dev/property/battery&display/s/kzZg7WuuuN)
-  
-  In the given example, we are get all the specs containg `battery` or `display` in the product with link argument [`s/kzZg7WuuuN`](https://flipkart-scraper-api.dvishal485.workers.dev/product/s/kzZg7WuuuN)
-  
-  Replies with product details and only those specifications which are mentioned to be searched.
+```javascript
+{
+  "name": String | null,
+  "current_price": int | null,
+  "original_price": int | null,
+  "discounted": boolean,
+  "discount_percent": int | null,
+  "rating": float | null,
+  "in_stock": boolean,
+  "f-assured": boolean,
+  "share_url": String,
+  "seller": {
+    "seller_name": String,
+    "seller_rating": seller_rating
+  } | null,
+  "thumbnails": [ String ],
+  "highlights": [ String ],
+  "offers": [
+    {
+      "offer_type": String | null,
+      "description": String
+    }
+  ]
+  "specs": [
+    {
+      "title": String
+      "details": [
+        {
+          "property": String,
+          "value": String
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -254,60 +204,6 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
     ```
 
 - API is now running actively on localhost with port 3000.
-- This by default uses express js to serve routes. If you want exact behaviour replicated, you can run docker container with command `test`.
-
-    ```bash
-    docker run -p3000:3000 localhost/flipkart-scraper-api test
-    ```
-
-### Deploy with Cloudflare Workers
-
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/dvishal485/flipkart-scraper-api)
-
-### Deploy with NodeJS
-
-- Make sure `node` and some package manager are installed on your system.
-- Fork and clone the repository on your system.
-
-  ```bash
-  git clone https://github.com/dvishal485/flipkart-scraper-api.git
-  cd flipkart-scraper-api
-  ```
-
-- Install required dependencies.
-
-  ```bash
-  npm install
-  ```
-
-- Run the server.
-
-  ```bash
-  npm run start
-  ```
-
-- You can optionally run using Cloudflare's official wrangler tool as well.
-
-  ```bash
-  npm install -g wrangler
-  WRANGLER_SEND_METRICS=false wrangler dev
-  ```
-
----
-
-## Accuracy
-
-- Search API
-
-    The Search API is tested with lot of products and compared thoroughly and is found to be accurate for all of them till date, thanking to the self adjusting different fetch methods. The Flipkart website doesn't have any standard `id` or `class` or `name` to the components of website making it far more difficult to scrape and create API from. However, there may be inaccuracy in case of some product ( `null` result ). In case, if someone encounter with some other error, convey it to me through [Telegram](https://t.me/dvishal485) or [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues) containing the following information :
-  - Search keyword
-  - Information you find wrong
-  - Fetch Method
-  - JSON response received ( if possible )
-
-- Product API
-
-    The Product API was found to be completely error free during the testing, so hopefully it will remain the same in future. I have ensured that you get maximum of Flipkart's data which may not be present in other alternatives. Especially without any authorisation. If you still encounter anything unexpected, [raise an issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
 
 ---
 
@@ -317,32 +213,23 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 
 ```json
 {
-  "error_message": "ERROR MESSAGE",
-  "possible_solution": "POSSIBLE SOLUTION",
-  "bug_report": "https://github.com/dvishal485/flipkart-scraper-api/issues"
+  "error": "ERROR MESSAGE",
 }
 ```
   
-  **Note :** In case the API can't find Product URL or Name of Product, it will be set to `null`. Hence always null check the result.
+  **Note :** In case the API can't find Product URL or Name of Product, it will be set to `null`. Hence always null check the result. [Refer datatypes of the JSON response](#product-details)
   
   [If you are facing unexpected results then Raise An Issue](https://github.com/dvishal485/flipkart-scraper-api/issues)
 
 ---
 
-## ToDo
+## Migration from JS to Rust
 
-- [x] Make code Presentable and Readable
-- [x] Extend API for product details
-- [x] Optimize existing code
-- [x] [Support for newer deployment methods](https://github.com/dvishal485/flipkart-scraper-api/issues/5)
-- [x] Get product details (price & stock) specific to individual's pincode
+The API was previously written in Javascript, which had a lot of error and exceptions and the error handling was used to control the "Control Flow" of the program. The same resulted in a complex work and data flow and a difficult to maintain source code.
 
-  - Check out new repository [flipkart-product-stock](https://github.com/dvishal485/flipkart-product-stock)
+Hence decision was made to rewrite the API in Rust in a better approach to avoid running into issue and at the same time perform better with more accuracy and less "hacks". The types are also now guaranteed to match [as specified in the documentation](#api-reference). One can always [refer to the javascript builds in the previous commits](https://github.com/dvishal485/flipkart-scraper-api/tree/cbdf05efb829556ff3d41453b844bd6a1ceefed2).
 
-- [x] New Project : Telegram bot to notify about price drop alerts
-
-  - Check out [@flipkartX_bot](https://t.me/flipkartX_bot)
-  - The bot can give you search result of any product and set price drop/rise alerts as well as stock availability alerts directly on Telegram.
+Also decision to remove the hosted API was taken. API is now only [available for self-hosting](#deployment). Refer issues [#12](https://github.com/dvishal485/flipkart-scraper-api/issues/12) and [#13](https://github.com/dvishal485/flipkart-scraper-api/issues/13).
 
 ---
 
@@ -350,3 +237,5 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 
 - This Project is [Apache-2.0](./LICENSE) Licensed
 - Copyright 2023 [Vishal Das](https://github.com/dvishal485)
+
+---

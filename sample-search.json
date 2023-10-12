@@ -1,223 +1,223 @@
 {
   "total_result": 24,
-  "query": "smartwatch",
-  "fetch_from": "https://www.flipkart.com/search?marketplace=FLIPKART&q=smartwatch",
+  "query": "realme 11x",
+  "fetch_from": "https://www.flipkart.com/search?marketplace=FLIPKART&q=realme+11x",
   "result": [
     {
-      "name": "boAt Vertex Smartwatch",
-      "link": "https://www.flipkart.com/boat-vertex-smartwatch/p/itm256f11245986b",
-      "current_price": 2499,
-      "original_price": 6990,
+      "name": "realme 11x 5G (Purple Dawn, 128 GB)",
+      "link": "https://flipkart.com/realme-11x-5g-purple-dawn-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2WFBDQBD2B4&lid=LSTMOBGS2WFBDQBD2B4HUEFK5&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&spotlightTagId=BestsellerId_tyy%2F4io&srno=s_1_1&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2WFBDQBD2B4.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 12999,
+      "original_price": 16999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kv6zvrk0/smartwatch/k/a/v/android-ios-vertex-boat-no-original-imag855hzzn7xt6t.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-vertex-smartwatch/p/itm256f11245986b"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/e/q/g/-original-imagtqqd4vcdzqdg.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11x-5g-purple-dawn-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2WFBDQBD2B4&lid=LSTMOBGS2WFBDQBD2B4HUEFK5&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&spotlightTagId=BestsellerId_tyy%2F4io&srno=s_1_1&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2WFBDQBD2B4.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "boAt Storm Smartwatch",
-      "link": "https://www.flipkart.com/boat-storm-smartwatch/p/itm215a48c547168",
-      "current_price": 1999,
-      "original_price": 5990,
+      "name": "realme 11x 5G (Purple Dawn, 128 GB)",
+      "link": "https://flipkart.com/realme-11x-5g-purple-dawn-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2W3YT99HRJ4&lid=LSTMOBGS2W3YT99HRJ4VJBEQO&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_2&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2W3YT99HRJ4.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 15999,
+      "original_price": 18999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kkprmvk0/smartwatch/v/j/n/storm-android-ios-boat-original-imafzzu29tguvtqg.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-storm-smartwatch/p/itm215a48c547168"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/e/q/g/-original-imagtqqd4vcdzqdg.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11x-5g-purple-dawn-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2W3YT99HRJ4&lid=LSTMOBGS2W3YT99HRJ4VJBEQO&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_2&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2W3YT99HRJ4.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "boAt Storm Smartwatch",
-      "link": "https://www.flipkart.com/boat-storm-smartwatch/p/itm215a48c547168",
-      "current_price": 1999,
-      "original_price": 5990,
+      "name": "realme 11x 5G (Midnight Black, 128 GB)",
+      "link": "https://flipkart.com/realme-11x-5g-midnight-black-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2WFP7X8263G&lid=LSTMOBGS2WFP7X8263G6H9OZP&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&spotlightTagId=BestsellerId_tyy%2F4io&srno=s_1_3&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2WFP7X8263G.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 12999,
+      "original_price": 16999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kkprmvk0/smartwatch/v/j/n/storm-android-ios-boat-original-imafzzu29tguvtqg.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-storm-smartwatch/p/itm215a48c547168"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/w/s/3/-original-imagtqqdw4tnwjbh.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11x-5g-midnight-black-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2WFP7X8263G&lid=LSTMOBGS2WFP7X8263G6H9OZP&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&spotlightTagId=BestsellerId_tyy%2F4io&srno=s_1_3&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2WFP7X8263G.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "boAt Storm Smartwatch",
-      "link": "https://www.flipkart.com/boat-storm-smartwatch/p/itm215a48c547168",
-      "current_price": 2999,
-      "original_price": 5990,
+      "name": "realme 11x 5G (Midnight Black, 128 GB)",
+      "link": "https://flipkart.com/realme-11x-5g-midnight-black-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2W3KYRQF4GZ&lid=LSTMOBGS2W3KYRQF4GZO4BBGH&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_4&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2W3KYRQF4GZ.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 15999,
+      "original_price": 18999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kkprmvk0/smartwatch/v/j/n/storm-android-ios-boat-original-imafzzu29tguvtqg.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-storm-smartwatch/p/itm215a48c547168"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/w/s/3/-original-imagtqqdw4tnwjbh.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11x-5g-midnight-black-128-gb/p/itm07be1a2ff1a1b?pid=MOBGS2W3KYRQF4GZ&lid=LSTMOBGS2W3KYRQF4GZO4BBGH&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_4&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2W3KYRQF4GZ.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "boAt Storm Smartwatch",
-      "link": "https://www.flipkart.com/boat-storm-smartwatch/p/itm215a48c547168",
-      "current_price": 2199,
-      "original_price": 5990,
+      "name": "realme 11 Pro+ 5G (Sunrise Beige, 256 GB)",
+      "link": "https://flipkart.com/realme-11-pro-5g-sunrise-beige-256-gb/p/itm5647cce338e55?pid=MOBGPU8HQQYQN8XT&lid=LSTMOBGPU8HQQYQN8XTJSUCKP&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_5&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HQQYQN8XT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 25999,
+      "original_price": 29999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kkprmvk0/smartwatch/v/j/n/storm-android-ios-boat-original-imafzzu29tguvtqg.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-storm-smartwatch/p/itm215a48c547168"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/t/k/m/11-pro-5g-rmx3741-realme-original-imagq6asfa6hg5eu.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-pro-5g-sunrise-beige-256-gb/p/itm5647cce338e55?pid=MOBGPU8HQQYQN8XT&lid=LSTMOBGPU8HQQYQN8XTJSUCKP&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_5&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HQQYQN8XT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "boAt Storm Smartwatch",
-      "link": "https://www.flipkart.com/boat-storm-smartwatch/p/itm215a48c547168",
-      "current_price": 2999,
-      "original_price": 5990,
+      "name": "realme 11 Pro+ 5G (Astral Black, 256 GB)",
+      "link": "https://flipkart.com/realme-11-pro-5g-astral-black-256-gb/p/itm5647cce338e55?pid=MOBGPU8HRUUHYEWE&lid=LSTMOBGPU8HRUUHYEWESOLZ9G&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_6&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HRUUHYEWE.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 25999,
+      "original_price": 29999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kkprmvk0/smartwatch/v/j/n/storm-android-ios-boat-original-imafzzu29tguvtqg.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-storm-smartwatch/p/itm215a48c547168"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/x/b/w/-original-imagqadfx2mdvu4h.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-pro-5g-astral-black-256-gb/p/itm5647cce338e55?pid=MOBGPU8HRUUHYEWE&lid=LSTMOBGPU8HRUUHYEWESOLZ9G&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_6&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HRUUHYEWE.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "boAt Storm Smartwatch",
-      "link": "https://www.flipkart.com/boat-storm-smartwatch/p/itm215a48c547168",
-      "current_price": 2199,
-      "original_price": 5990,
+      "name": "realme C53 (Champion Black, 64 GB)",
+      "link": "https://flipkart.com/realme-c53-champion-black-64-gb/p/itm5df90168ecd05?pid=MOBGQY93HQSAGAXG&lid=LSTMOBGQY93HQSAGAXGQLZ2WK&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_7&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGQY93HQSAGAXG.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 10499,
+      "original_price": 12999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kkprmvk0/smartwatch/v/j/n/storm-android-ios-boat-original-imafzzu29tguvtqg.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/boat-storm-smartwatch/p/itm215a48c547168"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/5/q/6/-original-imags487ftf3g2s7.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-c53-champion-black-64-gb/p/itm5df90168ecd05?pid=MOBGQY93HQSAGAXG&lid=LSTMOBGQY93HQSAGAXGQLZ2WK&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_7&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGQY93HQSAGAXG.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "realme Watch 2",
-      "link": "https://www.flipkart.com/realme-watch-2/p/itm44d90218d1891",
-      "current_price": 2799,
-      "original_price": 3999,
+      "name": "realme 11 Pro 5G (Astral Black, 256 GB)",
+      "link": "https://flipkart.com/realme-11-pro-5g-astral-black-256-gb/p/itm3f783627a36ec?pid=MOBGPUNGNHJM8HKS&lid=LSTMOBGPUNGNHJM8HKSXLXRR3&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_8&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPUNGNHJM8HKS.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 24999,
+      "original_price": 27999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kr2e3680/smartwatch/i/i/t/1-4-rmw2008-android-ios-realme-original-imag4y6fynwz3ukt.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/realme-watch-2/p/itm44d90218d1891"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/k/t/2/11-pro-5g-rmx3771-realme-original-imagq6aszgmb4xja.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-pro-5g-astral-black-256-gb/p/itm3f783627a36ec?pid=MOBGPUNGNHJM8HKS&lid=LSTMOBGPUNGNHJM8HKSXLXRR3&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_8&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPUNGNHJM8HKS.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "DIZO Watch 2 (by realme TechLife)",
-      "link": "https://www.flipkart.com/dizo-watch-2-by-realme-techlife/p/itm59913ba399d56",
-      "current_price": 2299,
-      "original_price": 3999,
+      "name": "realme 11 Pro+ 5G (Oasis Green, 256 GB)",
+      "link": "https://flipkart.com/realme-11-pro-5g-oasis-green-256-gb/p/itm5647cce338e55?pid=MOBGPU8HCGG9PCER&lid=LSTMOBGPU8HCGG9PCERHGOPBG&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_9&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HCGG9PCER.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 29999,
+      "original_price": 32999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kt1u3rk0/smartwatch/f/o/c/1-69-android-ios-dw2118-dizo-no-original-imag6hhynsbyrrzf.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/dizo-watch-2-by-realme-techlife/p/itm59913ba399d56"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/0/x/v/-original-imagqadf2awzzmyf.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-pro-5g-oasis-green-256-gb/p/itm5647cce338e55?pid=MOBGPU8HCGG9PCER&lid=LSTMOBGPU8HCGG9PCERHGOPBG&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_9&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HCGG9PCER.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "DIZO Watch 2 (by realme TechLife)",
-      "link": "https://www.flipkart.com/dizo-watch-2-by-realme-techlife/p/itm59913ba399d56",
-      "current_price": 2999,
-      "original_price": 3999,
+      "name": "realme 11 Pro 5G (Sunrise Beige, 256 GB)",
+      "link": "https://flipkart.com/realme-11-pro-5g-sunrise-beige-256-gb/p/itm3f783627a36ec?pid=MOBGPUNGGMRMZDQ9&lid=LSTMOBGPUNGGMRMZDQ9RPSPAE&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_10&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPUNGGMRMZDQ9.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 24999,
+      "original_price": 27999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kt1u3rk0/smartwatch/f/o/c/1-69-android-ios-dw2118-dizo-no-original-imag6hhynsbyrrzf.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/dizo-watch-2-by-realme-techlife/p/itm59913ba399d56"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/l/8/d/-original-imagqadpnygfnn2v.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-pro-5g-sunrise-beige-256-gb/p/itm3f783627a36ec?pid=MOBGPUNGGMRMZDQ9&lid=LSTMOBGPUNGGMRMZDQ9RPSPAE&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_10&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPUNGGMRMZDQ9.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "DIZO Watch 2 (by realme TechLife)",
-      "link": "https://www.flipkart.com/dizo-watch-2-by-realme-techlife/p/itm59913ba399d56",
-      "current_price": 2499,
-      "original_price": 3999,
+      "name": "realme 11 5G (Glory Gold, 128 GB)",
+      "link": "https://flipkart.com/realme-11-5g-glory-gold-128-gb/p/itm676fecfaebff9?pid=MOBGS2WF3NYDBZKW&lid=LSTMOBGS2WF3NYDBZKWOW2TJ2&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_11&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2WF3NYDBZKW.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 16999,
+      "original_price": 20999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kt1u3rk0/smartwatch/f/o/c/1-69-android-ios-dw2118-dizo-no-original-imag6hhynsbyrrzf.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/dizo-watch-2-by-realme-techlife/p/itm59913ba399d56"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/g/j/d/-original-imagtqqddnkayg4x.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-5g-glory-gold-128-gb/p/itm676fecfaebff9?pid=MOBGS2WF3NYDBZKW&lid=LSTMOBGS2WF3NYDBZKWOW2TJ2&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_11&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGS2WF3NYDBZKW.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "SAMSUNG Galaxy Watch Active 2 Aluminium Smartwatch",
-      "link": "https://www.flipkart.com/samsung-galaxy-watch-active-2-aluminium-smartwatch/p/itmdf82694656d9d",
-      "current_price": 11990,
-      "original_price": 25990,
+      "name": "realme 11 Pro+ 5G (Sunrise Beige, 256 GB)",
+      "link": "https://flipkart.com/realme-11-pro-5g-sunrise-beige-256-gb/p/itm5647cce338e55?pid=MOBGPU8HQPGU7HVR&lid=LSTMOBGPU8HQPGU7HVRYDHQ4Y&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_12&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HQPGU7HVR.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 29999,
+      "original_price": 32999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kusph8w0/smartwatch/h/x/5/android-ios-sm-r820nzkiinu-sm-r820nzkainu-samsung-yes-original-imag7ugzueycpbsm.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/samsung-galaxy-watch-active-2-aluminium-smartwatch/p/itmdf82694656d9d"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/t/k/m/11-pro-5g-rmx3741-realme-original-imagq6asfa6hg5eu.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-11-pro-5g-sunrise-beige-256-gb/p/itm5647cce338e55?pid=MOBGPU8HQPGU7HVR&lid=LSTMOBGPU8HQPGU7HVRYDHQ4Y&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_12&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGPU8HQPGU7HVR.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise ColorFit Qube SpO2 Charcoal Black Smartwatch",
-      "link": "https://www.flipkart.com/noise-colorfit-qube-spo2-charcoal-black-smartwatch/p/itm2d9dc41a02202",
-      "current_price": 1999,
-      "original_price": 4999,
+      "name": "realme C55 (Sunshower, 128 GB)",
+      "link": "https://flipkart.com/realme-c55-sunshower-128-gb/p/itm054283d14c56e?pid=MOBGNBYJUA2G5HK4&lid=LSTMOBGNBYJUA2G5HK40FPVVJ&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_13&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGNBYJUA2G5HK4.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 13999,
+      "original_price": 15999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/ku1k4280/smartwatch/t/i/a/android-ios-wrb-sw-colorfitqubeoxy-std-blk-blk-noise-no-original-imag79y4ar4hjbgb.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-colorfit-qube-spo2-charcoal-black-smartwatch/p/itm2d9dc41a02202"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/z/x/x/-original-imagp55frhhddu6n.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-c55-sunshower-128-gb/p/itm054283d14c56e?pid=MOBGNBYJUA2G5HK4&lid=LSTMOBGNBYJUA2G5HK40FPVVJ&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_13&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGNBYJUA2G5HK4.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Fire-Boltt Talk Bluetooth Calling Smartwatch",
-      "link": "https://www.flipkart.com/fire-boltt-talk-bluetooth-calling-smartwatch/p/itm5df1ad0845145",
-      "current_price": 2999,
-      "original_price": 9999,
+      "name": "realme C55 (Rainy Night, 64 GB)",
+      "link": "https://flipkart.com/realme-c55-rainy-night-64-gb/p/itm054283d14c56e?pid=MOBGNBYJXR9BTBFT&lid=LSTMOBGNBYJXR9BTBFTO9NHKK&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_14&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGNBYJXR9BTBFT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 9999,
+      "original_price": 12999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kpr8k280/smartwatch/k/a/s/bsw004-android-ios-fire-boltt-original-imag3wwbrtpdpg6g.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/fire-boltt-talk-bluetooth-calling-smartwatch/p/itm5df1ad0845145"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/a/l/m/-original-imagp55fu6uq2jch.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-c55-rainy-night-64-gb/p/itm054283d14c56e?pid=MOBGNBYJXR9BTBFT&lid=LSTMOBGNBYJXR9BTBFTO9NHKK&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_14&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGNBYJXR9BTBFT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Fire-Boltt Talk Bluetooth Calling Smartwatch",
-      "link": "https://www.flipkart.com/fire-boltt-talk-bluetooth-calling-smartwatch/p/itm5df1ad0845145",
-      "current_price": 2999,
-      "original_price": 9999,
+      "name": "realme C55 (Sunshower, 64 GB)",
+      "link": "https://flipkart.com/realme-c55-sunshower-64-gb/p/itm054283d14c56e?pid=MOBGNBYJDJ5YBVGQ&lid=LSTMOBGNBYJDJ5YBVGQ8JESXS&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_15&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGNBYJDJ5YBVGQ.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 11999,
+      "original_price": 13999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kpr8k280/smartwatch/k/a/s/bsw004-android-ios-fire-boltt-original-imag3wwbrtpdpg6g.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/fire-boltt-talk-bluetooth-calling-smartwatch/p/itm5df1ad0845145"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/z/x/x/-original-imagp55frhhddu6n.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-c55-sunshower-64-gb/p/itm054283d14c56e?pid=MOBGNBYJDJ5YBVGQ&lid=LSTMOBGNBYJDJ5YBVGQ8JESXS&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_15&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGNBYJDJ5YBVGQ.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Fire-Boltt Talk Bluetooth Calling Smartwatch",
-      "link": "https://www.flipkart.com/fire-boltt-talk-bluetooth-calling-smartwatch/p/itm5df1ad0845145",
-      "current_price": 3499,
-      "original_price": 9999,
+      "name": "realme GT 5G (Dashing Silver, 128 GB)",
+      "link": "https://flipkart.com/realme-gt-5g-dashing-silver-128-gb/p/itm9ae1d9198cd93?pid=MOBG5JPXBD9A6FTC&lid=LSTMOBG5JPXBD9A6FTCOBZZS8&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_16&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG5JPXBD9A6FTC.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 25999,
+      "original_price": 40999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kpr8k280/smartwatch/k/a/s/bsw004-android-ios-fire-boltt-original-imag3wwbrtpdpg6g.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/fire-boltt-talk-bluetooth-calling-smartwatch/p/itm5df1ad0845145"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/l3rmzrk0/mobile/f/z/n/-original-imagetme3gzbnc3z.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-gt-5g-dashing-silver-128-gb/p/itm9ae1d9198cd93?pid=MOBG5JPXBD9A6FTC&lid=LSTMOBG5JPXBD9A6FTCOBZZS8&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_16&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG5JPXBD9A6FTC.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Elite T55 Series 5 Dual Belt Smartwatch",
-      "link": "https://www.flipkart.com/elite-t55-series-5-dual-belt-smartwatch/p/itmf353991f40017",
-      "current_price": 1169,
-      "original_price": 5999,
+      "name": "realme 9i 5G (Metallica Gold, 64 GB)",
+      "link": "https://flipkart.com/realme-9i-5g-metallica-gold-64-gb/p/itm32c638d54e6b5?pid=MOBGGHPF5X7EMY5H&lid=LSTMOBGGHPF5X7EMY5HSBWKBW&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_17&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGGHPF5X7EMY5H.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 14999,
+      "original_price": 17999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/ki4w0i80-0/smartwatch/b/g/w/android-ios-watch-series-5-t55-bluetooth-call-smart-watch-dual-original-imafw327qgghrzvc.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/elite-t55-series-5-dual-belt-smartwatch/p/itmf353991f40017"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/b/q/s/-original-imaghbeqtgzsfzvc.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-9i-5g-metallica-gold-64-gb/p/itm32c638d54e6b5?pid=MOBGGHPF5X7EMY5H&lid=LSTMOBGGHPF5X7EMY5HSBWKBW&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_17&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGGHPF5X7EMY5H.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise ColorFit Brio Smartwatch",
-      "link": "https://www.flipkart.com/noise-colorfit-brio-smartwatch/p/itmfe15b0d7dd2f4",
-      "current_price": 2599,
-      "original_price": 5999,
+      "name": "realme 9i 5G (Rocking Black, 64 GB)",
+      "link": "https://flipkart.com/realme-9i-5g-rocking-black-64-gb/p/itm32c638d54e6b5?pid=MOBGGHPFJK67HFGK&lid=LSTMOBGGHPFJK67HFGKNXMKLL&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_18&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGGHPFJK67HFGK.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 14999,
+      "original_price": 17999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/ku04o7k0/smartwatch/d/z/u/android-ios-wrb-sw-colorfitbrio-std-blk-blk-noise-no-original-imag77xp9rd3rqgm.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-colorfit-brio-smartwatch/p/itmfe15b0d7dd2f4"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/o/b/a/-original-imaghbequzj25wy2.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-9i-5g-rocking-black-64-gb/p/itm32c638d54e6b5?pid=MOBGGHPFJK67HFGK&lid=LSTMOBGGHPFJK67HFGKNXMKLL&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_18&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGGHPFJK67HFGK.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise ColorFit Pro 3 Smartwatch",
-      "link": "https://www.flipkart.com/noise-colorfit-pro-3-smartwatch/p/itmfee75c21f7ff6",
-      "current_price": 3499,
-      "original_price": 5999,
+      "name": "realme GT 5G (Dashing Blue, 128 GB)",
+      "link": "https://flipkart.com/realme-gt-5g-dashing-blue-128-gb/p/itm9ae1d9198cd93?pid=MOBG5JPXTFPYFWZQ&lid=LSTMOBG5JPXTFPYFWZQLQIT5C&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_19&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG5JPXTFPYFWZQ.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 25999,
+      "original_price": 40999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/knrsjgw0/smartwatch/x/b/b/wrb-sw-colorfitpro3-std-ros-pnk-android-ios-noise-original-imag2drhshyutzm8.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-colorfit-pro-3-smartwatch/p/itmfee75c21f7ff6"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/l3rmzrk0/mobile/z/i/t/-original-imagetme2k2rva45.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-gt-5g-dashing-blue-128-gb/p/itm9ae1d9198cd93?pid=MOBG5JPXTFPYFWZQ&lid=LSTMOBG5JPXTFPYFWZQLQIT5C&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_19&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG5JPXTFPYFWZQ.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise Fit Active SpO2 Smartwatch",
-      "link": "https://www.flipkart.com/noise-fit-active-spo2-smartwatch/p/itm9157364a66a69",
-      "current_price": 2999,
-      "original_price": 5999,
+      "name": "realme Narzo 50 (Speed Black, 128 GB)",
+      "link": "https://flipkart.com/realme-narzo-50-speed-black-128-gb/p/itm9d47ef5d10145?pid=MOBGC2E7VUH9YBWT&lid=LSTMOBGC2E7VUH9YBWTLLSCB6&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_20&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGC2E7VUH9YBWT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 13990,
+      "original_price": 17999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/kolsscw0/smartwatch/9/l/s/wrb-sw-active-std-blu-android-ios-noise-original-imag3f7s4nugphge.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-fit-active-spo2-smartwatch/p/itm9157364a66a69"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/l0bbonk0/shopsy-mobile/k/4/l/-original-imagc4qjnkzhty3h.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-narzo-50-speed-black-128-gb/p/itm9d47ef5d10145?pid=MOBGC2E7VUH9YBWT&lid=LSTMOBGC2E7VUH9YBWTLLSCB6&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_20&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGC2E7VUH9YBWT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Lastpoint calling Android 4G bluetooth Tracer Smartwatch",
-      "link": "https://www.flipkart.com/lastpoint-calling-android-4g-bluetooth-tracer-smartwatch/p/itmde448f8fb3007",
-      "current_price": 995,
-      "original_price": 1499,
+      "name": "realme Narzo 50 (Speed Black, 64 GB)",
+      "link": "https://flipkart.com/realme-narzo-50-speed-black-64-gb/p/itm9d47ef5d10145?pid=MOBGC2E7QBD3ARH2&lid=LSTMOBGC2E7QBD3ARH2VDO79X&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_21&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGC2E7QBD3ARH2.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 12712,
+      "original_price": 15900,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/k4ehnrk0/smartwatch/w/t/g/black-color-smartwatch-a1b-47-mindsart-original-imafn67dmhz3utw8.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/lastpoint-calling-android-4g-bluetooth-tracer-smartwatch/p/itmde448f8fb3007"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/l0bbonk0/shopsy-mobile/k/4/l/-original-imagc4qjnkzhty3h.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-narzo-50-speed-black-64-gb/p/itm9d47ef5d10145?pid=MOBGC2E7QBD3ARH2&lid=LSTMOBGC2E7QBD3ARH2VDO79X&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_21&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGC2E7QBD3ARH2.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise ColorFit Qube SpO2 Beige Gold Smartwatch",
-      "link": "https://www.flipkart.com/noise-colorfit-qube-spo2-beige-gold-smartwatch/p/itm9927bceb148ce",
-      "current_price": 1899,
-      "original_price": 4999,
+      "name": "realme Narzo 50i (Carbon Black, 32 GB)",
+      "link": "https://flipkart.com/realme-narzo-50i-carbon-black-32-gb/p/itm53fa214c23501?pid=MOBG6MY4QPAW6PQN&lid=LSTMOBG6MY4QPAW6PQN4SSHMQ&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_22&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG6MY4QPAW6PQN.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 7499,
+      "original_price": 7999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/ku1k4280/smartwatch/f/z/k/android-ios-wrb-sw-colorfitqubeoxy-std-rgld-pnk-noise-no-original-imag79y4dphr2wrj.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-colorfit-qube-spo2-beige-gold-smartwatch/p/itm9927bceb148ce"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/ktx9si80/mobile/h/b/c/narzo-50i-rmx3231-realme-original-imag75hcyzzggbat.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-narzo-50i-carbon-black-32-gb/p/itm53fa214c23501?pid=MOBG6MY4QPAW6PQN&lid=LSTMOBG6MY4QPAW6PQN4SSHMQ&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_22&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG6MY4QPAW6PQN.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise ColorFit Pro 2 Smartwatch",
-      "link": "https://www.flipkart.com/noise-colorfit-pro-2-smartwatch/p/itm6e504a0c97a11",
-      "current_price": 2299,
-      "original_price": 4999,
+      "name": "realme C30 (Denim Black, 32 GB)",
+      "link": "https://flipkart.com/realme-c30-denim-black-32-gb/p/itmfcf69b2db5059?pid=MOBGF37GMBMYRFBK&lid=LSTMOBGF37GMBMYRFBK6OQWPG&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_23&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGF37GMBMYRFBK.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 6499,
+      "original_price": 9299,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/k8vyf0w0/smartwatch/c/z/a/wrb-sw-colorfitpro2-std-teal-android-ios-noise-original-imafqsqgz4tfyzfs.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-colorfit-pro-2-smartwatch/p/itm6e504a0c97a11"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/l4ln8nk0/mobile/f/6/a/-original-imagfggrbywzk8r6.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-c30-denim-black-32-gb/p/itmfcf69b2db5059?pid=MOBGF37GMBMYRFBK&lid=LSTMOBGF37GMBMYRFBK6OQWPG&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_23&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBGF37GMBMYRFBK.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     },
     {
-      "name": "Noise ColorFit Pro 3 Smartwatch",
-      "link": "https://www.flipkart.com/noise-colorfit-pro-3-smartwatch/p/itm2e817033f1466",
-      "current_price": 3499,
-      "original_price": 5999,
+      "name": "realme Narzo 50i (Mint Green, 32 GB)",
+      "link": "https://flipkart.com/realme-narzo-50i-mint-green-32-gb/p/itm53fa214c23501?pid=MOBG6MY4BU22NQYT&lid=LSTMOBG6MY4BU22NQYTSR1ENM&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_24&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG6MY4BU22NQYT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191",
+      "current_price": 7499,
+      "original_price": 7999,
       "discounted": true,
-      "thumbnail": "https://rukminim1.flixcart.com/image/312/312/knrsjgw0/smartwatch/x/b/b/wrb-sw-colorfitpro3-std-ros-pnk-android-ios-noise-original-imag2drhshyutzm8.jpeg?q=70",
-      "query_url": "https://flipkart-scraper-api.dvishal485.workers.dev/product/noise-colorfit-pro-3-smartwatch/p/itm2e817033f1466"
+      "thumbnail": "https://rukminim2.flixcart.com/image/312/312/ktx9si80/mobile/s/o/j/narzo-50i-rmx3231-realme-original-imag75h86v5thnzy.jpeg?q=70",
+      "query_url": "http://localhost:3000/productflipkart.com/realme-narzo-50i-mint-green-32-gb/p/itm53fa214c23501?pid=MOBG6MY4BU22NQYT&lid=LSTMOBG6MY4BU22NQYTSR1ENM&marketplace=FLIPKART&q=realme+11x&store=tyy%2F4io&srno=s_1_24&otracker=search&fm=organic&iid=f559c559-c9a1-4a7d-a79a-b964f21447f1.MOBG6MY4BU22NQYT.SEARCH&ppt=None&ppn=None&ssid=jfk7bugrwg0000001697024548858&qH=54db6584f9e1a191"
     }
   ]
 }
