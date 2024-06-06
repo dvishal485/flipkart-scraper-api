@@ -208,7 +208,7 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
 - Start container from image.
 
     ```bash
-    docker run -p3000:3000 localhost/flipkart-scraper-api
+    docker run --rm -p3000:3000 localhost/flipkart-scraper-api
     ```
 
 - API is now running actively on localhost with port 3000.
