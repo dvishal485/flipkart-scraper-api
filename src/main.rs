@@ -103,7 +103,9 @@ async fn main() {
             (StatusCode::PERMANENT_REDIRECT, Redirect::permanent("/")).into_response()
         }));
 
-    println!("Starting server on port 3000");
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    println!("Starting server on {}", env!("DEPLOYMENT_URL"));
+    let listener = tokio::net::TcpListener::bind(env!("DEPLOYMENT_URL"))
+        .await
+        .unwrap();
     axum::serve(listener, app).await.unwrap();
 }

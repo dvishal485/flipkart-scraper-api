@@ -1,7 +1,7 @@
 FROM docker.io/rust:1.73-slim-bullseye as builder
 WORKDIR /usr/src/flipkart-scraper-api
 RUN apt update && apt install -y libssl-dev
-ENV DEPLOYMENT_URL http://localhost:3000
+ENV DEPLOYMENT_URL localhost:3000
 ENV OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu
 ENV OPENSSL_INCLUDE_DIR=/usr/include
 COPY Cargo.toml .
