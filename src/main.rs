@@ -8,16 +8,22 @@ use axum::{
 };
 use std::collections::HashMap;
 mod search;
-use flipkart_scraper::Url;
+use flipkart_scraper::{search::SearchParams, Url};
 use search::search_product;
 mod product;
 use axum::response::IntoResponse;
 use product::product_details;
 use serde_json::{json, Value};
 
-async fn search_router(query: Option<Path<String>>) -> Response<Body> {
-    let Path(query) = query.unwrap_or(Path("".to_string()));
-    let data = search_product(query).await;
+async fn search_router(
+    query: Option<Path<String>>,
+    Query(params): Query<SearchParams>,
+) -> Response<Body> {
+    let data = search_product(
+        query.map(|q| q.to_string()).unwrap_or_default(),
+        params,
+    )
+    .await;
     if let Err(err) = data {
         return Response::builder()
             .status(StatusCode::BAD_GATEWAY)

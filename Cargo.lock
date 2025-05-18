@@ -303,9 +303,9 @@ dependencies = [
 
 [[package]]
 name = "flipkart_scraper"
-version = "0.3.2"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5014d4b133ab39a15db921a77bf16f72a4583b356504d5b65583913e64ccaaa4"
+checksum = "df570e4fa24334d184fcb21c3828943f3be2e75ce783bdb7f8564ff0c2303f6a"
 dependencies = [
  "eyre",
  "getrandom 0.3.3",
