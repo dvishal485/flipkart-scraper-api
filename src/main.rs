@@ -36,7 +36,6 @@ async fn search_router(
         .unwrap_or_else(|_| Response::new(Body::empty()))
 }
 
-#[axum::debug_handler]
 async fn product_router(
     Path(url): Path<String>,
     Query(query_params): Query<HashMap<String, String>>,
@@ -112,7 +111,7 @@ async fn main() {
         }));
 
     println!("Starting server on {}", deploy_url);
-    
+
     let listener = tokio::net::TcpListener::bind(deploy_url).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
