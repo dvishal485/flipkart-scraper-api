@@ -1,6 +1,8 @@
 use flipkart_scraper::{search::SearchParams, ProductSearch};
 use serde::Serialize;
 
+use crate::DEFAULT_DEPLOYMENT_URL;
+
 pub async fn search_product(
     query: String,
     params: SearchParams,
@@ -59,7 +61,8 @@ pub async fn search_product(
                     thumbnail: p.thumbnail,
                     query_url: format!(
                         "{host}/product{query}",
-                        host = option_env!("DEPLOYMENT_URL").unwrap_or("http://localhost:3000"),
+                        host = std::env::var("DEPLOYMENT_URL")
+                            .unwrap_or_else(|_| DEFAULT_DEPLOYMENT_URL.to_string()),
                         query = query_url
                     ),
                 }

@@ -19,11 +19,7 @@ async fn search_router(
     query: Option<Path<String>>,
     Query(params): Query<SearchParams>,
 ) -> Response<Body> {
-    let data = search_product(
-        query.map(|q| q.to_string()).unwrap_or_default(),
-        params,
-    )
-    .await;
+    let data = search_product(query.map(|q| q.to_string()).unwrap_or_default(), params).await;
     if let Err(err) = data {
         return Response::builder()
             .status(StatusCode::BAD_GATEWAY)
@@ -76,8 +72,13 @@ async fn product_router(
         .unwrap()
 }
 
+const DEFAULT_DEPLOYMENT_URL: &str = "localhost:3000";
+
 #[tokio::main]
 async fn main() {
+    let deploy_url =
+        std::env::var("DEPLOYMENT_URL").unwrap_or_else(|_| DEFAULT_DEPLOYMENT_URL.to_string());
+
     let description: Value = json!({
         "name": env!("CARGO_PKG_NAME"),
         "description": env!("CARGO_PKG_DESCRIPTION"),
@@ -86,8 +87,8 @@ async fn main() {
         "repository": env!("CARGO_PKG_REPOSITORY"),
         "license": env!("CARGO_PKG_LICENSE"),
         "usage": {
-            "search_api": concat!(env!("DEPLOYMENT_URL"), "/search/{product_name}"),
-            "product_api": concat!(env!("DEPLOYMENT_URL"), "/product/{product_link_argument}"),
+            "search_api": format!("{deploy_url}/search/{{product_name}}"),
+            "product_api": format!("{deploy_url}/product/{{product_link_argument}}"),
         }
     });
 
@@ -110,9 +111,8 @@ async fn main() {
             (StatusCode::PERMANENT_REDIRECT, Redirect::permanent("/")).into_response()
         }));
 
-    println!("Starting server on {}", env!("DEPLOYMENT_URL"));
-    let listener = tokio::net::TcpListener::bind(env!("DEPLOYMENT_URL"))
-        .await
-        .unwrap();
+    println!("Starting server on {}", deploy_url);
+    
+    let listener = tokio::net::TcpListener::bind(deploy_url).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
