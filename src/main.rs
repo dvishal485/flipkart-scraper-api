@@ -34,15 +34,16 @@ async fn search_router(query: Option<Path<String>>) -> Response<Body> {
         .unwrap_or_else(|_| Response::new(Body::empty()))
 }
 
+#[axum::debug_handler]
 async fn product_router(
     Path(url): Path<String>,
-    q: Option<Query<HashMap<String, String>>>,
+    Query(query_params): Query<HashMap<String, String>>,
 ) -> Response<Body> {
-    let url = if let Some(Query(q)) = q {
-        Url::parse_with_params(format!("https://www.flipkart.com/{url}").as_str(), q)
-    } else {
-        Url::parse(format!("https://www.flipkart.com/{url}").as_str())
-    };
+    let url = Url::parse_with_params(
+        format!("https://www.flipkart.com/{url}").as_str(),
+        query_params,
+    );
+
     if let Err(e) = url {
         return Response::builder()
             .status(StatusCode::BAD_GATEWAY)
@@ -95,10 +96,10 @@ async fn main() {
                     .unwrap()
             }),
         )
-        .route("/search/*query", get(search_router))
+        .route("/search/{*query}", get(search_router))
         .route("/search", get(search_router))
         .route("/search/", get(search_router))
-        .route("/product/*url", get(product_router))
+        .route("/product/{*url}", get(product_router))
         .fallback(get(|| async {
             (StatusCode::PERMANENT_REDIRECT, Redirect::permanent("/")).into_response()
         }));
