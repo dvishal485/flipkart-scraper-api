@@ -30,7 +30,7 @@ The API has been rewritten in Rust. With this process, a multitude of unexpected
 
 Supported Deployments
 
-![Cargo](https://img.shields.io/badge/Cargo--red?logo=rust) ![Docker](https://img.shields.io/badge/Docker--blue?logo=docker)
+![Cargo](https://img.shields.io/badge/Cargo--red?logo=rust) ![Docker](https://img.shields.io/badge/Docker--blue?logo=docker) ![Nix](https://img.shields.io/badge/Nix--blue?logo=nixos)
 
 [For information on Deployment, refer documentation.](https://dvishal485.github.io/flipkart-scraper-api/#deployment)
 

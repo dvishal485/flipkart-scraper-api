@@ -15,7 +15,6 @@
           "aarch64-darwin"
         ] (system: function nixpkgs.legacyPackages.${system});
       rev = self.shortRev or self.dirtyShortRev or "dirty";
-      deployUrl = "localhost:3000";
     in
     {
       devShells = supportedSystems (pkgs: {
@@ -26,7 +25,7 @@
             openssl
           ];
           env = {
-            DEPLOYMENT_URL = deployUrl;
+            DEPLOYMENT_URL = "localhost:3000";
           };
         };
       });
@@ -34,7 +33,6 @@
       packages = supportedSystems (pkgs: rec {
         flipkart-scraper-api = pkgs.callPackage ./package.nix {
           inherit rev;
-          inherit deployUrl;
         };
         default = flipkart-scraper-api;
       });

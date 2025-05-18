@@ -5,7 +5,6 @@
   makeBinaryWrapper,
   openssl,
   pkg-config,
-  deployUrl ? "localhost:3000",
   rev ? "dirty",
 }:
 
@@ -43,8 +42,6 @@ rustPlatform.buildRustPackage {
   buildInputs = [
     openssl
   ];
-
-  DEPLOYMENT_URL = deployUrl;
 
   meta = {
     description = "Unofficial flipkart scraper api to fetch product details and search on flipkart.com";

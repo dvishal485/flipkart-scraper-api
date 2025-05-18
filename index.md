@@ -29,6 +29,7 @@ API to scrape search results and product details from Flipkart
   - [Increasing Resolution of Image](#increasing-resolution-of-image)
   - [Deployment](#deployment)
     - [Deploy using Docker](#deploy-using-docker)
+    - [Deploy using Nix](#deploy-using-nix)
     - [Using Cargo](#using-cargo)
   - [Error Handling](#error-handling)
   - [Migration from JS to Rust](#migration-from-js-to-rust)
@@ -49,6 +50,7 @@ API to scrape search results and product details from Flipkart
   - Discount status (`true` or `false`)
   - Product Thumbnail
 
+- Search with min-max price range filter, pagination support and results sorting.
 - Fetch product result from URL of product
 
     Response in JSON format including the following information about Product :
@@ -212,6 +214,20 @@ https://rukminim2.flixcart.com/image/1024/1024/kzfvzww0/computer/r/g/i/hp-laptop
     ```
 
 - API is now running actively on localhost with port 3000.
+
+### Deploy using Nix
+
+The package is also available as a Nix flake. On supported system with Nix installed, simply run
+
+```bash
+nix run github:dvishal485/flipkart-scraper-api
+```
+
+This uses default host as `localhost:3000`. Host can be managed as follows:
+
+```bash
+DEPLOYMENT_URL='127.0.0.1:4000' nix run github:dvishal485/flipkart-scraper-api
+```
 
 ### Using Cargo
 
