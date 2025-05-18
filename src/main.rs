@@ -8,16 +8,22 @@ use axum::{
 };
 use std::collections::HashMap;
 mod search;
-use flipkart_scraper::Url;
+use flipkart_scraper::{search::SearchParams, Url};
 use search::search_product;
 mod product;
 use axum::response::IntoResponse;
 use product::product_details;
 use serde_json::{json, Value};
 
-async fn search_router(query: Option<Path<String>>) -> Response<Body> {
-    let Path(query) = query.unwrap_or(Path("".to_string()));
-    let data = search_product(query).await;
+async fn search_router(
+    query: Option<Path<String>>,
+    Query(params): Query<SearchParams>,
+) -> Response<Body> {
+    let data = search_product(
+        query.map(|q| q.to_string()).unwrap_or_default(),
+        params,
+    )
+    .await;
     if let Err(err) = data {
         return Response::builder()
             .status(StatusCode::BAD_GATEWAY)
@@ -34,15 +40,16 @@ async fn search_router(query: Option<Path<String>>) -> Response<Body> {
         .unwrap_or_else(|_| Response::new(Body::empty()))
 }
 
+#[axum::debug_handler]
 async fn product_router(
     Path(url): Path<String>,
-    q: Option<Query<HashMap<String, String>>>,
+    Query(query_params): Query<HashMap<String, String>>,
 ) -> Response<Body> {
-    let url = if let Some(Query(q)) = q {
-        Url::parse_with_params(format!("https://www.flipkart.com/{url}").as_str(), q)
-    } else {
-        Url::parse(format!("https://www.flipkart.com/{url}").as_str())
-    };
+    let url = Url::parse_with_params(
+        format!("https://www.flipkart.com/{url}").as_str(),
+        query_params,
+    );
+
     if let Err(e) = url {
         return Response::builder()
             .status(StatusCode::BAD_GATEWAY)
@@ -95,10 +102,10 @@ async fn main() {
                     .unwrap()
             }),
         )
-        .route("/search/*query", get(search_router))
+        .route("/search/{*query}", get(search_router))
         .route("/search", get(search_router))
         .route("/search/", get(search_router))
-        .route("/product/*url", get(product_router))
+        .route("/product/{*url}", get(product_router))
         .fallback(get(|| async {
             (StatusCode::PERMANENT_REDIRECT, Redirect::permanent("/")).into_response()
         }));

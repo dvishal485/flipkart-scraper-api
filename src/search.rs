@@ -1,14 +1,18 @@
-use flipkart_scraper::ProductSearch;
+use flipkart_scraper::{search::SearchParams, ProductSearch};
 use serde::Serialize;
 
-pub async fn search_product(query: String) -> Result<SearchResultResponse, String> {
-    let search = ProductSearch::search(query).await;
+pub async fn search_product(
+    query: String,
+    params: SearchParams,
+) -> Result<SearchResultResponse, String> {
+    let search = ProductSearch::search(query, params).await;
     if let Err(err) = search {
         return Err(err.to_string());
     }
 
     let ProductSearch {
         query,
+        query_params,
         query_url,
         results,
     } = search.unwrap();
@@ -16,6 +20,7 @@ pub async fn search_product(query: String) -> Result<SearchResultResponse, Strin
     let search_result = SearchResultResponse {
         total_result: results.len(),
         query,
+        query_params,
         fetch_from: query_url,
         result: results
             .into_iter()
@@ -80,6 +85,7 @@ pub struct SearchResultProduct {
 pub struct SearchResultResponse {
     total_result: usize,
     query: String,
+    query_params: SearchParams,
     fetch_from: String,
     result: Vec<SearchResultProduct>,
 }
