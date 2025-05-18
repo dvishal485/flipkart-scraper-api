@@ -1,7 +1,7 @@
 [package]
 name = "flipkart-scraper-api"
 description = "API to scrape search results and product details from Flipkart"
-version = "4.1.0"
+version = "5.0.0"
 edition = "2021"
 repository = "https://github.com/dvishal485/flipkart-scraper-api"
 authors = ["dvishal485 <dvishal485@gmail.com>"]
