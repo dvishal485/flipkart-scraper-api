@@ -1,15 +1,20 @@
+use std::error::Error;
+
 use flipkart_scraper::{search::SearchParams, ProductSearch};
 use serde::Serialize;
 
-use crate::DEFAULT_DEPLOYMENT_URL;
+use crate::{ApiError, DEFAULT_DEPLOYMENT_URL};
 
 pub async fn search_product(
     query: String,
     params: SearchParams,
-) -> Result<SearchResultResponse, String> {
+) -> Result<SearchResultResponse, ApiError> {
     let search = ProductSearch::search(query, params).await;
-    if let Err(err) = search {
-        return Err(err.to_string());
+    if let Err(e) = search {
+        return Err(ApiError {
+            error_message: e.to_string(),
+            more_details: e.source().map(|source| source.to_string()),
+        });
     }
 
     let ProductSearch {
