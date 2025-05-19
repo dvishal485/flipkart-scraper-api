@@ -1,11 +1,13 @@
 use axum::{
     body::Body,
     extract::{Path, Query},
+    http::Error,
     http::{Response, StatusCode},
     response::Redirect,
     routing::get,
-    Router,
+    Router, ServiceExt,
 };
+use serde::Serialize;
 use std::collections::HashMap;
 mod search;
 use flipkart_scraper::{search::SearchParams, Url};
@@ -15,25 +17,58 @@ use axum::response::IntoResponse;
 use product::product_details;
 use serde_json::{json, Value};
 
+#[derive(Debug, Serialize)]
+pub struct ApiError {
+    error_message: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    more_details: Option<String>,
+}
+
+fn default_error_response(e: Error) -> Response<Body> {
+    let err = ApiError {
+        error_message: "Internal Server Error".to_string(),
+        more_details: Some(format!("There was some internal server error, make sure you are calling the API correctly. {e}. Report any issues at https://github.com/dvishal485/flipkart-scraper-api")),
+    };
+
+    Response::builder()
+        .status(StatusCode::INTERNAL_SERVER_ERROR)
+        .header("Content-Type", "application/json")
+        .body(Body::from(json!({"error": err}).to_string()))
+        .unwrap_or_default()
+}
+
 async fn search_router(
     query: Option<Path<String>>,
-    Query(params): Query<SearchParams>,
+    params_result: Result<Query<SearchParams>, axum::extract::rejection::QueryRejection>,
 ) -> Response<Body> {
-    let data = search_product(query.map(|q| q.to_string()).unwrap_or_default(), params).await;
-    if let Err(err) = data {
-        return Response::builder()
-            .status(StatusCode::BAD_GATEWAY)
-            .header("Content-Type", "application/json")
-            .body(Body::from(json!({"error": err.to_string()}).to_string()))
-            .unwrap_or_else(|_| Response::new(Body::empty()));
-    }
+    match params_result {
+        Ok(Query(params)) => {
+            let query = query.map(|q| q.to_string()).unwrap_or_default();
+            let data = search_product(query, params).await;
 
-    let data = data.unwrap();
-    Response::builder()
-        .status(StatusCode::OK)
-        .header("Content-Type", "application/json")
-        .body(Body::from(serde_json::to_string(&data).unwrap()))
-        .unwrap_or_else(|_| Response::new(Body::empty()))
+            match data {
+                Ok(data) => Response::builder()
+                    .status(StatusCode::OK)
+                    .header("Content-Type", "application/json")
+                    .body(Body::from(serde_json::to_string(&data).unwrap())),
+                Err(err) => Response::builder()
+                    .status(StatusCode::BAD_GATEWAY)
+                    .header("Content-Type", "application/json")
+                    .body(Body::from(json!({"error": err}).to_string())),
+            }
+        }
+        Err(err) => Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .header("Content-Type", "application/json")
+            .body(Body::from(
+                serde_json::json!(ApiError {
+                    error_message: "Invalid query parameters".to_string(),
+                    more_details: Some(err.to_string()),
+                })
+                .to_string(),
+            )),
+    }
+    .unwrap_or_else(|e| default_error_response(e))
 }
 
 async fn product_router(
@@ -45,30 +80,27 @@ async fn product_router(
         query_params,
     );
 
-    if let Err(e) = url {
-        return Response::builder()
+    match url {
+        Ok(url) => {
+            let data = product_details(url).await;
+
+            match data {
+                Err(e) => Response::builder()
+                    .status(StatusCode::BAD_GATEWAY)
+                    .header("Content-Type", "application/json")
+                    .body(Body::from(json!({"error": e}).to_string())),
+                Ok(data) => Response::builder()
+                    .status(StatusCode::OK)
+                    .header("Content-Type", "application/json")
+                    .body(Body::from(serde_json::to_string(&data).unwrap())),
+            }
+        }
+        Err(e) => Response::builder()
             .status(StatusCode::BAD_GATEWAY)
             .header("Content-Type", "application/json")
-            .body(Body::from(json!({"error": e.to_string()}).to_string()))
-            .unwrap();
+            .body(Body::from(json!({"error": e.to_string()}).to_string())),
     }
-    let url = url.unwrap();
-    let data = product_details(url).await;
-
-    if let Err(e) = data {
-        return Response::builder()
-            .status(StatusCode::BAD_GATEWAY)
-            .header("Content-Type", "application/json")
-            .body(Body::from(json!({"error": e.to_string()}).to_string()))
-            .unwrap();
-    }
-
-    let data = data.unwrap();
-    Response::builder()
-        .status(StatusCode::OK)
-        .header("Content-Type", "application/json")
-        .body(Body::from(serde_json::to_string(&data).unwrap()))
-        .unwrap()
+    .unwrap_or_else(|e| default_error_response(e))
 }
 
 const DEFAULT_DEPLOYMENT_URL: &str = "localhost:3000";

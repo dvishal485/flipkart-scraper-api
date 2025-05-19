@@ -1,10 +1,15 @@
+use std::error::Error;
+
 use flipkart_scraper::{product_details::*, Url};
 use serde::Serialize;
 
-pub async fn product_details(url: Url) -> Result<ProductDetailsResponse, String> {
-    let result = ProductDetails::fetch(url)
-        .await
-        .map_err(|e| e.to_string())?;
+use crate::ApiError;
+
+pub async fn product_details(url: Url) -> Result<ProductDetailsResponse, ApiError> {
+    let result = ProductDetails::fetch(url).await.map_err(|e| ApiError {
+        error_message: e.to_string(),
+        more_details: e.source().map(|source| source.to_string()),
+    })?;
 
     let ProductDetails {
         name,
